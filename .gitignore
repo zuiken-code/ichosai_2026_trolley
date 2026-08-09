@@ -1,0 +1,58 @@
+# ==========================================
+# ROS / ROS 2 Build & Workspace Directories
+# ==========================================
+# ROS 1 (catkin)
+/build/
+/devel/
+/logs/
+/install/
+
+# ROS 2 (colcon)
+/build_isolated/
+/devel_isolated/
+/install_isolated/
+/log/
+
+# ==========================================
+# Python Specific
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Python virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Python packaging & distribution
+.eggs/
+*.egg-info/
+*.egg
+dist/
+sdist/
+
+# ==========================================
+# IDEs & Editors
+# ==========================================
+# VS Code
+.vscode/
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+
+# CLion / PyCharm / IntelliJ
+.idea/
+
+# Vim / Emacs
+*.swp
+*~
+\#*\#
+
+# ==========================================
+# OS & System Files
+# ==========================================
+.DS_Store
+Thumbs.db
