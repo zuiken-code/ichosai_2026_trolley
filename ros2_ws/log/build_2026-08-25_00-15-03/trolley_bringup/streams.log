@@ -1,0 +1,19 @@
+[1.946s] Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup': PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/trolley_bringup build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/install.log --install-scripts $base/lib/trolley_bringup --single-version-externally-managed install_data
+[2.372s] running egg_info
+[2.401s] writing ../../build/trolley_bringup/trolley_bringup.egg-info/PKG-INFO
+[2.402s] writing dependency_links to ../../build/trolley_bringup/trolley_bringup.egg-info/dependency_links.txt
+[2.402s] writing requirements to ../../build/trolley_bringup/trolley_bringup.egg-info/requires.txt
+[2.402s] writing top-level names to ../../build/trolley_bringup/trolley_bringup.egg-info/top_level.txt
+[2.460s] reading manifest file '../../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'
+[2.461s] writing manifest file '../../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'
+[2.461s] running build
+[2.461s] running build_py
+[2.462s] running install
+[2.471s] running install_lib
+[2.503s] running install_data
+[2.503s] running install_egg_info
+[2.533s] removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup-0.0.0-py3.12.egg-info' (and everything under it)
+[2.535s] Copying ../../build/trolley_bringup/trolley_bringup.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup-0.0.0-py3.12.egg-info
+[2.535s] running install_scripts
+[2.748s] writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/install.log'
+[2.852s] Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup' returned '0': PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/trolley_bringup build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/install.log --install-scripts $base/lib/trolley_bringup --single-version-externally-managed install_data

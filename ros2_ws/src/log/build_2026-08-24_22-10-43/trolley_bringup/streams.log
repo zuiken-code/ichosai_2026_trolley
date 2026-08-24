@@ -1,0 +1,32 @@
+[6.244s] Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup': PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_bringup build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/install.log --install-scripts $base/lib/trolley_bringup --single-version-externally-managed install_data
+[6.647s] running egg_info
+[6.648s] creating ../build/trolley_bringup/trolley_bringup.egg-info
+[6.674s] writing ../build/trolley_bringup/trolley_bringup.egg-info/PKG-INFO
+[6.675s] writing dependency_links to ../build/trolley_bringup/trolley_bringup.egg-info/dependency_links.txt
+[6.675s] writing requirements to ../build/trolley_bringup/trolley_bringup.egg-info/requires.txt
+[6.675s] writing top-level names to ../build/trolley_bringup/trolley_bringup.egg-info/top_level.txt
+[6.675s] writing manifest file '../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'
+[6.728s] reading manifest file '../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'
+[6.729s] writing manifest file '../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'
+[6.730s] running build
+[6.730s] running build_py
+[6.730s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build
+[6.730s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build/lib
+[6.730s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build/lib/trolley_bringup
+[6.731s] copying trolley_bringup/__init__.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build/lib/trolley_bringup
+[6.731s] running install
+[6.742s] running install_lib
+[6.767s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup
+[6.767s] copying /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build/lib/trolley_bringup/__init__.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup
+[6.768s] byte-compiling /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup/__init__.py to __init__.cpython-312.pyc
+[6.768s] running install_data
+[6.768s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/ament_index
+[6.768s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/ament_index/resource_index
+[6.769s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/ament_index/resource_index/packages
+[6.769s] copying resource/trolley_bringup -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/ament_index/resource_index/packages
+[6.769s] copying package.xml -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup
+[6.769s] running install_egg_info
+[6.796s] Copying ../build/trolley_bringup/trolley_bringup.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup-0.0.0-py3.12.egg-info
+[6.798s] running install_scripts
+[6.984s] writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/install.log'
+[7.116s] Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup' returned '0': PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_bringup build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/install.log --install-scripts $base/lib/trolley_bringup --single-version-externally-managed install_data

@@ -1,0 +1,24 @@
+[2.315s] Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive': PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/trolley_drive build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/install.log --install-scripts $base/lib/trolley_drive --single-version-externally-managed install_data
+[5.526s] running egg_info
+[5.526s] writing ../../build/trolley_drive/trolley_drive.egg-info/PKG-INFO
+[5.554s] writing dependency_links to ../../build/trolley_drive/trolley_drive.egg-info/dependency_links.txt
+[5.554s] writing entry points to ../../build/trolley_drive/trolley_drive.egg-info/entry_points.txt
+[5.555s] writing requirements to ../../build/trolley_drive/trolley_drive.egg-info/requires.txt
+[5.555s] writing top-level names to ../../build/trolley_drive/trolley_drive.egg-info/top_level.txt
+[5.621s] reading manifest file '../../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'
+[5.621s] writing manifest file '../../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'
+[5.840s] running build
+[5.840s] running build_py
+[5.840s] copying trolley_drive/drive_node.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive
+[5.841s] running install
+[5.850s] running install_lib
+[5.876s] copying /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive/drive_node.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive
+[5.877s] byte-compiling /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive/drive_node.py to drive_node.cpython-312.pyc
+[6.070s] running install_data
+[6.070s] running install_egg_info
+[6.100s] removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive-0.0.0-py3.12.egg-info' (and everything under it)
+[6.100s] Copying ../../build/trolley_drive/trolley_drive.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive-0.0.0-py3.12.egg-info
+[6.103s] running install_scripts
+[6.301s] Installing drive_node script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/trolley_drive
+[6.729s] writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/install.log'
+[6.804s] Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive' returned '0': PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/trolley_drive build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/install.log --install-scripts $base/lib/trolley_drive --single-version-externally-managed install_data

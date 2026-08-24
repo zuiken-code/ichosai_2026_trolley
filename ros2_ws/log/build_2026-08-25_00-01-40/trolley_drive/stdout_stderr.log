@@ -1,0 +1,38 @@
+running egg_info
+creating ../../build/trolley_drive/trolley_drive.egg-info
+writing ../../build/trolley_drive/trolley_drive.egg-info/PKG-INFO
+writing dependency_links to ../../build/trolley_drive/trolley_drive.egg-info/dependency_links.txt
+writing entry points to ../../build/trolley_drive/trolley_drive.egg-info/entry_points.txt
+writing requirements to ../../build/trolley_drive/trolley_drive.egg-info/requires.txt
+writing top-level names to ../../build/trolley_drive/trolley_drive.egg-info/top_level.txt
+writing manifest file '../../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'
+reading manifest file '../../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'
+writing manifest file '../../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build
+creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib
+creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive
+copying trolley_drive/__init__.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive
+copying trolley_drive/drive_node.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive
+copying trolley_drive/kinematics.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive
+running install
+running install_lib
+creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive
+copying /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive/__init__.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive
+copying /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive/drive_node.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive
+copying /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive/kinematics.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive
+byte-compiling /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive/drive_node.py to drive_node.cpython-312.pyc
+byte-compiling /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive/kinematics.py to kinematics.cpython-312.pyc
+running install_data
+creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/share/ament_index
+creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/share/ament_index/resource_index
+creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/share/ament_index/resource_index/packages
+copying resource/trolley_drive -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/share/ament_index/resource_index/packages
+copying package.xml -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/share/trolley_drive
+running install_egg_info
+Copying ../../build/trolley_drive/trolley_drive.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive-0.0.0-py3.12.egg-info
+running install_scripts
+Installing drive_node script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/trolley_drive
+writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/install.log'
