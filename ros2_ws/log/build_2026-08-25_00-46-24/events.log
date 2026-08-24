@@ -1,0 +1,188 @@
+[0.000000] (-) TimerEvent: {}
+[0.000391] (joy_teleop) JobQueued: {'identifier': 'joy_teleop', 'dependencies': OrderedDict()}
+[0.000762] (trolley_bringup) JobQueued: {'identifier': 'trolley_bringup', 'dependencies': OrderedDict()}
+[0.000943] (trolley_drive) JobQueued: {'identifier': 'trolley_drive', 'dependencies': OrderedDict()}
+[0.000967] (joy_teleop) JobStarted: {'identifier': 'joy_teleop'}
+[0.099719] (-) TimerEvent: {}
+[0.200103] (-) TimerEvent: {}
+[0.300501] (-) TimerEvent: {}
+[0.400870] (-) TimerEvent: {}
+[0.501246] (-) TimerEvent: {}
+[0.601637] (-) TimerEvent: {}
+[0.701993] (-) TimerEvent: {}
+[0.731421] (trolley_bringup) JobStarted: {'identifier': 'trolley_bringup'}
+[0.740217] (trolley_drive) JobStarted: {'identifier': 'trolley_drive'}
+[0.802086] (-) TimerEvent: {}
+[0.902408] (-) TimerEvent: {}
+[1.002720] (-) TimerEvent: {}
+[1.103049] (-) TimerEvent: {}
+[1.203444] (-) TimerEvent: {}
+[1.303842] (-) TimerEvent: {}
+[1.404218] (-) TimerEvent: {}
+[1.504540] (-) TimerEvent: {}
+[1.604876] (-) TimerEvent: {}
+[1.705328] (-) TimerEvent: {}
+[1.805718] (-) TimerEvent: {}
+[1.906077] (-) TimerEvent: {}
+[2.006381] (-) TimerEvent: {}
+[2.106725] (-) TimerEvent: {}
+[2.207153] (-) TimerEvent: {}
+[2.578091] (-) TimerEvent: {}
+[2.678490] (-) TimerEvent: {}
+[2.778900] (-) TimerEvent: {}
+[2.879321] (-) TimerEvent: {}
+[2.979633] (-) TimerEvent: {}
+[3.079942] (-) TimerEvent: {}
+[3.180249] (-) TimerEvent: {}
+[3.280560] (-) TimerEvent: {}
+[3.840238] (trolley_drive) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/trolley_drive', 'build', '--build-base', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build', 'install', '--record', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/install.log', '--install-scripts', '$base/lib/trolley_drive', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 58756 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/helpers/browser.sh', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'TERM_PROGRAM_VERSION': '1.134.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-6d3956f2-093e-4d7b-8e7a-aa6868c69b9f.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '11', 'PATH': '/opt/ros/jazzy/bin:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-3264b45195.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive', 'COPILOT_DEBUG_NONCE': '588d225576d72e8c3f0154716e9a6b5b', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 58756 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[3.845079] (-) TimerEvent: {}
+[3.945392] (-) TimerEvent: {}
+[4.047366] (-) TimerEvent: {}
+[4.147698] (-) TimerEvent: {}
+[4.226659] (trolley_drive) StdoutLine: {'line': b'running egg_info\n'}
+[4.247808] (-) TimerEvent: {}
+[4.254680] (trolley_drive) StdoutLine: {'line': b'writing ../../build/trolley_drive/trolley_drive.egg-info/PKG-INFO\n'}
+[4.347909] (-) TimerEvent: {}
+[4.448227] (-) TimerEvent: {}
+[4.548588] (-) TimerEvent: {}
+[4.646634] (trolley_drive) StdoutLine: {'line': b'writing dependency_links to ../../build/trolley_drive/trolley_drive.egg-info/dependency_links.txt\n'}
+[4.646967] (trolley_drive) StdoutLine: {'line': b'writing entry points to ../../build/trolley_drive/trolley_drive.egg-info/entry_points.txt\n'}
+[4.647109] (trolley_drive) StdoutLine: {'line': b'writing requirements to ../../build/trolley_drive/trolley_drive.egg-info/requires.txt\n'}
+[4.647224] (trolley_drive) StdoutLine: {'line': b'writing top-level names to ../../build/trolley_drive/trolley_drive.egg-info/top_level.txt\n'}
+[4.648677] (-) TimerEvent: {}
+[4.690670] (trolley_bringup) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/trolley_bringup', 'build', '--build-base', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/build', 'install', '--record', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/install.log', '--install-scripts', '$base/lib/trolley_bringup', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 58756 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/helpers/browser.sh', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'TERM_PROGRAM_VERSION': '1.134.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-6d3956f2-093e-4d7b-8e7a-aa6868c69b9f.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '11', 'PATH': '/opt/ros/jazzy/bin:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-3264b45195.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup', 'COPILOT_DEBUG_NONCE': '588d225576d72e8c3f0154716e9a6b5b', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 58756 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[4.707589] (trolley_drive) StdoutLine: {'line': b"reading manifest file '../../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'\n"}
+[4.708834] (trolley_drive) StdoutLine: {'line': b"writing manifest file '../../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'\n"}
+[4.748790] (-) TimerEvent: {}
+[4.849178] (-) TimerEvent: {}
+[4.852151] (joy_teleop) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/joy_teleop', 'build', '--build-base', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/joy_teleop/build', 'install', '--record', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/joy_teleop/install.log', '--install-scripts', '$base/lib/joy_teleop', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 58756 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/helpers/browser.sh', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'TERM_PROGRAM_VERSION': '1.134.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-6d3956f2-093e-4d7b-8e7a-aa6868c69b9f.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '11', 'PATH': '/opt/ros/jazzy/bin:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-3264b45195.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/joy_teleop', 'COPILOT_DEBUG_NONCE': '588d225576d72e8c3f0154716e9a6b5b', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 58756 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/joy_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[4.940420] (trolley_drive) StdoutLine: {'line': b'running build\n'}
+[4.940698] (trolley_drive) StdoutLine: {'line': b'running build_py\n'}
+[4.940816] (trolley_drive) StdoutLine: {'line': b'copying trolley_drive/drive_node.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive\n'}
+[4.940926] (trolley_drive) StdoutLine: {'line': b'running install\n'}
+[4.949225] (trolley_drive) StdoutLine: {'line': b'running install_lib\n'}
+[4.949496] (-) TimerEvent: {}
+[4.976395] (trolley_drive) StdoutLine: {'line': b'copying /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/build/lib/trolley_drive/drive_node.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive\n'}
+[4.977448] (trolley_drive) StdoutLine: {'line': b'byte-compiling /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive/drive_node.py to drive_node.cpython-312.pyc\n'}
+[4.979523] (trolley_drive) StdoutLine: {'line': b'running install_data\n'}
+[4.979803] (trolley_drive) StdoutLine: {'line': b'running install_egg_info\n'}
+[5.012364] (trolley_drive) StdoutLine: {'line': b"removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[5.012605] (trolley_drive) StdoutLine: {'line': b'Copying ../../build/trolley_drive/trolley_drive.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/python3.12/site-packages/trolley_drive-0.0.0-py3.12.egg-info\n'}
+[5.012716] (trolley_drive) StdoutLine: {'line': b'running install_scripts\n'}
+[5.049609] (-) TimerEvent: {}
+[5.092456] (trolley_bringup) StdoutLine: {'line': b'running egg_info\n'}
+[5.118388] (trolley_bringup) StdoutLine: {'line': b'writing ../../build/trolley_bringup/trolley_bringup.egg-info/PKG-INFO\n'}
+[5.149719] (-) TimerEvent: {}
+[5.194356] (trolley_drive) StdoutLine: {'line': b'Installing drive_node script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_drive/lib/trolley_drive\n'}
+[5.226280] (joy_teleop) StdoutLine: {'line': b'running egg_info\n'}
+[5.249804] (-) TimerEvent: {}
+[5.252198] (joy_teleop) StdoutLine: {'line': b'writing ../../build/joy_teleop/joy_teleop.egg-info/PKG-INFO\n'}
+[5.349938] (-) TimerEvent: {}
+[5.450347] (-) TimerEvent: {}
+[5.550730] (-) TimerEvent: {}
+[5.651117] (-) TimerEvent: {}
+[5.675514] (trolley_bringup) StdoutLine: {'line': b'writing dependency_links to ../../build/trolley_bringup/trolley_bringup.egg-info/dependency_links.txt\n'}
+[5.676027] (trolley_bringup) StdoutLine: {'line': b'writing requirements to ../../build/trolley_bringup/trolley_bringup.egg-info/requires.txt\n'}
+[5.751236] (-) TimerEvent: {}
+[5.851639] (-) TimerEvent: {}
+[5.952043] (-) TimerEvent: {}
+[6.031157] (trolley_drive) StdoutLine: {'line': b"writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_drive/install.log'\n"}
+[6.052110] (-) TimerEvent: {}
+[6.152399] (-) TimerEvent: {}
+[6.255207] (-) TimerEvent: {}
+[6.355720] (-) TimerEvent: {}
+[6.456085] (-) TimerEvent: {}
+[6.556490] (-) TimerEvent: {}
+[6.634837] (joy_teleop) StdoutLine: {'line': b'writing dependency_links to ../../build/joy_teleop/joy_teleop.egg-info/dependency_links.txt\n'}
+[6.656596] (-) TimerEvent: {}
+[6.756962] (-) TimerEvent: {}
+[6.786756] (trolley_bringup) StdoutLine: {'line': b'writing top-level names to ../../build/trolley_bringup/trolley_bringup.egg-info/top_level.txt\n'}
+[6.857100] (-) TimerEvent: {}
+[6.957509] (-) TimerEvent: {}
+[7.057895] (-) TimerEvent: {}
+[7.158285] (-) TimerEvent: {}
+[7.254685] (trolley_drive) CommandEnded: {'returncode': 0}
+[7.258325] (-) TimerEvent: {}
+[7.358628] (-) TimerEvent: {}
+[7.459025] (-) TimerEvent: {}
+[7.494004] (trolley_bringup) StdoutLine: {'line': b"reading manifest file '../../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'\n"}
+[7.495053] (trolley_bringup) StdoutLine: {'line': b"writing manifest file '../../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'\n"}
+[7.559134] (-) TimerEvent: {}
+[7.591939] (joy_teleop) StdoutLine: {'line': b'writing entry points to ../../build/joy_teleop/joy_teleop.egg-info/entry_points.txt\n'}
+[7.659258] (-) TimerEvent: {}
+[7.759668] (-) TimerEvent: {}
+[7.860029] (-) TimerEvent: {}
+[7.960400] (-) TimerEvent: {}
+[8.060793] (-) TimerEvent: {}
+[8.161178] (-) TimerEvent: {}
+[8.261581] (-) TimerEvent: {}
+[8.336963] (trolley_bringup) StdoutLine: {'line': b'running build\n'}
+[8.337335] (trolley_bringup) StdoutLine: {'line': b'running build_py\n'}
+[8.339408] (trolley_bringup) StdoutLine: {'line': b'running install\n'}
+[8.351199] (trolley_bringup) StdoutLine: {'line': b'running install_lib\n'}
+[8.361653] (-) TimerEvent: {}
+[8.377667] (trolley_bringup) StdoutLine: {'line': b'running install_data\n'}
+[8.377969] (trolley_bringup) StdoutLine: {'line': b'running install_egg_info\n'}
+[8.405460] (trolley_bringup) StdoutLine: {'line': b"removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[8.405905] (trolley_bringup) StdoutLine: {'line': b'Copying ../../build/trolley_bringup/trolley_bringup.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup-0.0.0-py3.12.egg-info\n'}
+[8.461776] (-) TimerEvent: {}
+[8.490881] (joy_teleop) StdoutLine: {'line': b'writing requirements to ../../build/joy_teleop/joy_teleop.egg-info/requires.txt\n'}
+[8.585700] (-) TimerEvent: {}
+[8.587065] (trolley_bringup) StdoutLine: {'line': b'running install_scripts\n'}
+[8.685787] (-) TimerEvent: {}
+[8.771216] (trolley_bringup) StdoutLine: {'line': b"writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/trolley_bringup/install.log'\n"}
+[8.785856] (-) TimerEvent: {}
+[8.839734] (joy_teleop) StdoutLine: {'line': b'writing top-level names to ../../build/joy_teleop/joy_teleop.egg-info/top_level.txt\n'}
+[8.885976] (-) TimerEvent: {}
+[8.986344] (-) TimerEvent: {}
+[9.086739] (-) TimerEvent: {}
+[9.187139] (-) TimerEvent: {}
+[9.287552] (-) TimerEvent: {}
+[9.387913] (-) TimerEvent: {}
+[9.488313] (-) TimerEvent: {}
+[9.588660] (-) TimerEvent: {}
+[9.628978] (joy_teleop) StdoutLine: {'line': b"reading manifest file '../../build/joy_teleop/joy_teleop.egg-info/SOURCES.txt'\n"}
+[9.630048] (joy_teleop) StdoutLine: {'line': b"writing manifest file '../../build/joy_teleop/joy_teleop.egg-info/SOURCES.txt'\n"}
+[9.688774] (-) TimerEvent: {}
+[9.789132] (-) TimerEvent: {}
+[9.889477] (-) TimerEvent: {}
+[9.989883] (-) TimerEvent: {}
+[10.090265] (-) TimerEvent: {}
+[10.190641] (-) TimerEvent: {}
+[10.217886] (joy_teleop) StdoutLine: {'line': b'running build\n'}
+[10.218240] (joy_teleop) StdoutLine: {'line': b'running build_py\n'}
+[10.218634] (joy_teleop) StdoutLine: {'line': b'running install\n'}
+[10.232800] (joy_teleop) StdoutLine: {'line': b'running install_lib\n'}
+[10.258999] (joy_teleop) StdoutLine: {'line': b'running install_data\n'}
+[10.259250] (joy_teleop) StdoutLine: {'line': b'running install_egg_info\n'}
+[10.286211] (joy_teleop) StdoutLine: {'line': b"removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop/lib/python3.12/site-packages/joy_teleop-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[10.290700] (-) TimerEvent: {}
+[10.390970] (-) TimerEvent: {}
+[10.491381] (-) TimerEvent: {}
+[10.591781] (-) TimerEvent: {}
+[10.664551] (joy_teleop) StdoutLine: {'line': b'Copying ../../build/joy_teleop/joy_teleop.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop/lib/python3.12/site-packages/joy_teleop-0.0.0-py3.12.egg-info\n'}
+[10.666492] (joy_teleop) StdoutLine: {'line': b'running install_scripts\n'}
+[10.691863] (-) TimerEvent: {}
+[10.792156] (-) TimerEvent: {}
+[10.850914] (joy_teleop) StdoutLine: {'line': b'Installing joy_teleop script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/install/joy_teleop/lib/joy_teleop\n'}
+[10.892268] (-) TimerEvent: {}
+[10.992659] (-) TimerEvent: {}
+[11.093045] (-) TimerEvent: {}
+[11.193460] (-) TimerEvent: {}
+[11.239015] (joy_teleop) StdoutLine: {'line': b"writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/build/joy_teleop/install.log'\n"}
+[11.293582] (-) TimerEvent: {}
+[11.393967] (-) TimerEvent: {}
+[11.494368] (-) TimerEvent: {}
+[11.594767] (-) TimerEvent: {}
+[11.695166] (-) TimerEvent: {}
+[11.745616] (trolley_drive) JobEnded: {'identifier': 'trolley_drive', 'rc': 0}
+[12.191175] (-) TimerEvent: {}
+[12.191415] (trolley_bringup) CommandEnded: {'returncode': 0}
+[12.291287] (-) TimerEvent: {}
+[12.343253] (trolley_bringup) JobEnded: {'identifier': 'trolley_bringup', 'rc': 0}
+[12.629463] (-) TimerEvent: {}
+[12.629649] (joy_teleop) CommandEnded: {'returncode': 0}
+[12.630083] (joy_teleop) JobEnded: {'identifier': 'joy_teleop', 'rc': 0}
+[12.820173] (-) TimerEvent: {}
+[12.820397] (-) EventReactorShutdown: {}

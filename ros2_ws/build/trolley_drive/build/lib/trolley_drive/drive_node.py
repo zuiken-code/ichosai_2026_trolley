@@ -34,8 +34,9 @@ CONTROL_FREQUENCY = 50.0   # Hz
 
 
 class DriveMode(Enum):
-    TELEOP = 0
-    AUTO = 1
+    DISABLE = 0
+    TELEOP = 1
+    AUTO = 2
 
 
 class TrolleyDrive(Node):
@@ -164,6 +165,16 @@ class TrolleyDrive(Node):
             # Auto用のServiceから受け取った
             # 左右RPMをここで送る
             pass
+        else:
+            self.left_motor.setReference(
+                0.0,
+                ControlType.DISABLE,
+            )  
+
+            self.right_motor.setReference(
+                0.0,
+                ControlType.DISABLE,
+            )
 
     # =========================
     # Stop motors
