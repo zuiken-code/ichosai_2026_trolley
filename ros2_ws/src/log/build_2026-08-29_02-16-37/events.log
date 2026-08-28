@@ -1,0 +1,572 @@
+[0.000000] (-) TimerEvent: {}
+[0.000240] (joy_teleop) JobQueued: {'identifier': 'joy_teleop', 'dependencies': OrderedDict()}
+[0.000432] (trolley_bringup) JobQueued: {'identifier': 'trolley_bringup', 'dependencies': OrderedDict()}
+[0.000746] (trolley_drive) JobQueued: {'identifier': 'trolley_drive', 'dependencies': OrderedDict()}
+[0.000922] (trolley_interfaces) JobQueued: {'identifier': 'trolley_interfaces', 'dependencies': OrderedDict()}
+[0.001159] (joy_teleop) JobStarted: {'identifier': 'joy_teleop'}
+[0.010663] (trolley_bringup) JobStarted: {'identifier': 'trolley_bringup'}
+[0.099736] (-) TimerEvent: {}
+[0.200160] (-) TimerEvent: {}
+[0.221999] (trolley_drive) JobStarted: {'identifier': 'trolley_drive'}
+[0.230690] (trolley_interfaces) JobStarted: {'identifier': 'trolley_interfaces'}
+[0.300275] (-) TimerEvent: {}
+[0.400661] (-) TimerEvent: {}
+[0.500977] (-) TimerEvent: {}
+[0.601378] (-) TimerEvent: {}
+[0.701698] (-) TimerEvent: {}
+[0.802025] (-) TimerEvent: {}
+[0.902344] (-) TimerEvent: {}
+[1.002678] (-) TimerEvent: {}
+[1.103016] (-) TimerEvent: {}
+[1.203429] (-) TimerEvent: {}
+[1.206251] (trolley_interfaces) JobProgress: {'identifier': 'trolley_interfaces', 'progress': 'cmake'}
+[1.207103] (trolley_interfaces) JobProgress: {'identifier': 'trolley_interfaces', 'progress': 'build'}
+[1.207939] (trolley_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', '--', '-j4', '-l4'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/helpers/browser.sh', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'TERM_PROGRAM_VERSION': '1.134.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-b2f7fdbf-d4f3-48ab-8fca-a8cc5418eff8.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/ros/jazzy/bin:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-3264b45195.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', 'COPILOT_DEBUG_NONCE': '588d225576d72e8c3f0154716e9a6b5b', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy'}), 'shell': False}
+[1.303562] (-) TimerEvent: {}
+[1.403964] (-) TimerEvent: {}
+[1.504414] (-) TimerEvent: {}
+[1.604808] (-) TimerEvent: {}
+[1.643221] (trolley_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[1.704920] (-) TimerEvent: {}
+[1.805296] (-) TimerEvent: {}
+[1.906099] (-) TimerEvent: {}
+[1.989302] (trolley_interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.1 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[1.991293] (trolley_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.007240] (-) TimerEvent: {}
+[2.051026] (trolley_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.102580] (trolley_interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.9 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[2.107334] (-) TimerEvent: {}
+[2.208677] (-) TimerEvent: {}
+[2.309295] (-) TimerEvent: {}
+[2.410547] (-) TimerEvent: {}
+[2.506441] (joy_teleop) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/joy_teleop', 'build', '--build-base', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/build', 'install', '--record', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/install.log', '--install-scripts', '$base/lib/joy_teleop', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/helpers/browser.sh', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'TERM_PROGRAM_VERSION': '1.134.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-b2f7fdbf-d4f3-48ab-8fca-a8cc5418eff8.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/ros/jazzy/bin:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-3264b45195.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop', 'COPILOT_DEBUG_NONCE': '588d225576d72e8c3f0154716e9a6b5b', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[2.510676] (-) TimerEvent: {}
+[2.613241] (-) TimerEvent: {}
+[2.713916] (-) TimerEvent: {}
+[2.795834] (trolley_drive) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/trolley_drive', 'build', '--build-base', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/build', 'install', '--record', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/install.log', '--install-scripts', '$base/lib/trolley_drive', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/helpers/browser.sh', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'TERM_PROGRAM_VERSION': '1.134.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-b2f7fdbf-d4f3-48ab-8fca-a8cc5418eff8.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/ros/jazzy/bin:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-3264b45195.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive', 'COPILOT_DEBUG_NONCE': '588d225576d72e8c3f0154716e9a6b5b', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[2.814079] (-) TimerEvent: {}
+[2.917237] (-) TimerEvent: {}
+[3.017686] (-) TimerEvent: {}
+[3.079642] (trolley_bringup) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/trolley_bringup', 'build', '--build-base', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build', 'install', '--record', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/install.log', '--install-scripts', '$base/lib/trolley_bringup', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/helpers/browser.sh', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'TERM_PROGRAM_VERSION': '1.134.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-b2f7fdbf-d4f3-48ab-8fca-a8cc5418eff8.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/ros/jazzy/bin:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-3264b45195.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup', 'COPILOT_DEBUG_NONCE': '588d225576d72e8c3f0154716e9a6b5b', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[3.119218] (-) TimerEvent: {}
+[3.136105] (joy_teleop) StdoutLine: {'line': b'running egg_info\n'}
+[3.168276] (joy_teleop) StdoutLine: {'line': b'writing ../build/joy_teleop/joy_teleop.egg-info/PKG-INFO\n'}
+[3.218730] (joy_teleop) StdoutLine: {'line': b'writing dependency_links to ../build/joy_teleop/joy_teleop.egg-info/dependency_links.txt\n'}
+[3.219156] (joy_teleop) StdoutLine: {'line': b'writing entry points to ../build/joy_teleop/joy_teleop.egg-info/entry_points.txt\n'}
+[3.219311] (-) TimerEvent: {}
+[3.219526] (joy_teleop) StdoutLine: {'line': b'writing requirements to ../build/joy_teleop/joy_teleop.egg-info/requires.txt\n'}
+[3.219866] (joy_teleop) StdoutLine: {'line': b'writing top-level names to ../build/joy_teleop/joy_teleop.egg-info/top_level.txt\n'}
+[3.293291] (joy_teleop) StdoutLine: {'line': b"reading manifest file '../build/joy_teleop/joy_teleop.egg-info/SOURCES.txt'\n"}
+[3.293984] (joy_teleop) StdoutLine: {'line': b"writing manifest file '../build/joy_teleop/joy_teleop.egg-info/SOURCES.txt'\n"}
+[3.319419] (-) TimerEvent: {}
+[3.321827] (trolley_drive) StdoutLine: {'line': b'running egg_info\n'}
+[3.353439] (trolley_drive) StdoutLine: {'line': b'writing ../build/trolley_drive/trolley_drive.egg-info/PKG-INFO\n'}
+[3.372272] (trolley_drive) StdoutLine: {'line': b'writing dependency_links to ../build/trolley_drive/trolley_drive.egg-info/dependency_links.txt\n'}
+[3.372632] (joy_teleop) StdoutLine: {'line': b'running build\n'}
+[3.372811] (joy_teleop) StdoutLine: {'line': b'running build_py\n'}
+[3.373147] (joy_teleop) StdoutLine: {'line': b'running install\n'}
+[3.386536] (joy_teleop) StdoutLine: {'line': b'running install_lib\n'}
+[3.416349] (joy_teleop) StdoutLine: {'line': b'running install_data\n'}
+[3.416666] (joy_teleop) StdoutLine: {'line': b'running install_egg_info\n'}
+[3.419491] (-) TimerEvent: {}
+[3.447932] (joy_teleop) StdoutLine: {'line': b"removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages/joy_teleop-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[3.450289] (joy_teleop) StdoutLine: {'line': b'Copying ../build/joy_teleop/joy_teleop.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages/joy_teleop-0.0.0-py3.12.egg-info\n'}
+[3.453079] (joy_teleop) StdoutLine: {'line': b'running install_scripts\n'}
+[3.519611] (-) TimerEvent: {}
+[3.807517] (trolley_bringup) StdoutLine: {'line': b'running egg_info\n'}
+[3.808293] (-) TimerEvent: {}
+[3.808498] (joy_teleop) StdoutLine: {'line': b'Installing joy_teleop script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/joy_teleop\n'}
+[3.808736] (trolley_drive) StdoutLine: {'line': b'writing entry points to ../build/trolley_drive/trolley_drive.egg-info/entry_points.txt\n'}
+[3.808915] (trolley_drive) StdoutLine: {'line': b'writing requirements to ../build/trolley_drive/trolley_drive.egg-info/requires.txt\n'}
+[3.838657] (trolley_bringup) StdoutLine: {'line': b'writing ../build/trolley_bringup/trolley_bringup.egg-info/PKG-INFO\n'}
+[3.908399] (-) TimerEvent: {}
+[3.962117] (trolley_drive) StdoutLine: {'line': b'writing top-level names to ../build/trolley_drive/trolley_drive.egg-info/top_level.txt\n'}
+[4.008524] (-) TimerEvent: {}
+[4.052497] (trolley_bringup) StdoutLine: {'line': b'writing dependency_links to ../build/trolley_bringup/trolley_bringup.egg-info/dependency_links.txt\n'}
+[4.054226] (joy_teleop) StdoutLine: {'line': b"writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/install.log'\n"}
+[4.108618] (-) TimerEvent: {}
+[4.165501] (trolley_bringup) StdoutLine: {'line': b'writing requirements to ../build/trolley_bringup/trolley_bringup.egg-info/requires.txt\n'}
+[4.178866] (trolley_bringup) StdoutLine: {'line': b'writing top-level names to ../build/trolley_bringup/trolley_bringup.egg-info/top_level.txt\n'}
+[4.208763] (-) TimerEvent: {}
+[4.248204] (trolley_drive) StdoutLine: {'line': b"reading manifest file '../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'\n"}
+[4.248537] (trolley_drive) StdoutLine: {'line': b"writing manifest file '../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'\n"}
+[4.248656] (trolley_drive) StdoutLine: {'line': b'running build\n'}
+[4.248758] (trolley_drive) StdoutLine: {'line': b'running build_py\n'}
+[4.248867] (trolley_drive) StdoutLine: {'line': b'running install\n'}
+[4.262393] (trolley_drive) StdoutLine: {'line': b'running install_lib\n'}
+[4.279361] (trolley_bringup) StdoutLine: {'line': b"reading manifest file '../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'\n"}
+[4.280096] (trolley_bringup) StdoutLine: {'line': b"writing manifest file '../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'\n"}
+[4.283310] (trolley_bringup) StdoutLine: {'line': b'running build\n'}
+[4.283708] (trolley_bringup) StdoutLine: {'line': b'running build_py\n'}
+[4.283881] (trolley_bringup) StdoutLine: {'line': b'running install\n'}
+[4.291485] (joy_teleop) CommandEnded: {'returncode': 0}
+[4.294501] (trolley_bringup) StdoutLine: {'line': b'running install_lib\n'}
+[4.306973] (trolley_drive) StdoutLine: {'line': b'running install_data\n'}
+[4.307224] (trolley_drive) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.310182] (-) TimerEvent: {}
+[4.315825] (joy_teleop) JobEnded: {'identifier': 'joy_teleop', 'rc': 0}
+[4.331318] (trolley_bringup) StdoutLine: {'line': b'running install_data\n'}
+[4.332565] (trolley_bringup) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.341819] (trolley_drive) StdoutLine: {'line': b"removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages/trolley_drive-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[4.344766] (trolley_drive) StdoutLine: {'line': b'Copying ../build/trolley_drive/trolley_drive.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages/trolley_drive-0.0.0-py3.12.egg-info\n'}
+[4.345419] (trolley_drive) StdoutLine: {'line': b'running install_scripts\n'}
+[4.363781] (trolley_bringup) StdoutLine: {'line': b"removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[4.364845] (trolley_bringup) StdoutLine: {'line': b'Copying ../build/trolley_bringup/trolley_bringup.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup-0.0.0-py3.12.egg-info\n'}
+[4.365814] (trolley_bringup) StdoutLine: {'line': b'running install_scripts\n'}
+[4.410293] (-) TimerEvent: {}
+[4.510785] (-) TimerEvent: {}
+[4.555273] (trolley_drive) StdoutLine: {'line': b'Installing drive_node script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/trolley_drive\n'}
+[4.555675] (trolley_drive) StdoutLine: {'line': b"writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/install.log'\n"}
+[4.578444] (trolley_bringup) StdoutLine: {'line': b"writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/install.log'\n"}
+[4.610953] (-) TimerEvent: {}
+[4.636464] (trolley_drive) CommandEnded: {'returncode': 0}
+[4.711062] (-) TimerEvent: {}
+[4.811446] (-) TimerEvent: {}
+[4.911876] (-) TimerEvent: {}
+[5.012313] (-) TimerEvent: {}
+[5.112693] (-) TimerEvent: {}
+[5.213081] (-) TimerEvent: {}
+[5.313450] (-) TimerEvent: {}
+[5.386781] (trolley_drive) JobEnded: {'identifier': 'trolley_drive', 'rc': 0}
+[5.530531] (-) TimerEvent: {}
+[5.530796] (trolley_bringup) CommandEnded: {'returncode': 0}
+[5.531435] (trolley_bringup) JobEnded: {'identifier': 'trolley_bringup', 'rc': 0}
+[5.673207] (-) TimerEvent: {}
+[5.773551] (-) TimerEvent: {}
+[5.873917] (-) TimerEvent: {}
+[5.974309] (-) TimerEvent: {}
+[5.979362] (trolley_interfaces) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.1 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[6.074406] (-) TimerEvent: {}
+[6.174767] (-) TimerEvent: {}
+[6.275165] (-) TimerEvent: {}
+[6.375594] (-) TimerEvent: {}
+[6.475963] (-) TimerEvent: {}
+[6.576315] (-) TimerEvent: {}
+[6.676671] (-) TimerEvent: {}
+[6.777007] (-) TimerEvent: {}
+[6.877360] (-) TimerEvent: {}
+[6.930724] (trolley_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[6.977457] (-) TimerEvent: {}
+[7.077791] (-) TimerEvent: {}
+[7.178118] (-) TimerEvent: {}
+[7.278434] (-) TimerEvent: {}
+[7.378764] (-) TimerEvent: {}
+[7.479099] (-) TimerEvent: {}
+[7.579425] (-) TimerEvent: {}
+[7.679753] (-) TimerEvent: {}
+[7.780096] (-) TimerEvent: {}
+[7.880441] (-) TimerEvent: {}
+[7.980774] (-) TimerEvent: {}
+[8.081104] (-) TimerEvent: {}
+[8.142698] (trolley_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[8.152046] (trolley_interfaces) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[8.181212] (-) TimerEvent: {}
+[8.281545] (-) TimerEvent: {}
+[8.381885] (-) TimerEvent: {}
+[8.454301] (trolley_interfaces) StdoutLine: {'line': b'-- Found PythonExtra: /usr/bin/python3  \n'}
+[8.481990] (-) TimerEvent: {}
+[8.582335] (-) TimerEvent: {}
+[8.687390] (-) TimerEvent: {}
+[8.787725] (-) TimerEvent: {}
+[8.888104] (-) TimerEvent: {}
+[8.988446] (-) TimerEvent: {}
+[9.088816] (-) TimerEvent: {}
+[9.189180] (-) TimerEvent: {}
+[9.289518] (-) TimerEvent: {}
+[9.322904] (trolley_interfaces) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[9.389636] (-) TimerEvent: {}
+[9.489981] (-) TimerEvent: {}
+[9.590350] (-) TimerEvent: {}
+[9.679672] (trolley_interfaces) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[9.682098] (trolley_interfaces) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[9.690433] (-) TimerEvent: {}
+[9.711626] (trolley_interfaces) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[9.713536] (trolley_interfaces) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[9.718242] (trolley_interfaces) StdoutLine: {'line': b'-- Configuring done (8.5s)\n'}
+[9.790561] (-) TimerEvent: {}
+[9.890956] (-) TimerEvent: {}
+[9.991358] (-) TimerEvent: {}
+[10.091723] (-) TimerEvent: {}
+[10.192087] (-) TimerEvent: {}
+[10.292612] (-) TimerEvent: {}
+[10.393038] (-) TimerEvent: {}
+[10.493439] (-) TimerEvent: {}
+[10.593779] (-) TimerEvent: {}
+[10.619391] (trolley_interfaces) StdoutLine: {'line': b'-- Generating done (0.6s)\n'}
+[10.640330] (trolley_interfaces) StdoutLine: {'line': b'-- Build files have been written to: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces\n'}
+[10.693900] (-) TimerEvent: {}
+[10.708555] (trolley_interfaces) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating Rust code for ROS interfaces\x1b[0m\n'}
+[10.708906] (trolley_interfaces) StdoutLine: {'line': b'[  4%] \x1b[34m\x1b[1mGenerating type hashes for ROS interfaces\x1b[0m\n'}
+[10.729222] (trolley_interfaces) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_copy_trolley_interfaces\n'}
+[10.794002] (-) TimerEvent: {}
+[10.894344] (-) TimerEvent: {}
+[10.994699] (-) TimerEvent: {}
+[11.050843] (trolley_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[11.052176] (trolley_interfaces) StdoutLine: {'line': b'creating trolley_interfaces.egg-info\n'}
+[11.078970] (trolley_interfaces) StdoutLine: {'line': b'writing trolley_interfaces.egg-info/PKG-INFO\n'}
+[11.079660] (trolley_interfaces) StdoutLine: {'line': b'writing dependency_links to trolley_interfaces.egg-info/dependency_links.txt\n'}
+[11.079960] (trolley_interfaces) StdoutLine: {'line': b'writing top-level names to trolley_interfaces.egg-info/top_level.txt\n'}
+[11.080384] (trolley_interfaces) StdoutLine: {'line': b"writing manifest file 'trolley_interfaces.egg-info/SOURCES.txt'\n"}
+[11.094795] (-) TimerEvent: {}
+[11.162090] (trolley_interfaces) StdoutLine: {'line': b"reading manifest file 'trolley_interfaces.egg-info/SOURCES.txt'\n"}
+[11.163159] (trolley_interfaces) StdoutLine: {'line': b"writing manifest file 'trolley_interfaces.egg-info/SOURCES.txt'\n"}
+[11.194994] (-) TimerEvent: {}
+[11.253889] (trolley_interfaces) StdoutLine: {'line': b'[  4%] Built target trolley_interfaces__rosidl_generator_type_description\n'}
+[11.254223] (trolley_interfaces) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_build_trolley_interfaces_egg\n'}
+[11.271791] (trolley_interfaces) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[11.290270] (trolley_interfaces) StdoutLine: {'line': b'[  8%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[11.295103] (-) TimerEvent: {}
+[11.395556] (-) TimerEvent: {}
+[11.491231] (trolley_interfaces) StdoutLine: {'line': b'[  8%] Built target trolley_interfaces__rs\n'}
+[11.495663] (-) TimerEvent: {}
+[11.595982] (-) TimerEvent: {}
+[11.696319] (-) TimerEvent: {}
+[11.796625] (-) TimerEvent: {}
+[11.896937] (-) TimerEvent: {}
+[11.985579] (trolley_interfaces) StdoutLine: {'line': b'[  8%] Built target trolley_interfaces__cpp\n'}
+[11.998723] (-) TimerEvent: {}
+[12.070660] (trolley_interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_generator_c.dir/rosidl_generator_c/trolley_interfaces/srv/detail/set_drive_enabled__description.c.o\x1b[0m\n'}
+[12.073322] (trolley_interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_generator_c.dir/rosidl_generator_c/trolley_interfaces/srv/detail/set_drive_enabled__type_support.c.o\x1b[0m\n'}
+[12.073616] (trolley_interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_generator_c.dir/rosidl_generator_c/trolley_interfaces/srv/detail/set_drive_mode__description.c.o\x1b[0m\n'}
+[12.073728] (trolley_interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_generator_c.dir/rosidl_generator_c/trolley_interfaces/srv/detail/set_drive_enabled__functions.c.o\x1b[0m\n'}
+[12.098822] (-) TimerEvent: {}
+[12.199327] (-) TimerEvent: {}
+[12.299716] (-) TimerEvent: {}
+[12.400173] (-) TimerEvent: {}
+[12.445698] (trolley_interfaces) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_generator_c.dir/rosidl_generator_c/trolley_interfaces/srv/detail/set_drive_mode__functions.c.o\x1b[0m\n'}
+[12.500280] (-) TimerEvent: {}
+[12.598781] (trolley_interfaces) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_generator_c.dir/rosidl_generator_c/trolley_interfaces/srv/detail/set_drive_mode__type_support.c.o\x1b[0m\n'}
+[12.600362] (-) TimerEvent: {}
+[12.700654] (-) TimerEvent: {}
+[12.801025] (-) TimerEvent: {}
+[12.901416] (-) TimerEvent: {}
+[13.001792] (-) TimerEvent: {}
+[13.040594] (trolley_interfaces) StdoutLine: {'line': b'[ 24%] \x1b[32m\x1b[1mLinking C shared library libtrolley_interfaces__rosidl_generator_c.so\x1b[0m\n'}
+[13.101909] (-) TimerEvent: {}
+[13.202257] (-) TimerEvent: {}
+[13.266294] (trolley_interfaces) StdoutLine: {'line': b'[ 24%] Built target trolley_interfaces__rosidl_generator_c\n'}
+[13.288945] (trolley_interfaces) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[13.291273] (trolley_interfaces) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[13.291714] (trolley_interfaces) StdoutLine: {'line': b'[ 31%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[13.294090] (trolley_interfaces) StdoutLine: {'line': b'[ 33%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[13.302403] (-) TimerEvent: {}
+[13.405439] (-) TimerEvent: {}
+[13.505942] (-) TimerEvent: {}
+[14.018198] (-) TimerEvent: {}
+[14.118544] (-) TimerEvent: {}
+[14.218929] (-) TimerEvent: {}
+[14.297814] (trolley_interfaces) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/trolley_interfaces/srv/set_drive_enabled__type_support.cpp.o\x1b[0m\n'}
+[14.319059] (-) TimerEvent: {}
+[14.401113] (trolley_interfaces) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/trolley_interfaces/srv/detail/set_drive_enabled__type_support.cpp.o\x1b[0m\n'}
+[14.421209] (-) TimerEvent: {}
+[14.521634] (-) TimerEvent: {}
+[14.524233] (trolley_interfaces) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/trolley_interfaces/srv/detail/dds_fastrtps/set_drive_enabled__type_support.cpp.o\x1b[0m\n'}
+[14.569209] (trolley_interfaces) StdoutLine: {'line': b'[ 42%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/trolley_interfaces/srv/detail/set_drive_enabled__type_support_c.cpp.o\x1b[0m\n'}
+[14.621748] (-) TimerEvent: {}
+[14.722156] (-) TimerEvent: {}
+[14.823909] (-) TimerEvent: {}
+[14.924433] (-) TimerEvent: {}
+[15.026256] (-) TimerEvent: {}
+[15.127201] (-) TimerEvent: {}
+[15.229457] (-) TimerEvent: {}
+[15.330154] (-) TimerEvent: {}
+[15.432228] (-) TimerEvent: {}
+[15.532647] (-) TimerEvent: {}
+[15.558954] (trolley_interfaces) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/trolley_interfaces/srv/set_drive_mode__type_support.cpp.o\x1b[0m\n'}
+[15.635216] (-) TimerEvent: {}
+[15.702927] (trolley_interfaces) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/trolley_interfaces/srv/detail/set_drive_mode__type_support.cpp.o\x1b[0m\n'}
+[15.735368] (-) TimerEvent: {}
+[15.836201] (-) TimerEvent: {}
+[15.902421] (trolley_interfaces) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/trolley_interfaces/srv/detail/set_drive_mode__type_support_c.cpp.o\x1b[0m\n'}
+[15.938223] (-) TimerEvent: {}
+[16.038969] (-) TimerEvent: {}
+[16.079738] (trolley_interfaces) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/trolley_interfaces/srv/detail/dds_fastrtps/set_drive_mode__type_support.cpp.o\x1b[0m\n'}
+[16.141242] (-) TimerEvent: {}
+[16.241756] (-) TimerEvent: {}
+[16.342234] (-) TimerEvent: {}
+[16.442664] (-) TimerEvent: {}
+[16.453075] (trolley_interfaces) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking CXX shared library libtrolley_interfaces__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[16.542786] (-) TimerEvent: {}
+[16.639328] (trolley_interfaces) StdoutLine: {'line': b'[ 55%] \x1b[32m\x1b[1mLinking CXX shared library libtrolley_interfaces__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[16.644310] (-) TimerEvent: {}
+[16.744841] (-) TimerEvent: {}
+[16.811156] (trolley_interfaces) StdoutLine: {'line': b'[ 55%] Built target trolley_interfaces__rosidl_typesupport_cpp\n'}
+[16.836267] (trolley_interfaces) StdoutLine: {'line': b'[ 57%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[16.844986] (-) TimerEvent: {}
+[16.945488] (-) TimerEvent: {}
+[17.045876] (-) TimerEvent: {}
+[17.063840] (trolley_interfaces) StdoutLine: {'line': b'[ 57%] Built target trolley_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[17.085960] (trolley_interfaces) StdoutLine: {'line': b'[ 60%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[17.145999] (-) TimerEvent: {}
+[17.178263] (trolley_interfaces) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking CXX shared library libtrolley_interfaces__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[17.246146] (-) TimerEvent: {}
+[17.346581] (-) TimerEvent: {}
+[17.446962] (-) TimerEvent: {}
+[17.547325] (-) TimerEvent: {}
+[17.555354] (trolley_interfaces) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking CXX shared library libtrolley_interfaces__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[17.647435] (-) TimerEvent: {}
+[17.689884] (trolley_interfaces) StdoutLine: {'line': b'[ 64%] Built target trolley_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[17.747536] (-) TimerEvent: {}
+[17.847871] (-) TimerEvent: {}
+[17.948231] (-) TimerEvent: {}
+[18.048562] (-) TimerEvent: {}
+[18.125008] (trolley_interfaces) StdoutLine: {'line': b'[ 64%] Built target trolley_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[18.148677] (-) TimerEvent: {}
+[18.249063] (-) TimerEvent: {}
+[18.349452] (-) TimerEvent: {}
+[18.448850] (trolley_interfaces) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/trolley_interfaces/srv/set_drive_enabled__type_support.cpp.o\x1b[0m\n'}
+[18.449247] (trolley_interfaces) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/trolley_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/trolley_interfaces/srv/set_drive_mode__type_support.cpp.o\x1b[0m\n'}
+[18.449531] (-) TimerEvent: {}
+[18.549849] (-) TimerEvent: {}
+[18.687860] (trolley_interfaces) StdoutLine: {'line': b'[ 73%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/trolley_interfaces/srv/detail/set_drive_mode__type_support.c.o\x1b[0m\n'}
+[18.688209] (-) TimerEvent: {}
+[18.688394] (trolley_interfaces) StdoutLine: {'line': b'[ 73%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/trolley_interfaces/srv/detail/set_drive_enabled__type_support.c.o\x1b[0m\n'}
+[18.788346] (-) TimerEvent: {}
+[18.888737] (-) TimerEvent: {}
+[18.989139] (-) TimerEvent: {}
+[19.021858] (trolley_interfaces) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX shared library libtrolley_interfaces__rosidl_typesupport_c.so\x1b[0m\n'}
+[19.089211] (-) TimerEvent: {}
+[19.189584] (-) TimerEvent: {}
+[19.289964] (-) TimerEvent: {}
+[19.390346] (-) TimerEvent: {}
+[19.476050] (trolley_interfaces) StdoutLine: {'line': b'[ 75%] Built target trolley_interfaces__rosidl_typesupport_c\n'}
+[19.490463] (-) TimerEvent: {}
+[19.493606] (trolley_interfaces) StdoutLine: {'line': b'[ 77%] \x1b[32m\x1b[1mLinking C shared library libtrolley_interfaces__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[19.549164] (trolley_interfaces) StdoutLine: {'line': b'[ 77%] Built target trolley_interfaces__rosidl_typesupport_introspection_c\n'}
+[19.585200] (trolley_interfaces) StdoutLine: {'line': b'[ 77%] Built target trolley_interfaces\n'}
+[19.590567] (-) TimerEvent: {}
+[19.622212] (trolley_interfaces) StdoutLine: {'line': b'[ 80%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[19.690686] (-) TimerEvent: {}
+[19.791046] (-) TimerEvent: {}
+[19.891398] (-) TimerEvent: {}
+[19.991731] (-) TimerEvent: {}
+[20.092045] (-) TimerEvent: {}
+[20.192360] (-) TimerEvent: {}
+[20.292678] (-) TimerEvent: {}
+[20.393003] (-) TimerEvent: {}
+[20.476719] (trolley_interfaces) StdoutLine: {'line': b'[ 80%] Built target trolley_interfaces__py\n'}
+[20.493120] (-) TimerEvent: {}
+[20.512885] (trolley_interfaces) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_generator_py.dir/rosidl_generator_py/trolley_interfaces/srv/_set_drive_mode_s.c.o\x1b[0m\n'}
+[20.514880] (trolley_interfaces) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces__rosidl_generator_py.dir/rosidl_generator_py/trolley_interfaces/srv/_set_drive_enabled_s.c.o\x1b[0m\n'}
+[20.593243] (-) TimerEvent: {}
+[20.693640] (-) TimerEvent: {}
+[20.793990] (-) TimerEvent: {}
+[20.894370] (-) TimerEvent: {}
+[20.994743] (-) TimerEvent: {}
+[21.095106] (-) TimerEvent: {}
+[21.195502] (-) TimerEvent: {}
+[21.295878] (-) TimerEvent: {}
+[21.322655] (trolley_interfaces) StdoutLine: {'line': b'[ 86%] \x1b[32m\x1b[1mLinking C shared library libtrolley_interfaces__rosidl_generator_py.so\x1b[0m\n'}
+[21.395995] (-) TimerEvent: {}
+[21.397988] (trolley_interfaces) StdoutLine: {'line': b'[ 86%] Built target trolley_interfaces__rosidl_generator_py\n'}
+[21.434467] (trolley_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[21.434778] (trolley_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces_s__rosidl_typesupport_c.dir/rosidl_generator_py/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[21.437230] (trolley_interfaces) StdoutLine: {'line': b'[ 93%] \x1b[32mBuilding C object CMakeFiles/trolley_interfaces_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[21.498249] (-) TimerEvent: {}
+[21.598650] (-) TimerEvent: {}
+[21.699040] (-) TimerEvent: {}
+[21.799413] (-) TimerEvent: {}
+[21.851675] (trolley_interfaces) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_c.so\x1b[0m\n'}
+[21.899526] (-) TimerEvent: {}
+[21.904366] (trolley_interfaces) StdoutLine: {'line': b'[ 95%] Built target trolley_interfaces_s__rosidl_typesupport_c\n'}
+[21.999648] (-) TimerEvent: {}
+[22.079661] (trolley_interfaces) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[22.099758] (-) TimerEvent: {}
+[22.135352] (trolley_interfaces) StdoutLine: {'line': b'[ 97%] Built target trolley_interfaces_s__rosidl_typesupport_introspection_c\n'}
+[22.174165] (trolley_interfaces) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared module rosidl_generator_py/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[22.199888] (-) TimerEvent: {}
+[22.229695] (trolley_interfaces) StdoutLine: {'line': b'[100%] Built target trolley_interfaces_s__rosidl_typesupport_fastrtps_c\n'}
+[22.300007] (-) TimerEvent: {}
+[22.400392] (-) TimerEvent: {}
+[22.470410] (trolley_interfaces) CommandEnded: {'returncode': 0}
+[22.471538] (trolley_interfaces) JobProgress: {'identifier': 'trolley_interfaces', 'progress': 'install'}
+[22.489099] (trolley_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/helpers/browser.sh', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'TERM_PROGRAM_VERSION': '1.134.0', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-b2f7fdbf-d4f3-48ab-8fca-a8cc5418eff8.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/ros/jazzy/bin:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/zuiken/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli:/home/zuiken/.vscode-server/cli/servers/Stable-110a328ea54b42367b803ec53ee0bf52ef26b419/server/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-3264b45195.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', 'COPILOT_DEBUG_NONCE': '588d225576d72e8c3f0154716e9a6b5b', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 52513 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy'}), 'shell': False}
+[22.500497] (-) TimerEvent: {}
+[22.503998] (trolley_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[22.504370] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/rosidl_interfaces/trolley_interfaces\n'}
+[22.504690] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveEnabled.json\n'}
+[22.504894] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveMode.json\n'}
+[22.505083] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[22.505271] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[22.505429] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[22.505581] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[22.505718] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[22.505809] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__struct.h\n'}
+[22.506074] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__struct.h\n'}
+[22.506250] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__description.c\n'}
+[22.506361] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__description.c\n'}
+[22.506476] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__functions.h\n'}
+[22.506585] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.h\n'}
+[22.506742] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__functions.h\n'}
+[22.506927] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__functions.c\n'}
+[22.507089] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.c\n'}
+[22.507287] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.c\n'}
+[22.507592] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__functions.c\n'}
+[22.507726] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.h\n'}
+[22.507843] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_mode.h\n'}
+[22.507969] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_enabled.h\n'}
+[22.508119] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/library_path.sh\n'}
+[22.508345] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/library_path.dsv\n'}
+[22.508628] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_generator_c.so\n'}
+[22.509346] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_generator_c.so" to ""\n'}
+[22.509564] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[22.509669] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[22.509823] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[22.509915] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[22.510007] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[22.510152] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_fastrtps_c.h\n'}
+[22.510287] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_fastrtps_c.h\n'}
+[22.510465] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[22.510892] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[22.511129] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[22.511253] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[22.511399] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[22.511621] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[22.511763] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[22.511857] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_introspection_c.h\n'}
+[22.511987] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_introspection_c.h\n'}
+[22.512092] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.c\n'}
+[22.512230] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.c\n'}
+[22.512322] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[22.512791] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_introspection_c.so" to ""\n'}
+[22.512978] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_c.so\n'}
+[22.513506] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_c.so" to ""\n'}
+[22.513696] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[22.513922] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[22.514027] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[22.514205] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[22.514453] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_mode.hpp\n'}
+[22.514600] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_enabled.hpp\n'}
+[22.514721] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[22.514842] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__builder.hpp\n'}
+[22.514933] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__traits.hpp\n'}
+[22.515027] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__struct.hpp\n'}
+[22.515201] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.hpp\n'}
+[22.515303] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__struct.hpp\n'}
+[22.515396] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__traits.hpp\n'}
+[22.515519] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__builder.hpp\n'}
+[22.515629] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.hpp\n'}
+[22.515742] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[22.515867] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[22.516033] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[22.516143] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[22.516310] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[22.516412] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[22.516540] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[22.516634] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/dds_fastrtps\n'}
+[22.516759] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[22.517650] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[22.517811] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[22.517953] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[22.518084] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[22.518218] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.cpp\n'}
+[22.518313] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_introspection_cpp.hpp\n'}
+[22.518428] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.cpp\n'}
+[22.518552] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_introspection_cpp.hpp\n'}
+[22.518689] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[22.519576] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[22.519739] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_cpp.so\n'}
+[22.520528] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_cpp.so" to ""\n'}
+[22.520706] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/pythonpath.sh\n'}
+[22.520836] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/pythonpath.dsv\n'}
+[22.520969] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info\n'}
+[22.521175] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/top_level.txt\n'}
+[22.521330] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/PKG-INFO\n'}
+[22.521487] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[22.521658] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[22.521821] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces\n'}
+[22.521951] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[22.522272] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/__init__.py\n'}
+[22.522421] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[22.522630] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv\n'}
+[22.522772] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_enabled.py\n'}
+[22.522961] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/__init__.py\n'}
+[22.523112] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_mode_s.c\n'}
+[22.523302] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_mode.py\n'}
+[22.523483] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_enabled_s.c\n'}
+[22.523662] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_c.so\n'}
+[22.523961] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[22.524282] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[22.524503] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[22.593895] (trolley_interfaces) StdoutLine: {'line': b"Listing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces'...\n"}
+[22.594227] (trolley_interfaces) StdoutLine: {'line': b"Compiling '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/__init__.py'...\n"}
+[22.594387] (trolley_interfaces) StdoutLine: {'line': b"Listing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv'...\n"}
+[22.594513] (trolley_interfaces) StdoutLine: {'line': b"Compiling '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/__init__.py'...\n"}
+[22.594618] (trolley_interfaces) StdoutLine: {'line': b"Compiling '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_enabled.py'...\n"}
+[22.594742] (trolley_interfaces) StdoutLine: {'line': b"Compiling '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_mode.py'...\n"}
+[22.600578] (-) TimerEvent: {}
+[22.606096] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[22.606820] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[22.607221] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[22.607921] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_introspection_c.so" to ""\n'}
+[22.608297] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_c.so\n'}
+[22.608923] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_c.so" to ""\n'}
+[22.609102] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_generator_py.so\n'}
+[22.609787] (trolley_interfaces) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_generator_py.so" to ""\n'}
+[22.609957] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/rust_packages/trolley_interfaces\n'}
+[22.610175] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust\n'}
+[22.610321] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/build.rs\n'}
+[22.610462] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src\n'}
+[22.610598] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/lib.rs\n'}
+[22.610726] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/srv\n'}
+[22.610869] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/srv/rmw.rs\n'}
+[22.611049] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/srv.rs\n'}
+[22.611201] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/Cargo.toml\n'}
+[22.611340] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveEnabled.idl\n'}
+[22.611455] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveMode.idl\n'}
+[22.611637] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveEnabled.srv\n'}
+[22.611805] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveMode.srv\n'}
+[22.611980] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/package_run_dependencies/trolley_interfaces\n'}
+[22.612134] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/parent_prefix_path/trolley_interfaces\n'}
+[22.612303] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/ament_prefix_path.sh\n'}
+[22.612455] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/ament_prefix_path.dsv\n'}
+[22.612558] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/path.sh\n'}
+[22.612705] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/path.dsv\n'}
+[22.612794] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.bash\n'}
+[22.612943] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.sh\n'}
+[22.613036] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.zsh\n'}
+[22.613158] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.dsv\n'}
+[22.613260] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.dsv\n'}
+[22.613380] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/packages/trolley_interfaces\n'}
+[22.613513] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_cExport.cmake\n'}
+[22.613654] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[22.613836] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[22.614031] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[22.614243] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[22.614437] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[22.614636] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[22.614832] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[22.615034] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_cppExport.cmake\n'}
+[22.615249] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[22.615447] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[22.615659] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[22.615852] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[22.616065] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[22.616271] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[22.616485] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_pyExport.cmake\n'}
+[22.616676] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[22.616881] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[22.617068] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[22.617277] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[22.617466] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[22.617659] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[22.617849] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[22.618036] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[22.618231] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake_aggregate_target-extras.cmake\n'}
+[22.618419] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfacesConfig.cmake\n'}
+[22.618609] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfacesConfig-version.cmake\n'}
+[22.618740] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.xml\n'}
+[22.622688] (trolley_interfaces) CommandEnded: {'returncode': 0}
+[22.700714] (-) TimerEvent: {}
+[22.801111] (-) TimerEvent: {}
+[22.901475] (-) TimerEvent: {}
+[23.001945] (-) TimerEvent: {}
+[23.102579] (-) TimerEvent: {}
+[23.202895] (-) TimerEvent: {}
+[23.303254] (-) TimerEvent: {}
+[23.403633] (-) TimerEvent: {}
+[23.504008] (-) TimerEvent: {}
+[23.604397] (-) TimerEvent: {}
+[24.028198] (trolley_interfaces) JobEnded: {'identifier': 'trolley_interfaces', 'rc': 0}
+[24.107437] (-) TimerEvent: {}
+[24.107651] (-) EventReactorShutdown: {}

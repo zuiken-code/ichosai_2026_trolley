@@ -3,6 +3,7 @@ from enum import Enum
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
+from trolley_interfaces.srv import SetDriveEnabled, SetDriveMode
 
 from trolley_drive.kinematics import cmd_vel_to_wheel_rpm
 
@@ -34,7 +35,6 @@ CONTROL_FREQUENCY = 50.0   # Hz
 
 
 class DriveMode(Enum):
-    DISABLE = 0
     TELEOP = 1
     AUTO = 2
 
@@ -64,7 +64,7 @@ class TrolleyDrive(Node):
         transport = UDPTransport(
             host=ESP32_IP,
             port=ESP32_PORT,
-            debug=False,
+            debug=True,
         )
 
         self.bus = MotorBus(transport)
@@ -88,6 +88,22 @@ class TrolleyDrive(Node):
             '/cmd_vel',
             self.cmd_vel_callback,
             10,
+        )
+
+        # =========================
+        # Drive control services
+        # =========================
+
+        self.enable_service = self.create_service(
+            SetDriveEnabled,
+            '/drive/set_enabled',
+            self.set_enabled_callback,
+        )
+
+        self.mode_service = self.create_service(
+            SetDriveMode,
+            '/drive/set_mode',
+            self.set_mode_callback,
         )
 
         # =========================
@@ -134,18 +150,82 @@ class TrolleyDrive(Node):
         #     f"right_rpm={self.right_rpm:.2f}",
         #     flush=True,
         #     )
+        
+    # =========================
+    # Enable / Disable
+    # =========================
+
+    def set_enabled_callback(self, request, response):
+
+        self.enabled = request.enabled
+
+        if self.enabled:
+            response.success = True
+            response.message = 'Drive enabled'
+
+            self.get_logger().info(
+                'Drive enabled'
+            )
+
+        else:
+            self.stop_motors()
+
+            response.success = True
+            response.message = 'Drive disabled'
+
+            self.get_logger().info(
+                'Drive disabled'
+            )
+
+        return response
 
     # =========================
-    # Motor control loop
+    # TELEOP / AUTO
     # =========================
+
+    def set_mode_callback(self, request, response):
+
+        if request.mode == DriveMode.TELEOP.value:
+
+            self.mode = DriveMode.TELEOP
+
+        elif request.mode == DriveMode.AUTO.value:
+
+            self.mode = DriveMode.AUTO
+
+        else:
+
+            response.success = False
+            response.message = f'Invalid mode: {request.mode}'
+
+            self.get_logger().warn(
+                response.message
+            )
+
+            return response
+
+        response.success = True
+        response.message = f'Mode changed to {self.mode.name}'
+
+        self.get_logger().info(
+            response.message
+        )
+
+        return response
 
     def control_loop(self):
-        # print(
-        #     f"[CONTROL] "
-        #     f"left={self.left_rpm:.2f} "
-        #     f"right={self.right_rpm:.2f}",
-        #     flush=True,
-        #     )
+
+        # =========================
+        # Disabled
+        # =========================
+
+        if not self.enabled:
+            self.stop_motors()
+            return
+
+        # =========================
+        # TELEOP
+        # =========================
 
         if self.mode == DriveMode.TELEOP:
 
@@ -159,22 +239,16 @@ class TrolleyDrive(Node):
                 ControlType.VELOCITY,
             )
 
+        # =========================
+        # AUTO
+        # =========================
+
         elif self.mode == DriveMode.AUTO:
 
             # TODO:
             # Auto用のServiceから受け取った
             # 左右RPMをここで送る
             pass
-        else:
-            self.left_motor.setReference(
-                0.0,
-                ControlType.DISABLE,
-            )  
-
-            self.right_motor.setReference(
-                0.0,
-                ControlType.DISABLE,
-            )
 
     # =========================
     # Stop motors

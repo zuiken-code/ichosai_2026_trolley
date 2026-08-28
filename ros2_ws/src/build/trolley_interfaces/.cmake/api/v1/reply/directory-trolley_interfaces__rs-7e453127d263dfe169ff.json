@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "trolley_interfaces__rs",
+		"source" : "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/trolley_interfaces__rs"
+	}
+}

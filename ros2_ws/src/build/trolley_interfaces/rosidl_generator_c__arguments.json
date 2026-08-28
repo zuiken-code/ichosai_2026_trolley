@@ -1,0 +1,48 @@
+{
+  "package_name": "trolley_interfaces",
+  "output_dir": "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/rosidl_generator_c/trolley_interfaces",
+  "template_dir": "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource",
+  "idl_tuples": [
+    "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/rosidl_adapter/trolley_interfaces:srv/SetDriveEnabled.idl",
+    "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/rosidl_adapter/trolley_interfaces:srv/SetDriveMode.idl"
+  ],
+  "ros_interface_files": [
+    "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_interfaces/srv/SetDriveEnabled.srv",
+    "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_interfaces/srv/SetDriveMode.srv"
+  ],
+  "ros_interface_dependencies": [
+    "service_msgs:/opt/ros/jazzy/share/service_msgs/msg/ServiceEventInfo.idl",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces/msg/Duration.idl",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces/msg/Time.idl"
+  ],
+  "target_dependencies": [
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../../../lib/python3.12/site-packages/rosidl_generator_c/__init__.py",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/action__type_support.h.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/action__type_support.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/empty__description.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/full__description.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/idl.h.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/idl__description.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/idl__functions.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/idl__functions.h.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/idl__struct.h.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/idl__type_support.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/idl__type_support.h.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/msg__functions.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/msg__functions.h.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/msg__struct.h.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/msg__type_support.h.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/srv__type_support.c.em",
+    "/opt/ros/jazzy/share/rosidl_generator_c/cmake/../resource/srv__type_support.h.em",
+    "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/rosidl_adapter/trolley_interfaces/srv/SetDriveEnabled.idl",
+    "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/rosidl_adapter/trolley_interfaces/srv/SetDriveMode.idl",
+    "/opt/ros/jazzy/share/service_msgs/msg/ServiceEventInfo.idl",
+    "/opt/ros/jazzy/share/builtin_interfaces/msg/Duration.idl",
+    "/opt/ros/jazzy/share/builtin_interfaces/msg/Time.idl"
+  ],
+  "type_description_tuples": [
+    "srv/SetDriveEnabled.idl:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/rosidl_generator_type_description/trolley_interfaces/srv/SetDriveEnabled.json",
+    "srv/SetDriveMode.idl:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/rosidl_generator_type_description/trolley_interfaces/srv/SetDriveMode.json"
+  ]
+}

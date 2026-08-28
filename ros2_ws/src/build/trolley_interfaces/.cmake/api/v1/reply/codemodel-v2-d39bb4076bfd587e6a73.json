@@ -1,0 +1,267 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-d63f4f52b6b9ee7ac456.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				},
+				{
+					"build" : "trolley_interfaces__py",
+					"jsonFile" : "directory-trolley_interfaces__py-b3a587e389c9b34a1297.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/trolley_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "trolley_interfaces__rs",
+					"jsonFile" : "directory-trolley_interfaces__rs-7e453127d263dfe169ff.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces/trolley_interfaces__rs",
+					"targetIndexes" : 
+					[
+						14
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "trolley_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_trolley_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_trolley_interfaces_egg-d87823e101502ed50909.json",
+					"name" : "ament_cmake_python_build_trolley_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_trolley_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_trolley_interfaces-0cfcbdc1b76531de1fa7.json",
+					"name" : "ament_cmake_python_copy_trolley_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces-5ff3b19bb07d482a1e3d.json",
+					"name" : "trolley_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__cpp-fd2e08b544f66a9f6423.json",
+					"name" : "trolley_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "trolley_interfaces__py::@cf99ce1268afc88e9bf5",
+					"jsonFile" : "target-trolley_interfaces__py-62e8d36a75f819528653.json",
+					"name" : "trolley_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__rosidl_generator_c-96fc2355d50e9775c530.json",
+					"name" : "trolley_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__rosidl_generator_py-50628b76e90d25d3ea5e.json",
+					"name" : "trolley_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__rosidl_generator_type_description::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__rosidl_generator_type_description-a87600e5d127e0387054.json",
+					"name" : "trolley_interfaces__rosidl_generator_type_description",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__rosidl_typesupport_c-9441d15accaeeec41abe.json",
+					"name" : "trolley_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__rosidl_typesupport_cpp-d9e16cdcd1b42e09ef70.json",
+					"name" : "trolley_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__rosidl_typesupport_fastrtps_c-9c656ad7373feef7df23.json",
+					"name" : "trolley_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__rosidl_typesupport_fastrtps_cpp-353bba5e8fe59bd47ac1.json",
+					"name" : "trolley_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__rosidl_typesupport_introspection_c-959bf7a8a49ce31f30d2.json",
+					"name" : "trolley_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces__rosidl_typesupport_introspection_cpp-441e57fd505338d315fe.json",
+					"name" : "trolley_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "trolley_interfaces__rs::@0aeac0c3e7d107125c88",
+					"jsonFile" : "target-trolley_interfaces__rs-825b910b4ee1730f6de9.json",
+					"name" : "trolley_interfaces__rs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces_s__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces_s__rosidl_typesupport_c-aaf811e1962ae8171e42.json",
+					"name" : "trolley_interfaces_s__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces_s__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces_s__rosidl_typesupport_fastrtps_c-b32efb2a9c14b7ddaf06.json",
+					"name" : "trolley_interfaces_s__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces_s__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces_s__rosidl_typesupport_introspection_c-539a2290bfdcd9515cf1.json",
+					"name" : "trolley_interfaces_s__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "trolley_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-trolley_interfaces_uninstall-213b9eecf3a1242b0156.json",
+					"name" : "trolley_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-cac1e8abee5d810327e0.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces",
+		"source" : "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

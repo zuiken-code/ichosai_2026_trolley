@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from trolley_interfaces/srv/SetDriveEnabled.srv
+// generated code does not contain a copyright notice
+
+
+module trolley_interfaces {
+  module srv {
+    struct SetDriveEnabled_Request {
+      boolean enabled;
+    };
+    struct SetDriveEnabled_Response {
+      boolean success;
+
+      string message;
+    };
+  };
+};

@@ -1,0 +1,26 @@
+{
+  "type_description_msg": {
+    "type_description": {
+      "type_name": "trolley_interfaces/srv/SetDriveEnabled_Request",
+      "fields": [
+        {
+          "name": "enabled",
+          "type": {
+            "type_id": 15,
+            "capacity": 0,
+            "string_capacity": 0,
+            "nested_type_name": ""
+          },
+          "default_value": ""
+        }
+      ]
+    },
+    "referenced_type_descriptions": []
+  },
+  "type_hashes": [
+    {
+      "type_name": "trolley_interfaces/srv/SetDriveEnabled_Request",
+      "hash_string": "RIHS01_585ef38579ba0529348cf3c4af1508a4e115fa1a0bdb06a78cdf95670dbfa8a3"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "package_name": "trolley_interfaces",
+  "non_idl_tuples": [
+    "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_interfaces:srv/SetDriveEnabled.srv",
+    "/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_interfaces:srv/SetDriveMode.srv"
+  ]
+}
