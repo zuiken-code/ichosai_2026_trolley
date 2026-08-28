@@ -26,7 +26,7 @@ LEFT_MOTOR_ID = 1
 RIGHT_MOTOR_ID = 2
 
 # ESP32のIP / UDPポート
-ESP32_IP = "192.168.1.50"
+ESP32_IP = "192.168.1.116"
 ESP32_PORT = 5000
 
 # Motor command frequency
@@ -47,7 +47,7 @@ class TrolleyDrive(Node):
         # =========================
         # Mode
         # =========================
-
+        self.enabled = False
         self.mode = DriveMode.TELEOP
 
         # =========================
@@ -64,7 +64,7 @@ class TrolleyDrive(Node):
         transport = UDPTransport(
             host=ESP32_IP,
             port=ESP32_PORT,
-            debug=True,
+            debug=False,
         )
 
         self.bus = MotorBus(transport)
@@ -126,26 +126,26 @@ class TrolleyDrive(Node):
             )
         )
         
-        print(
-            f"[CMD_VEL] "
-            f"linear={linear_velocity:.3f}, "
-            f"angular={angular_velocity:.3f}, "
-            f"left_rpm={self.left_rpm:.2f}, "
-            f"right_rpm={self.right_rpm:.2f}",
-            flush=True,
-            )
+        # print(
+        #     f"[CMD_VEL] "
+        #     f"linear={linear_velocity:.3f}, "
+        #     f"angular={angular_velocity:.3f}, "
+        #     f"left_rpm={self.left_rpm:.2f}, "
+        #     f"right_rpm={self.right_rpm:.2f}",
+        #     flush=True,
+        #     )
 
     # =========================
     # Motor control loop
     # =========================
 
     def control_loop(self):
-        print(
-            f"[CONTROL] "
-            f"left={self.left_rpm:.2f} "
-            f"right={self.right_rpm:.2f}",
-            flush=True,
-            )
+        # print(
+        #     f"[CONTROL] "
+        #     f"left={self.left_rpm:.2f} "
+        #     f"right={self.right_rpm:.2f}",
+        #     flush=True,
+        #     )
 
         if self.mode == DriveMode.TELEOP:
 

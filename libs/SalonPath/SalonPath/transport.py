@@ -67,6 +67,12 @@ class UDPTransport:
                 packet,
                 (self.host, self.port),
             )
+            print(
+                f"SEND motor={motor_id} "
+                f"seq={sequence} "
+                f"size={len(packet)}",
+                flush=True,
+                )
 
     def close(self):
         self._socket.close()

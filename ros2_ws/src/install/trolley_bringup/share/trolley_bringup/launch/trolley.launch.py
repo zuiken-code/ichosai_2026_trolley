@@ -16,5 +16,11 @@ def generate_launch_description():
             executable='joy_teleop',
             name='joy_teleop',
             output='screen',
-        )
+        ),
+        Node(
+        package='trolley_drive',
+        executable='drive_node',
+        name='trolley_drive',
+        output='screen',
+    ) 
     ])

@@ -7,7 +7,7 @@ from geometry_msgs.msg import Twist
 from trolley_drive.kinematics import cmd_vel_to_wheel_rpm
 
 from SalonPath import (
-    Bus,
+    MotorBus,
     UDPTransport,
     SalonPath,
     ControlType,
@@ -26,7 +26,7 @@ LEFT_MOTOR_ID = 1
 RIGHT_MOTOR_ID = 2
 
 # ESP32のIP / UDPポート
-ESP32_IP = "192.168.1.50"
+ESP32_IP = "192.168.1.116"
 ESP32_PORT = 5000
 
 # Motor command frequency
@@ -34,8 +34,9 @@ CONTROL_FREQUENCY = 50.0   # Hz
 
 
 class DriveMode(Enum):
-    TELEOP = 0
-    AUTO = 1
+    DISABLE = 0
+    TELEOP = 1
+    AUTO = 2
 
 
 class TrolleyDrive(Node):
@@ -46,7 +47,7 @@ class TrolleyDrive(Node):
         # =========================
         # Mode
         # =========================
-
+        self.enabled = False
         self.mode = DriveMode.TELEOP
 
         # =========================
@@ -63,10 +64,10 @@ class TrolleyDrive(Node):
         transport = UDPTransport(
             host=ESP32_IP,
             port=ESP32_PORT,
-            debug=True,
+            debug=False,
         )
 
-        self.bus = Bus(transport)
+        self.bus = MotorBus(transport)
 
         self.left_motor = SalonPath(
             self.bus,
@@ -124,12 +125,27 @@ class TrolleyDrive(Node):
                 TRACK_WIDTH,
             )
         )
+        
+        print(
+            f"[CMD_VEL] "
+            f"linear={linear_velocity:.3f}, "
+            f"angular={angular_velocity:.3f}, "
+            f"left_rpm={self.left_rpm:.2f}, "
+            f"right_rpm={self.right_rpm:.2f}",
+            flush=True,
+            )
 
     # =========================
     # Motor control loop
     # =========================
 
     def control_loop(self):
+        # print(
+        #     f"[CONTROL] "
+        #     f"left={self.left_rpm:.2f} "
+        #     f"right={self.right_rpm:.2f}",
+        #     flush=True,
+        #     )
 
         if self.mode == DriveMode.TELEOP:
 
@@ -149,6 +165,16 @@ class TrolleyDrive(Node):
             # Auto用のServiceから受け取った
             # 左右RPMをここで送る
             pass
+        else:
+            self.left_motor.setReference(
+                0.0,
+                ControlType.DISABLE,
+            )  
+
+            self.right_motor.setReference(
+                0.0,
+                ControlType.DISABLE,
+            )
 
     # =========================
     # Stop motors

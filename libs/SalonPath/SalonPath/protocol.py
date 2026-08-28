@@ -30,7 +30,7 @@ def build_motor_packet(
 ) -> bytes:
 
     payload = struct.pack(
-        "<BBfB",
+        "<BBfH",
         motor_id,
         int(control_type),
         reference,

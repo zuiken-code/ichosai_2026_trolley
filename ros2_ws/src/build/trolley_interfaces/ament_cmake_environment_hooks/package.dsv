@@ -1,0 +1,4 @@
+source;share/trolley_interfaces/local_setup.bash
+source;share/trolley_interfaces/local_setup.dsv
+source;share/trolley_interfaces/local_setup.sh
+source;share/trolley_interfaces/local_setup.zsh
