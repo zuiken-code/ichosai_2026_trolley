@@ -1,0 +1,429 @@
+/* ============================================================
+   Trolley スマートフォンコントローラ
+   Material Design 3 に準拠したトークンを自前で定義している。
+   （CDNやnpmに依存しないため、現場のオフライン環境でも動く）
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Design tokens: light
+   ------------------------------------------------------------ */
+
+:root {
+  --md-sys-color-primary: #005ac1;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #d8e2ff;
+  --md-sys-color-on-primary-container: #001a41;
+
+  --md-sys-color-surface: #faf9fd;
+  --md-sys-color-on-surface: #1a1b1f;
+  --md-sys-color-surface-variant: #e1e2ec;
+  --md-sys-color-on-surface-variant: #44464f;
+  --md-sys-color-surface-container: #eeedf1;
+  --md-sys-color-surface-container-highest: #e3e2e6;
+
+  --md-sys-color-outline: #75777f;
+  --md-sys-color-outline-variant: #c5c6d0;
+
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #410002;
+
+  --md-sys-color-inverse-surface: #2f3033;
+  --md-sys-color-inverse-on-surface: #f1f0f4;
+  --md-sys-color-inverse-primary: #adc6ff;
+
+  /* Typography（Robotoが無い環境でも崩れないようシステムフォント） */
+  --md-sys-typescale-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+
+  /* Elevation */
+  --md-sys-elevation-1:
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --md-sys-elevation-3:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 4px 8px 3px rgba(0, 0, 0, 0.15);
+
+  /* Motion */
+  --md-sys-motion-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Component metrics */
+  --pad-size: min(68vmin, 360px);
+  --knob-size: calc(var(--pad-size) * 0.32);
+}
+
+/* ------------------------------------------------------------
+   Design tokens: dark（端末のテーマ設定に追従する）
+   ------------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: #adc6ff;
+    --md-sys-color-on-primary: #002e69;
+    --md-sys-color-primary-container: #004494;
+    --md-sys-color-on-primary-container: #d8e2ff;
+
+    --md-sys-color-surface: #121316;
+    --md-sys-color-on-surface: #e3e2e6;
+    --md-sys-color-surface-variant: #44464f;
+    --md-sys-color-on-surface-variant: #c5c6d0;
+    --md-sys-color-surface-container: #1e1f23;
+    --md-sys-color-surface-container-highest: #35363a;
+
+    --md-sys-color-outline: #8f9099;
+    --md-sys-color-outline-variant: #44464f;
+
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-error-container: #93000a;
+    --md-sys-color-on-error-container: #ffdad6;
+
+    --md-sys-color-inverse-surface: #e3e2e6;
+    --md-sys-color-inverse-on-surface: #2f3033;
+    --md-sys-color-inverse-primary: #005ac1;
+  }
+}
+
+/* ------------------------------------------------------------
+   Reset
+   ------------------------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--md-sys-typescale-font);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  /* 走行中の誤操作（選択・ズーム・長押しメニュー）を抑止する */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+
+/* ------------------------------------------------------------
+   Layout
+   ------------------------------------------------------------ */
+
+.app {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding:
+    env(safe-area-inset-top, 0px)
+    env(safe-area-inset-right, 0px)
+    env(safe-area-inset-bottom, 0px)
+    env(safe-area-inset-left, 0px);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 4px 16px;
+  flex: 0 0 auto;
+}
+
+.stage {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0 16px 8px;
+}
+
+.pad-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ------------------------------------------------------------
+   Assist chip（操作権の状態 / タップで奪取）
+   ------------------------------------------------------------ */
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--md-sys-color-on-surface);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition:
+    background-color 0.15s var(--md-sys-motion-emphasized),
+    border-color 0.15s var(--md-sys-motion-emphasized);
+}
+
+/* タッチターゲットを48px確保する（MD3のアクセシビリティ要件） */
+.chip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 48px;
+  transform: translateY(-50%);
+}
+
+/* State layer */
+.chip::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+  pointer-events: none;
+}
+
+.chip:active::after {
+  opacity: 0.12;
+}
+
+.chip__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: 0 0 auto;
+}
+
+/* Joyが操作中 */
+.chip.is-joy {
+  border-color: var(--md-sys-color-outline);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* このスマホが操作中 */
+.chip.is-phone {
+  border-color: transparent;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* 他の端末が操作中 */
+.chip.is-observer {
+  border-color: var(--md-sys-color-outline);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* 未接続 / 調停ノード未起動 */
+.chip.is-offline {
+  border-color: transparent;
+  background: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+}
+
+/* ------------------------------------------------------------
+   走行スティック
+   ------------------------------------------------------------ */
+
+.pad {
+  position: relative;
+  width: var(--pad-size);
+  height: var(--pad-size);
+  border-radius: 50%;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  background: var(--md-sys-color-surface-container-highest);
+  touch-action: none;
+  transition: opacity 0.15s linear;
+}
+
+.pad.is-disabled {
+  opacity: 0.38;
+}
+
+.pad__guide {
+  position: absolute;
+  background: var(--md-sys-color-outline-variant);
+  transition:
+    background-color 0.1s linear,
+    opacity 0.1s linear;
+}
+
+.pad__guide--v {
+  left: 50%;
+  top: 12%;
+  bottom: 12%;
+  width: 2px;
+  margin-left: -1px;
+}
+
+.pad__guide--h {
+  top: 50%;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  margin-top: -1px;
+}
+
+/* 採用中の軸（前後 or 旋回）を明示する */
+.pad.is-axis-linear .pad__guide--v,
+.pad.is-axis-angular .pad__guide--h {
+  background: var(--md-sys-color-primary);
+}
+
+.pad__mark {
+  position: absolute;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: calc(var(--pad-size) * 0.055);
+  line-height: 1;
+}
+
+.pad__mark--up {
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pad__mark--down {
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pad__mark--left {
+  left: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pad__mark--right {
+  right: 6%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pad__knob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--knob-size);
+  height: var(--knob-size);
+  margin-left: calc(var(--knob-size) / -2);
+  margin-top: calc(var(--knob-size) / -2);
+  border-radius: 50%;
+  background: var(--md-sys-color-primary);
+  box-shadow: var(--md-sys-elevation-1);
+  transform: translate(var(--knob-x, 0px), var(--knob-y, 0px));
+  transition: transform 0.16s var(--md-sys-motion-emphasized);
+}
+
+/* 操作中は追従を遅らせない */
+.pad.is-active .pad__knob {
+  transition: none;
+  box-shadow: var(--md-sys-elevation-3);
+}
+
+.hint {
+  margin: 0;
+  min-height: 20px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   Snackbar（通知 / Joyへの返却）
+   ------------------------------------------------------------ */
+
+.snackbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 16px 16px;
+  padding: 8px 8px 8px 16px;
+  min-height: 48px;
+  border-radius: 4px;
+  background: var(--md-sys-color-inverse-surface);
+  color: var(--md-sys-color-inverse-on-surface);
+  box-shadow: var(--md-sys-elevation-3);
+}
+
+.snackbar__text {
+  flex: 1 1 auto;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+.snackbar__action {
+  position: relative;
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--md-sys-color-inverse-primary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.snackbar__action::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.snackbar__action:active::after {
+  opacity: 0.12;
+}
+
+/* ------------------------------------------------------------
+   アニメーションを控える設定を尊重する
+   ------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .chip,
+  .chip::after,
+  .pad,
+  .pad__guide,
+  .pad__knob,
+  .snackbar__action::after {
+    transition: none;
+  }
+}
