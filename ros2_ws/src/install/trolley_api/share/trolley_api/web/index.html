@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf9fd" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Trolley">
+<title>Trolley コントローラ</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============================================================
+       上部: 操作権の状態（タップで操作権を要求）
+       ============================================================ -->
+  <header class="topbar">
+    <button
+      id="sourceChip"
+      class="chip is-offline"
+      type="button"
+      aria-live="polite"
+      aria-label="操作権の状態。タップで操作権を要求します。">
+      <span class="chip__dot" aria-hidden="true"></span>
+      <span class="chip__label" id="chipLabel">接続中…</span>
+    </button>
+  </header>
+
+  <!-- ============================================================
+       中央: 走行スティック
+       ============================================================ -->
+  <main class="stage">
+    <div class="pad-wrap">
+      <div
+        id="pad"
+        class="pad is-disabled"
+        role="application"
+        aria-label="走行スティック。押している間だけ走行します。">
+
+        <div class="pad__guide pad__guide--v" aria-hidden="true"></div>
+        <div class="pad__guide pad__guide--h" aria-hidden="true"></div>
+
+        <span class="pad__mark pad__mark--up" aria-hidden="true">▲</span>
+        <span class="pad__mark pad__mark--down" aria-hidden="true">▼</span>
+        <span class="pad__mark pad__mark--left" aria-hidden="true">◀</span>
+        <span class="pad__mark pad__mark--right" aria-hidden="true">▶</span>
+
+        <div id="knob" class="pad__knob"></div>
+      </div>
+
+      <p class="hint" id="hint">指を離すと停止します</p>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       下部: 通知 / Joyへの返却
+       ============================================================ -->
+  <div id="snackbar" class="snackbar" role="status" hidden>
+    <span class="snackbar__text" id="snackbarText"></span>
+    <button
+      id="snackbarAction"
+      class="snackbar__action"
+      type="button"
+      hidden>Joyに戻す</button>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

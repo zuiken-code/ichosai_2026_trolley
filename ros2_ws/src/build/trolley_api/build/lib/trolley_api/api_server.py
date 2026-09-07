@@ -3,7 +3,15 @@ from contextlib import asynccontextmanager
 import rclpy
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from rclpy.node import Node
+
+from trolley_api.teleop_ws import (
+    WEB_DIR,
+    get_bridge,
+    router as teleop_router,
+    shutdown_bridge,
+)
 
 from trolley_interfaces.srv import (
     SetDriveEnabled,
@@ -78,7 +86,13 @@ ros_node = ROSClient()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+
+    # スマートフォンコントローラ用のROSブリッジを起動する
+    get_bridge()
+
     yield
+
+    shutdown_bridge()
 
     ros_node.destroy_node()
     rclpy.shutdown()
@@ -113,6 +127,25 @@ app.add_middleware(
     allow_methods=['*'],
     allow_headers=['*'],
 )
+
+
+# ============================================================
+# スマートフォンコントローラ
+# ============================================================
+
+# WebSocket (/ws/teleop) と状態取得API
+app.include_router(teleop_router)
+
+# スマートフォン向けの操作画面。
+# 同一オリジンのhttpで配信することで、
+# httpsのページから ws://192.168.x.x へ接続できない
+# mixed contentの問題を避ける。
+if WEB_DIR.is_dir():
+    app.mount(
+        '/controller',
+        StaticFiles(directory=WEB_DIR, html=True),
+        name='controller',
+    )
 
 
 # ============================================================

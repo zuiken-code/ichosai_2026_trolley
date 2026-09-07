@@ -1,0 +1,40 @@
+[3.671s] Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_cmd_mux': PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_cmd_mux build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/install.log --install-scripts $base/lib/trolley_cmd_mux --single-version-externally-managed install_data
+[4.142s] running egg_info
+[4.142s] creating ../build/trolley_cmd_mux/trolley_cmd_mux.egg-info
+[4.172s] writing ../build/trolley_cmd_mux/trolley_cmd_mux.egg-info/PKG-INFO
+[4.175s] writing dependency_links to ../build/trolley_cmd_mux/trolley_cmd_mux.egg-info/dependency_links.txt
+[4.175s] writing entry points to ../build/trolley_cmd_mux/trolley_cmd_mux.egg-info/entry_points.txt
+[4.175s] writing requirements to ../build/trolley_cmd_mux/trolley_cmd_mux.egg-info/requires.txt
+[4.175s] writing top-level names to ../build/trolley_cmd_mux/trolley_cmd_mux.egg-info/top_level.txt
+[4.176s] writing manifest file '../build/trolley_cmd_mux/trolley_cmd_mux.egg-info/SOURCES.txt'
+[4.235s] reading manifest file '../build/trolley_cmd_mux/trolley_cmd_mux.egg-info/SOURCES.txt'
+[4.236s] writing manifest file '../build/trolley_cmd_mux/trolley_cmd_mux.egg-info/SOURCES.txt'
+[4.236s] running build
+[4.236s] running build_py
+[4.237s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build
+[4.237s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build/lib
+[4.237s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build/lib/trolley_cmd_mux
+[4.237s] copying trolley_cmd_mux/__init__.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build/lib/trolley_cmd_mux
+[4.237s] copying trolley_cmd_mux/cmd_vel_mux_node.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build/lib/trolley_cmd_mux
+[4.237s] copying trolley_cmd_mux/arbiter.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build/lib/trolley_cmd_mux
+[4.238s] running install
+[4.247s] running install_lib
+[4.281s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages/trolley_cmd_mux
+[4.282s] copying /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build/lib/trolley_cmd_mux/__init__.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages/trolley_cmd_mux
+[4.282s] copying /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build/lib/trolley_cmd_mux/cmd_vel_mux_node.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages/trolley_cmd_mux
+[4.282s] copying /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build/lib/trolley_cmd_mux/arbiter.py -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages/trolley_cmd_mux
+[4.282s] byte-compiling /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages/trolley_cmd_mux/__init__.py to __init__.cpython-312.pyc
+[4.283s] byte-compiling /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages/trolley_cmd_mux/cmd_vel_mux_node.py to cmd_vel_mux_node.cpython-312.pyc
+[4.286s] byte-compiling /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages/trolley_cmd_mux/arbiter.py to arbiter.cpython-312.pyc
+[4.287s] running install_data
+[4.288s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/share/ament_index
+[4.288s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/share/ament_index/resource_index
+[4.288s] creating /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/share/ament_index/resource_index/packages
+[4.288s] copying resource/trolley_cmd_mux -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/share/ament_index/resource_index/packages
+[4.288s] copying package.xml -> /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/share/trolley_cmd_mux
+[4.288s] running install_egg_info
+[4.320s] Copying ../build/trolley_cmd_mux/trolley_cmd_mux.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages/trolley_cmd_mux-0.0.0-py3.12.egg-info
+[4.322s] running install_scripts
+[4.571s] Installing cmd_vel_mux script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/trolley_cmd_mux
+[4.576s] writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/install.log'
+[8.347s] Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_cmd_mux' returned '0': PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_cmd_mux/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_cmd_mux build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_cmd_mux/install.log --install-scripts $base/lib/trolley_cmd_mux --single-version-externally-managed install_data

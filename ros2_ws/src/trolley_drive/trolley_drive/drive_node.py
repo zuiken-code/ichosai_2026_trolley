@@ -3,6 +3,7 @@ from enum import Enum
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
+
 from trolley_interfaces.srv import SetDriveEnabled, SetDriveMode
 
 from trolley_drive.kinematics import cmd_vel_to_wheel_rpm
@@ -22,6 +23,12 @@ from SalonPath import (
 WHEEL_RADIUS = 0.075       # m
 TRACK_WIDTH = 0.431        # m
 
+# Duty 100% 相当のモーター最大RPM
+#
+# TODO:
+# 実機でDuty=1.0を出したときのRPMを測定して変更する。
+MAX_RPM = 127
+
 # Motor IDs
 LEFT_MOTOR_ID = 1
 RIGHT_MOTOR_ID = 2
@@ -34,10 +41,41 @@ ESP32_PORT = 5000
 CONTROL_FREQUENCY = 50.0   # Hz
 
 
+# =========================
+# Drive Mode
+# =========================
+
 class DriveMode(Enum):
     TELEOP = 1
     AUTO = 2
 
+
+# =========================
+# Utility
+# =========================
+
+def rpm_to_duty(rpm: float) -> float:
+    """
+    RPMをDuty [-1.0, +1.0] に変換する。
+
+    例:
+        +MAX_RPM -> +1.0
+        +MAX_RPM/2 -> +0.5
+        0 -> 0.0
+        -MAX_RPM/2 -> -0.5
+        -MAX_RPM -> -1.0
+    """
+
+    duty = rpm / MAX_RPM
+
+    # ESP32側の仕様に合わせて
+    # -1.0 ～ +1.0 に制限
+    return max(-1.0, min(1.0, duty))
+
+
+# =========================
+# Trolley Drive Node
+# =========================
 
 class TrolleyDrive(Node):
 
@@ -47,6 +85,7 @@ class TrolleyDrive(Node):
         # =========================
         # Mode
         # =========================
+
         self.enabled = False
         self.mode = DriveMode.TELEOP
 
@@ -56,6 +95,15 @@ class TrolleyDrive(Node):
 
         self.left_rpm = 0.0
         self.right_rpm = 0.0
+
+        # =========================
+        # Target motor Duty
+        #
+        # -1.0 ～ +1.0
+        # =========================
+
+        self.left_duty = 0.0
+        self.right_duty = 0.0
 
         # =========================
         # SalonPath
@@ -127,11 +175,16 @@ class TrolleyDrive(Node):
 
     def cmd_vel_callback(self, msg: Twist):
 
+        # TELEOP以外ではcmd_velを無視
         if self.mode != DriveMode.TELEOP:
             return
 
         linear_velocity = msg.linear.x
         angular_velocity = msg.angular.z
+
+        # =========================
+        # cmd_vel -> wheel RPM
+        # =========================
 
         self.left_rpm, self.right_rpm = (
             cmd_vel_to_wheel_rpm(
@@ -141,25 +194,48 @@ class TrolleyDrive(Node):
                 TRACK_WIDTH,
             )
         )
-        
+
+        # =========================
+        # RPM -> Duty
+        # =========================
+
+        self.left_duty = rpm_to_duty(
+            self.left_rpm
+        )
+
+        self.right_duty = rpm_to_duty(
+            self.right_rpm
+        )
+
+        # =========================
+        # Debug
+        # =========================
+
         print(
             f"[CMD_VEL] "
             f"linear={linear_velocity:.3f}, "
             f"angular={angular_velocity:.3f}, "
             f"left_rpm={self.left_rpm:.2f}, "
-            f"right_rpm={self.right_rpm:.2f}",
+            f"right_rpm={self.right_rpm:.2f}, "
+            f"left_duty={self.left_duty:.3f}, "
+            f"right_duty={self.right_duty:.3f}",
             flush=True,
-            )
-        
+        )
+
     # =========================
     # Enable / Disable
     # =========================
 
-    def set_enabled_callback(self, request, response):
+    def set_enabled_callback(
+        self,
+        request,
+        response,
+    ):
 
         self.enabled = request.enabled
 
         if self.enabled:
+
             response.success = True
             response.message = 'Drive enabled'
 
@@ -168,6 +244,7 @@ class TrolleyDrive(Node):
             )
 
         else:
+
             self.stop_motors()
 
             response.success = True
@@ -183,7 +260,11 @@ class TrolleyDrive(Node):
     # TELEOP / AUTO
     # =========================
 
-    def set_mode_callback(self, request, response):
+    def set_mode_callback(
+        self,
+        request,
+        response,
+    ):
 
         if request.mode == DriveMode.TELEOP.value:
 
@@ -196,7 +277,9 @@ class TrolleyDrive(Node):
         else:
 
             response.success = False
-            response.message = f'Invalid mode: {request.mode}'
+            response.message = (
+                f'Invalid mode: {request.mode}'
+            )
 
             self.get_logger().warn(
                 response.message
@@ -205,13 +288,19 @@ class TrolleyDrive(Node):
             return response
 
         response.success = True
-        response.message = f'Mode changed to {self.mode.name}'
+        response.message = (
+            f'Mode changed to {self.mode.name}'
+        )
 
         self.get_logger().info(
             response.message
         )
 
         return response
+
+    # =========================
+    # Motor Control Loop
+    # =========================
 
     def control_loop(self):
 
@@ -220,7 +309,9 @@ class TrolleyDrive(Node):
         # =========================
 
         if not self.enabled:
+
             self.stop_motors()
+
             return
 
         # =========================
@@ -229,14 +320,18 @@ class TrolleyDrive(Node):
 
         if self.mode == DriveMode.TELEOP:
 
+            # =========================
+            # Duty Output
+            # =========================
+
             self.left_motor.setReference(
-                self.left_rpm,
-                ControlType.VELOCITY,
+                self.left_duty,
+                ControlType.DUTY_CYCLE,
             )
 
             self.right_motor.setReference(
-                self.right_rpm,
-                ControlType.VELOCITY,
+                self.right_duty,
+                ControlType.DUTY_CYCLE,
             )
 
         # =========================
@@ -246,8 +341,25 @@ class TrolleyDrive(Node):
         elif self.mode == DriveMode.AUTO:
 
             # TODO:
-            # Auto用のServiceから受け取った
-            # 左右RPMをここで送る
+            #
+            # Auto用Serviceなどから左右RPMを受け取り、
+            # ここでRPM -> Dutyへ変換して送る。
+            #
+            # 例:
+            #
+            # left_duty = rpm_to_duty(auto_left_rpm)
+            # right_duty = rpm_to_duty(auto_right_rpm)
+            #
+            # self.left_motor.setReference(
+            #     left_duty,
+            #     ControlType.DUTY_CYCLE,
+            # )
+            #
+            # self.right_motor.setReference(
+            #     right_duty,
+            #     ControlType.DUTY_CYCLE,
+            # )
+
             pass
 
     # =========================
@@ -256,6 +368,14 @@ class TrolleyDrive(Node):
 
     def stop_motors(self):
 
+        # 内部の目標値も0に戻す
+        self.left_rpm = 0.0
+        self.right_rpm = 0.0
+
+        self.left_duty = 0.0
+        self.right_duty = 0.0
+
+        # ESP32側のDISABLEを使用
         self.left_motor.setReference(
             0.0,
             ControlType.DISABLE,
@@ -279,6 +399,10 @@ class TrolleyDrive(Node):
         super().destroy_node()
 
 
+# =========================
+# Main
+# =========================
+
 def main(args=None):
 
     rclpy.init(args=args)
@@ -286,13 +410,17 @@ def main(args=None):
     node = TrolleyDrive()
 
     try:
+
         rclpy.spin(node)
 
     except KeyboardInterrupt:
+
         pass
 
     finally:
+
         node.destroy_node()
+
         rclpy.shutdown()
 
 
