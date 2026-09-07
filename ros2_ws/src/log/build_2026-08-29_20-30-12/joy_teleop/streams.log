@@ -1,0 +1,21 @@
+[11.852s] Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/joy_teleop build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/install.log --install-scripts $base/lib/joy_teleop --single-version-externally-managed install_data
+[12.264s] running egg_info
+[12.289s] writing ../build/joy_teleop/joy_teleop.egg-info/PKG-INFO
+[12.751s] writing dependency_links to ../build/joy_teleop/joy_teleop.egg-info/dependency_links.txt
+[12.905s] writing entry points to ../build/joy_teleop/joy_teleop.egg-info/entry_points.txt
+[12.905s] writing requirements to ../build/joy_teleop/joy_teleop.egg-info/requires.txt
+[12.905s] writing top-level names to ../build/joy_teleop/joy_teleop.egg-info/top_level.txt
+[12.960s] reading manifest file '../build/joy_teleop/joy_teleop.egg-info/SOURCES.txt'
+[13.653s] writing manifest file '../build/joy_teleop/joy_teleop.egg-info/SOURCES.txt'
+[13.653s] running build
+[13.653s] running build_py
+[18.081s] running install
+[18.081s] running install_lib
+[18.099s] running install_data
+[18.107s] running install_egg_info
+[18.134s] removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages/joy_teleop-0.0.0-py3.12.egg-info' (and everything under it)
+[18.135s] Copying ../build/joy_teleop/joy_teleop.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages/joy_teleop-0.0.0-py3.12.egg-info
+[18.138s] running install_scripts
+[18.332s] Installing joy_teleop script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/joy_teleop
+[18.335s] writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/install.log'
+[18.495s] Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/joy_teleop build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/install.log --install-scripts $base/lib/joy_teleop --single-version-externally-managed install_data

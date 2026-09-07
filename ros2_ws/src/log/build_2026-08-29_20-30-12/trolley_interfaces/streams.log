@@ -1,0 +1,186 @@
+[0.892s] Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces -- -j4 -l4
+[1.875s] [  2%] Built target trolley_interfaces__rosidl_generator_type_description
+[1.896s] [  4%] Built target trolley_interfaces__rs
+[2.031s] [  4%] Built target ament_cmake_python_copy_trolley_interfaces
+[2.137s] [  6%] Built target trolley_interfaces__cpp
+[2.962s] [ 24%] Built target trolley_interfaces__rosidl_generator_c
+[3.136s] running egg_info
+[3.162s] [ 33%] Built target trolley_interfaces__rosidl_typesupport_fastrtps_cpp
+[3.174s] [ 42%] Built target trolley_interfaces__rosidl_typesupport_introspection_cpp
+[3.174s] writing trolley_interfaces.egg-info/PKG-INFO
+[3.175s] writing dependency_links to trolley_interfaces.egg-info/dependency_links.txt
+[3.175s] [ 51%] Built target trolley_interfaces__rosidl_typesupport_cpp
+[3.176s] writing top-level names to trolley_interfaces.egg-info/top_level.txt
+[3.541s] reading manifest file 'trolley_interfaces.egg-info/SOURCES.txt'
+[3.548s] writing manifest file 'trolley_interfaces.egg-info/SOURCES.txt'
+[3.620s] [ 51%] Built target ament_cmake_python_build_trolley_interfaces_egg
+[3.738s] [ 60%] Built target trolley_interfaces__rosidl_typesupport_c
+[3.742s] [ 68%] Built target trolley_interfaces__rosidl_typesupport_introspection_c
+[3.749s] [ 77%] Built target trolley_interfaces__rosidl_typesupport_fastrtps_c
+[3.796s] [ 77%] Built target trolley_interfaces
+[3.850s] [ 80%] Built target trolley_interfaces__py
+[3.967s] [ 86%] Built target trolley_interfaces__rosidl_generator_py
+[4.052s] [ 91%] Built target trolley_interfaces_s__rosidl_typesupport_fastrtps_c
+[4.054s] [ 95%] Built target trolley_interfaces_s__rosidl_typesupport_introspection_c
+[4.061s] [100%] Built target trolley_interfaces_s__rosidl_typesupport_c
+[4.083s] Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces -- -j4 -l4
+[4.116s] Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces
+[4.135s] -- Install configuration: ""
+[4.144s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/rosidl_interfaces/trolley_interfaces
+[4.148s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveEnabled.json
+[4.148s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveMode.json
+[4.152s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces
+[4.154s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg
+[4.156s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_generator_c__visibility_control.h
+[4.156s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv
+[4.158s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail
+[4.160s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__struct.h
+[4.160s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__struct.h
+[4.160s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__description.c
+[4.160s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__description.c
+[4.161s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__functions.h
+[4.161s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.h
+[4.161s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__functions.h
+[4.161s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__functions.c
+[4.161s] -- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.c
+[4.162s] -- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.c
+[4.164s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__functions.c
+[4.164s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.h
+[4.164s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_mode.h
+[4.164s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_enabled.h
+[4.166s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/library_path.sh
+[4.166s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/library_path.dsv
+[4.176s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_generator_c.so
+[4.177s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces
+[4.177s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg
+[4.177s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[4.177s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv
+[4.177s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail
+[4.177s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_fastrtps_c.h
+[4.178s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_fastrtps_c.h
+[4.183s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_fastrtps_c.so
+[4.184s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces
+[4.184s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg
+[4.184s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[4.185s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv
+[4.185s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail
+[4.185s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_introspection_c.h
+[4.185s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_introspection_c.h
+[4.185s] -- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.c
+[4.188s] -- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.c
+[4.198s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_introspection_c.so
+[4.205s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_c.so
+[4.205s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces
+[4.205s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg
+[4.205s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[4.206s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv
+[4.206s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_mode.hpp
+[4.206s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_enabled.hpp
+[4.206s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail
+[4.206s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__builder.hpp
+[4.206s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__traits.hpp
+[4.206s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__struct.hpp
+[4.207s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.hpp
+[4.207s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__struct.hpp
+[4.207s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__traits.hpp
+[4.207s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__builder.hpp
+[4.207s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.hpp
+[4.207s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces
+[4.207s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg
+[4.207s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[4.207s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv
+[4.208s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail
+[4.208s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_fastrtps_cpp.hpp
+[4.208s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_fastrtps_cpp.hpp
+[4.208s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/dds_fastrtps
+[4.213s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[4.213s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces
+[4.214s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv
+[4.214s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail
+[4.214s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.cpp
+[4.214s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_introspection_cpp.hpp
+[4.214s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.cpp
+[4.214s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_introspection_cpp.hpp
+[4.220s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_introspection_cpp.so
+[4.226s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_cpp.so
+[4.226s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/pythonpath.sh
+[4.226s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/pythonpath.dsv
+[4.230s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info
+[4.232s] -- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/top_level.txt
+[4.232s] -- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/PKG-INFO
+[4.232s] -- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt
+[4.233s] -- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt
+[4.233s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces
+[4.235s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_introspection_c.so
+[4.235s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/__init__.py
+[4.235s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[4.235s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv
+[4.237s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_enabled.py
+[4.237s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/__init__.py
+[4.237s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_mode_s.c
+[4.237s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_mode.py
+[4.237s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_enabled_s.c
+[4.237s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_c.so
+[4.238s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[4.238s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_c.c
+[4.238s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[4.313s] Listing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces'...
+[4.313s] Listing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv'...
+[4.338s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_fastrtps_c.so
+[4.343s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_introspection_c.so
+[4.349s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_c.so
+[4.356s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_generator_py.so
+[4.358s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/rust_packages/trolley_interfaces
+[4.359s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust
+[4.359s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/build.rs
+[4.359s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src
+[4.359s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/lib.rs
+[4.360s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/srv
+[4.362s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/srv/rmw.rs
+[4.362s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/srv.rs
+[4.362s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/Cargo.toml
+[4.362s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveEnabled.idl
+[4.362s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveMode.idl
+[4.362s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveEnabled.srv
+[4.362s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveMode.srv
+[4.364s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/package_run_dependencies/trolley_interfaces
+[4.367s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/parent_prefix_path/trolley_interfaces
+[4.367s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/ament_prefix_path.sh
+[4.367s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/ament_prefix_path.dsv
+[4.367s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/path.sh
+[4.367s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/path.dsv
+[4.368s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.bash
+[4.368s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.sh
+[4.368s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.zsh
+[4.368s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.dsv
+[4.368s] -- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.dsv
+[4.371s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/packages/trolley_interfaces
+[4.380s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_cExport.cmake
+[4.381s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_cExport-noconfig.cmake
+[4.385s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[4.385s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[4.390s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[4.390s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[4.394s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cExport.cmake
+[4.394s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[4.397s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_cppExport.cmake
+[4.402s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[4.402s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[4.405s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[4.405s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[4.408s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cppExport.cmake
+[4.408s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[4.410s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_pyExport.cmake
+[4.410s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[4.410s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake-extras.cmake
+[4.410s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.411s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.411s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[4.411s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[4.411s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[4.411s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[4.411s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[4.411s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfacesConfig.cmake
+[4.411s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfacesConfig-version.cmake
+[4.412s] -- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.xml
+[4.419s] Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces

@@ -1,0 +1,415 @@
+[0.000000] (-) TimerEvent: {}
+[0.000245] (joy_teleop) JobQueued: {'identifier': 'joy_teleop', 'dependencies': OrderedDict()}
+[0.000290] (trolley_bringup) JobQueued: {'identifier': 'trolley_bringup', 'dependencies': OrderedDict()}
+[0.000313] (trolley_interfaces) JobQueued: {'identifier': 'trolley_interfaces', 'dependencies': OrderedDict()}
+[0.000331] (trolley_drive) JobQueued: {'identifier': 'trolley_drive', 'dependencies': OrderedDict({'trolley_interfaces': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces'})}
+[0.000762] (trolley_interfaces) JobStarted: {'identifier': 'trolley_interfaces'}
+[0.026735] (joy_teleop) JobStarted: {'identifier': 'joy_teleop'}
+[0.053425] (trolley_bringup) JobStarted: {'identifier': 'trolley_bringup'}
+[0.099668] (-) TimerEvent: {}
+[0.199992] (-) TimerEvent: {}
+[0.300254] (-) TimerEvent: {}
+[0.400459] (-) TimerEvent: {}
+[0.500663] (-) TimerEvent: {}
+[0.600889] (-) TimerEvent: {}
+[0.701172] (-) TimerEvent: {}
+[0.731635] (trolley_interfaces) JobProgress: {'identifier': 'trolley_interfaces', 'progress': 'cmake'}
+[0.801244] (-) TimerEvent: {}
+[0.887591] (trolley_interfaces) JobProgress: {'identifier': 'trolley_interfaces', 'progress': 'build'}
+[0.888783] (trolley_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', '--', '-j4', '-l4'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '7', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.901322] (-) TimerEvent: {}
+[1.001535] (-) TimerEvent: {}
+[1.101747] (-) TimerEvent: {}
+[1.202050] (-) TimerEvent: {}
+[1.302340] (-) TimerEvent: {}
+[1.402638] (-) TimerEvent: {}
+[1.502912] (-) TimerEvent: {}
+[1.603217] (-) TimerEvent: {}
+[1.703618] (-) TimerEvent: {}
+[1.803933] (-) TimerEvent: {}
+[1.874843] (trolley_interfaces) StdoutLine: {'line': b'[  2%] Built target trolley_interfaces__rosidl_generator_type_description\n'}
+[1.896350] (trolley_interfaces) StdoutLine: {'line': b'[  4%] Built target trolley_interfaces__rs\n'}
+[1.904140] (-) TimerEvent: {}
+[2.004532] (-) TimerEvent: {}
+[2.031787] (trolley_interfaces) StdoutLine: {'line': b'[  4%] Built target ament_cmake_python_copy_trolley_interfaces\n'}
+[2.104648] (-) TimerEvent: {}
+[2.137623] (trolley_interfaces) StdoutLine: {'line': b'[  6%] Built target trolley_interfaces__cpp\n'}
+[2.204745] (-) TimerEvent: {}
+[2.305080] (-) TimerEvent: {}
+[2.405340] (-) TimerEvent: {}
+[2.505614] (-) TimerEvent: {}
+[2.605903] (-) TimerEvent: {}
+[2.706394] (-) TimerEvent: {}
+[2.806738] (-) TimerEvent: {}
+[2.907114] (-) TimerEvent: {}
+[2.962124] (trolley_interfaces) StdoutLine: {'line': b'[ 24%] Built target trolley_interfaces__rosidl_generator_c\n'}
+[3.007234] (-) TimerEvent: {}
+[3.107608] (-) TimerEvent: {}
+[3.136179] (trolley_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[3.162383] (trolley_interfaces) StdoutLine: {'line': b'[ 33%] Built target trolley_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[3.174077] (trolley_interfaces) StdoutLine: {'line': b'[ 42%] Built target trolley_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[3.174612] (trolley_interfaces) StdoutLine: {'line': b'writing trolley_interfaces.egg-info/PKG-INFO\n'}
+[3.175612] (trolley_interfaces) StdoutLine: {'line': b'writing dependency_links to trolley_interfaces.egg-info/dependency_links.txt\n'}
+[3.175937] (trolley_interfaces) StdoutLine: {'line': b'[ 51%] Built target trolley_interfaces__rosidl_typesupport_cpp\n'}
+[3.176245] (trolley_interfaces) StdoutLine: {'line': b'writing top-level names to trolley_interfaces.egg-info/top_level.txt\n'}
+[3.207738] (-) TimerEvent: {}
+[3.308092] (-) TimerEvent: {}
+[3.408324] (-) TimerEvent: {}
+[3.508615] (-) TimerEvent: {}
+[3.541254] (trolley_interfaces) StdoutLine: {'line': b"reading manifest file 'trolley_interfaces.egg-info/SOURCES.txt'\n"}
+[3.548195] (trolley_interfaces) StdoutLine: {'line': b"writing manifest file 'trolley_interfaces.egg-info/SOURCES.txt'\n"}
+[3.608743] (-) TimerEvent: {}
+[3.620579] (trolley_interfaces) StdoutLine: {'line': b'[ 51%] Built target ament_cmake_python_build_trolley_interfaces_egg\n'}
+[3.708847] (-) TimerEvent: {}
+[3.738542] (trolley_interfaces) StdoutLine: {'line': b'[ 60%] Built target trolley_interfaces__rosidl_typesupport_c\n'}
+[3.742402] (trolley_interfaces) StdoutLine: {'line': b'[ 68%] Built target trolley_interfaces__rosidl_typesupport_introspection_c\n'}
+[3.749215] (trolley_interfaces) StdoutLine: {'line': b'[ 77%] Built target trolley_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[3.796154] (trolley_interfaces) StdoutLine: {'line': b'[ 77%] Built target trolley_interfaces\n'}
+[3.808997] (-) TimerEvent: {}
+[3.850730] (trolley_interfaces) StdoutLine: {'line': b'[ 80%] Built target trolley_interfaces__py\n'}
+[3.909031] (-) TimerEvent: {}
+[3.967145] (trolley_interfaces) StdoutLine: {'line': b'[ 86%] Built target trolley_interfaces__rosidl_generator_py\n'}
+[4.009199] (-) TimerEvent: {}
+[4.052204] (trolley_interfaces) StdoutLine: {'line': b'[ 91%] Built target trolley_interfaces_s__rosidl_typesupport_fastrtps_c\n'}
+[4.054529] (trolley_interfaces) StdoutLine: {'line': b'[ 95%] Built target trolley_interfaces_s__rosidl_typesupport_introspection_c\n'}
+[4.061215] (trolley_interfaces) StdoutLine: {'line': b'[100%] Built target trolley_interfaces_s__rosidl_typesupport_c\n'}
+[4.083187] (trolley_interfaces) CommandEnded: {'returncode': 0}
+[4.094462] (trolley_interfaces) JobProgress: {'identifier': 'trolley_interfaces', 'progress': 'install'}
+[4.109297] (-) TimerEvent: {}
+[4.116447] (trolley_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '7', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[4.135187] (trolley_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[4.144872] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/rosidl_interfaces/trolley_interfaces\n'}
+[4.148705] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveEnabled.json\n'}
+[4.148909] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveMode.json\n'}
+[4.152950] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[4.154849] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[4.156749] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[4.156915] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[4.158660] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[4.160578] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__struct.h\n'}
+[4.160812] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__struct.h\n'}
+[4.160962] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__description.c\n'}
+[4.161152] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__description.c\n'}
+[4.161268] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__functions.h\n'}
+[4.161377] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.h\n'}
+[4.161520] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__functions.h\n'}
+[4.161629] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__functions.c\n'}
+[4.161774] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.c\n'}
+[4.162662] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.c\n'}
+[4.164577] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__functions.c\n'}
+[4.164806] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.h\n'}
+[4.164925] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_mode.h\n'}
+[4.165057] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_enabled.h\n'}
+[4.166404] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/library_path.sh\n'}
+[4.166573] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/library_path.dsv\n'}
+[4.176743] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_generator_c.so\n'}
+[4.177122] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[4.177345] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[4.177513] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[4.177649] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[4.177824] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[4.178039] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_fastrtps_c.h\n'}
+[4.178236] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_fastrtps_c.h\n'}
+[4.183879] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[4.184307] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[4.184751] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[4.185014] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[4.185188] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[4.185312] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[4.185427] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_introspection_c.h\n'}
+[4.185556] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_introspection_c.h\n'}
+[4.185712] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.c\n'}
+[4.189001] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.c\n'}
+[4.199052] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[4.205261] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_c.so\n'}
+[4.205585] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[4.205722] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[4.205872] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[4.206158] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[4.206379] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_mode.hpp\n'}
+[4.206500] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/set_drive_enabled.hpp\n'}
+[4.206615] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[4.206726] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__builder.hpp\n'}
+[4.206938] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__traits.hpp\n'}
+[4.207071] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__struct.hpp\n'}
+[4.207188] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.hpp\n'}
+[4.207296] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__struct.hpp\n'}
+[4.207405] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__traits.hpp\n'}
+[4.207512] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__builder.hpp\n'}
+[4.207620] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.hpp\n'}
+[4.207727] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[4.207834] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg\n'}
+[4.207940] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[4.208143] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[4.208258] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[4.208386] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.208496] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[4.208603] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/dds_fastrtps\n'}
+[4.209358] (-) TimerEvent: {}
+[4.213585] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[4.213986] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces\n'}
+[4.214198] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv\n'}
+[4.214334] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail\n'}
+[4.214510] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__type_support.cpp\n'}
+[4.214697] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_mode__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.214815] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__type_support.cpp\n'}
+[4.214925] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/include/trolley_interfaces/trolley_interfaces/srv/detail/set_drive_enabled__rosidl_typesupport_introspection_cpp.hpp\n'}
+[4.220703] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[4.226673] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_typesupport_cpp.so\n'}
+[4.227010] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/pythonpath.sh\n'}
+[4.227166] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/pythonpath.dsv\n'}
+[4.230691] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info\n'}
+[4.232622] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/top_level.txt\n'}
+[4.232926] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/PKG-INFO\n'}
+[4.233159] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/SOURCES.txt\n'}
+[4.233388] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces-0.0.0-py3.12.egg-info/dependency_links.txt\n'}
+[4.233736] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces\n'}
+[4.235442] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[4.235677] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/__init__.py\n'}
+[4.235836] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[4.235956] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv\n'}
+[4.237348] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_enabled.py\n'}
+[4.237576] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/__init__.py\n'}
+[4.237706] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_mode_s.c\n'}
+[4.237834] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_mode.py\n'}
+[4.237959] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv/_set_drive_enabled_s.c\n'}
+[4.238146] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_c.so\n'}
+[4.238346] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[4.238527] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[4.238638] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/_trolley_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[4.309484] (-) TimerEvent: {}
+[4.313048] (trolley_interfaces) StdoutLine: {'line': b"Listing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces'...\n"}
+[4.313405] (trolley_interfaces) StdoutLine: {'line': b"Listing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/srv'...\n"}
+[4.338755] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_fastrtps_c.so\n'}
+[4.343834] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_introspection_c.so\n'}
+[4.349616] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages/trolley_interfaces/trolley_interfaces_s__rosidl_typesupport_c.so\n'}
+[4.356063] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/libtrolley_interfaces__rosidl_generator_py.so\n'}
+[4.358660] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/rust_packages/trolley_interfaces\n'}
+[4.359260] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust\n'}
+[4.359687] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/build.rs\n'}
+[4.359892] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src\n'}
+[4.360159] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/lib.rs\n'}
+[4.360348] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/srv\n'}
+[4.362258] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/srv/rmw.rs\n'}
+[4.362451] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/src/srv.rs\n'}
+[4.362624] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/rust/Cargo.toml\n'}
+[4.362735] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveEnabled.idl\n'}
+[4.362839] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveMode.idl\n'}
+[4.362991] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveEnabled.srv\n'}
+[4.363130] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/srv/SetDriveMode.srv\n'}
+[4.364201] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/package_run_dependencies/trolley_interfaces\n'}
+[4.367285] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/parent_prefix_path/trolley_interfaces\n'}
+[4.367527] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/ament_prefix_path.sh\n'}
+[4.367652] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/ament_prefix_path.dsv\n'}
+[4.367831] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/path.sh\n'}
+[4.368042] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/environment/path.dsv\n'}
+[4.368176] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.bash\n'}
+[4.368488] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.sh\n'}
+[4.368593] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.zsh\n'}
+[4.368689] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/local_setup.dsv\n'}
+[4.368782] (trolley_interfaces) StdoutLine: {'line': b'-- Installing: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.dsv\n'}
+[4.371246] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/ament_index/resource_index/packages/trolley_interfaces\n'}
+[4.380960] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_cExport.cmake\n'}
+[4.381279] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[4.385309] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[4.385573] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[4.390677] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[4.390945] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[4.394205] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[4.394479] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[4.397263] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_cppExport.cmake\n'}
+[4.402252] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[4.402525] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[4.405390] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[4.405715] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[4.408137] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[4.408469] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[4.409547] (-) TimerEvent: {}
+[4.410603] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_pyExport.cmake\n'}
+[4.410863] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/export_trolley_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[4.410994] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[4.411159] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[4.411262] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[4.411363] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[4.411550] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[4.411701] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[4.411805] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[4.411892] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/rosidl_cmake_aggregate_target-extras.cmake\n'}
+[4.411990] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfacesConfig.cmake\n'}
+[4.412095] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/cmake/trolley_interfacesConfig-version.cmake\n'}
+[4.412242] (trolley_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.xml\n'}
+[4.419637] (trolley_interfaces) CommandEnded: {'returncode': 0}
+[4.509638] (-) TimerEvent: {}
+[4.609917] (-) TimerEvent: {}
+[4.857779] (-) TimerEvent: {}
+[4.958044] (-) TimerEvent: {}
+[5.058294] (-) TimerEvent: {}
+[5.158526] (-) TimerEvent: {}
+[5.258778] (-) TimerEvent: {}
+[5.359021] (-) TimerEvent: {}
+[5.459255] (-) TimerEvent: {}
+[5.559483] (-) TimerEvent: {}
+[5.659711] (-) TimerEvent: {}
+[5.759907] (-) TimerEvent: {}
+[5.860120] (-) TimerEvent: {}
+[5.960328] (-) TimerEvent: {}
+[6.060566] (-) TimerEvent: {}
+[6.160767] (-) TimerEvent: {}
+[6.261000] (-) TimerEvent: {}
+[6.361238] (-) TimerEvent: {}
+[6.461451] (-) TimerEvent: {}
+[6.561707] (-) TimerEvent: {}
+[6.661932] (-) TimerEvent: {}
+[6.762207] (-) TimerEvent: {}
+[6.862443] (-) TimerEvent: {}
+[6.962672] (-) TimerEvent: {}
+[7.062903] (-) TimerEvent: {}
+[7.163110] (-) TimerEvent: {}
+[7.263306] (-) TimerEvent: {}
+[7.363543] (-) TimerEvent: {}
+[7.463778] (-) TimerEvent: {}
+[7.564012] (-) TimerEvent: {}
+[7.664269] (-) TimerEvent: {}
+[7.764504] (-) TimerEvent: {}
+[7.864720] (-) TimerEvent: {}
+[7.908501] (trolley_interfaces) JobEnded: {'identifier': 'trolley_interfaces', 'rc': 0}
+[8.049071] (-) TimerEvent: {}
+[8.049239] (trolley_drive) JobStarted: {'identifier': 'trolley_drive'}
+[8.149157] (-) TimerEvent: {}
+[8.249391] (-) TimerEvent: {}
+[8.349622] (-) TimerEvent: {}
+[8.449871] (-) TimerEvent: {}
+[8.550147] (-) TimerEvent: {}
+[8.650446] (-) TimerEvent: {}
+[8.750759] (-) TimerEvent: {}
+[8.851038] (-) TimerEvent: {}
+[8.951387] (-) TimerEvent: {}
+[9.051672] (-) TimerEvent: {}
+[9.152046] (-) TimerEvent: {}
+[9.252480] (-) TimerEvent: {}
+[9.352796] (-) TimerEvent: {}
+[9.453041] (-) TimerEvent: {}
+[9.553331] (-) TimerEvent: {}
+[9.653615] (-) TimerEvent: {}
+[9.908340] (-) TimerEvent: {}
+[10.008713] (-) TimerEvent: {}
+[10.109023] (-) TimerEvent: {}
+[10.209356] (-) TimerEvent: {}
+[10.309782] (-) TimerEvent: {}
+[10.410104] (-) TimerEvent: {}
+[10.510397] (-) TimerEvent: {}
+[10.610706] (-) TimerEvent: {}
+[10.710951] (-) TimerEvent: {}
+[10.811176] (-) TimerEvent: {}
+[10.911403] (-) TimerEvent: {}
+[11.011664] (-) TimerEvent: {}
+[11.111879] (-) TimerEvent: {}
+[11.212160] (-) TimerEvent: {}
+[11.312678] (-) TimerEvent: {}
+[11.413156] (-) TimerEvent: {}
+[11.516163] (-) TimerEvent: {}
+[11.618157] (-) TimerEvent: {}
+[11.719035] (-) TimerEvent: {}
+[11.819756] (-) TimerEvent: {}
+[11.877930] (joy_teleop) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/joy_teleop', 'build', '--build-base', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/build', 'install', '--record', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/install.log', '--install-scripts', '$base/lib/joy_teleop', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '7', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[11.880599] (trolley_bringup) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/trolley_bringup', 'build', '--build-base', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build', 'install', '--record', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/install.log', '--install-scripts', '$base/lib/trolley_bringup', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '7', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[11.887227] (trolley_drive) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../build/trolley_drive', 'build', '--build-base', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/build', 'install', '--record', '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/install.log', '--install-scripts', '$base/lib/trolley_drive', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'zuiken', 'SSH_CLIENT': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/zuiken', 'OLDPWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'zuiken', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '7', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive', 'SSH_CONNECTION': 'fe80::6602:f97c:cba5:7eae%wlan0 64847 fe80::54fc:92a4:ab0f:dff3%wlan0 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor'}, 'shell': False}
+[11.919899] (-) TimerEvent: {}
+[12.021255] (-) TimerEvent: {}
+[12.121623] (-) TimerEvent: {}
+[12.222136] (-) TimerEvent: {}
+[12.291124] (joy_teleop) StdoutLine: {'line': b'running egg_info\n'}
+[12.291647] (trolley_bringup) StdoutLine: {'line': b'running egg_info\n'}
+[12.299493] (trolley_drive) StdoutLine: {'line': b'running egg_info\n'}
+[12.316419] (joy_teleop) StdoutLine: {'line': b'writing ../build/joy_teleop/joy_teleop.egg-info/PKG-INFO\n'}
+[12.316604] (trolley_bringup) StdoutLine: {'line': b'writing ../build/trolley_bringup/trolley_bringup.egg-info/PKG-INFO\n'}
+[12.317984] (trolley_bringup) StdoutLine: {'line': b'writing dependency_links to ../build/trolley_bringup/trolley_bringup.egg-info/dependency_links.txt\n'}
+[12.322198] (-) TimerEvent: {}
+[12.324660] (trolley_drive) StdoutLine: {'line': b'writing ../build/trolley_drive/trolley_drive.egg-info/PKG-INFO\n'}
+[12.422285] (-) TimerEvent: {}
+[12.477711] (trolley_bringup) StdoutLine: {'line': b'writing requirements to ../build/trolley_bringup/trolley_bringup.egg-info/requires.txt\n'}
+[12.522368] (-) TimerEvent: {}
+[12.622608] (-) TimerEvent: {}
+[12.629246] (trolley_bringup) StdoutLine: {'line': b'writing top-level names to ../build/trolley_bringup/trolley_bringup.egg-info/top_level.txt\n'}
+[12.684484] (trolley_bringup) StdoutLine: {'line': b"reading manifest file '../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'\n"}
+[12.722689] (-) TimerEvent: {}
+[12.778219] (joy_teleop) StdoutLine: {'line': b'writing dependency_links to ../build/joy_teleop/joy_teleop.egg-info/dependency_links.txt\n'}
+[12.822772] (-) TimerEvent: {}
+[12.923024] (-) TimerEvent: {}
+[12.931837] (joy_teleop) StdoutLine: {'line': b'writing entry points to ../build/joy_teleop/joy_teleop.egg-info/entry_points.txt\n'}
+[12.932167] (joy_teleop) StdoutLine: {'line': b'writing requirements to ../build/joy_teleop/joy_teleop.egg-info/requires.txt\n'}
+[12.932378] (joy_teleop) StdoutLine: {'line': b'writing top-level names to ../build/joy_teleop/joy_teleop.egg-info/top_level.txt\n'}
+[12.933137] (trolley_drive) StdoutLine: {'line': b'writing dependency_links to ../build/trolley_drive/trolley_drive.egg-info/dependency_links.txt\n'}
+[12.934431] (trolley_bringup) StdoutLine: {'line': b"writing manifest file '../build/trolley_bringup/trolley_bringup.egg-info/SOURCES.txt'\n"}
+[12.934693] (trolley_bringup) StdoutLine: {'line': b'running build\n'}
+[12.934910] (trolley_bringup) StdoutLine: {'line': b'running build_py\n'}
+[12.987127] (joy_teleop) StdoutLine: {'line': b"reading manifest file '../build/joy_teleop/joy_teleop.egg-info/SOURCES.txt'\n"}
+[13.023109] (-) TimerEvent: {}
+[13.123351] (-) TimerEvent: {}
+[13.223553] (-) TimerEvent: {}
+[13.228298] (trolley_drive) StdoutLine: {'line': b'writing entry points to ../build/trolley_drive/trolley_drive.egg-info/entry_points.txt\n'}
+[13.323631] (-) TimerEvent: {}
+[13.374400] (trolley_drive) StdoutLine: {'line': b'writing requirements to ../build/trolley_drive/trolley_drive.egg-info/requires.txt\n'}
+[13.374686] (trolley_drive) StdoutLine: {'line': b'writing top-level names to ../build/trolley_drive/trolley_drive.egg-info/top_level.txt\n'}
+[13.423715] (-) TimerEvent: {}
+[13.430362] (trolley_drive) StdoutLine: {'line': b"reading manifest file '../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'\n"}
+[13.523798] (-) TimerEvent: {}
+[13.624078] (-) TimerEvent: {}
+[13.680209] (joy_teleop) StdoutLine: {'line': b"writing manifest file '../build/joy_teleop/joy_teleop.egg-info/SOURCES.txt'\n"}
+[13.680515] (joy_teleop) StdoutLine: {'line': b'running build\n'}
+[13.680758] (joy_teleop) StdoutLine: {'line': b'running build_py\n'}
+[13.681517] (trolley_drive) StdoutLine: {'line': b"writing manifest file '../build/trolley_drive/trolley_drive.egg-info/SOURCES.txt'\n"}
+[13.724153] (-) TimerEvent: {}
+[13.774267] (trolley_drive) StdoutLine: {'line': b'running build\n'}
+[13.774522] (trolley_drive) StdoutLine: {'line': b'running build_py\n'}
+[13.824229] (-) TimerEvent: {}
+[13.873443] (trolley_bringup) StdoutLine: {'line': b'running install\n'}
+[13.887413] (trolley_bringup) StdoutLine: {'line': b'running install_lib\n'}
+[13.924321] (-) TimerEvent: {}
+[14.024547] (-) TimerEvent: {}
+[14.124810] (-) TimerEvent: {}
+[14.225154] (-) TimerEvent: {}
+[14.325446] (-) TimerEvent: {}
+[14.425668] (-) TimerEvent: {}
+[14.525869] (-) TimerEvent: {}
+[14.626083] (-) TimerEvent: {}
+[14.726292] (-) TimerEvent: {}
+[14.826508] (-) TimerEvent: {}
+[18.107961] (joy_teleop) StdoutLine: {'line': b'running install\n'}
+[18.108236] (-) TimerEvent: {}
+[18.108359] (joy_teleop) StdoutLine: {'line': b'running install_lib\n'}
+[18.113325] (trolley_drive) StdoutLine: {'line': b'running install\n'}
+[18.124823] (trolley_bringup) StdoutLine: {'line': b'running install_data\n'}
+[18.125982] (joy_teleop) StdoutLine: {'line': b'running install_data\n'}
+[18.126325] (trolley_drive) StdoutLine: {'line': b'running install_lib\n'}
+[18.133937] (joy_teleop) StdoutLine: {'line': b'running install_egg_info\n'}
+[18.141036] (trolley_bringup) StdoutLine: {'line': b'running install_egg_info\n'}
+[18.156919] (trolley_drive) StdoutLine: {'line': b'running install_data\n'}
+[18.159407] (trolley_drive) StdoutLine: {'line': b'running install_egg_info\n'}
+[18.161645] (joy_teleop) StdoutLine: {'line': b"removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages/joy_teleop-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[18.162173] (joy_teleop) StdoutLine: {'line': b'Copying ../build/joy_teleop/joy_teleop.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages/joy_teleop-0.0.0-py3.12.egg-info\n'}
+[18.164823] (joy_teleop) StdoutLine: {'line': b'running install_scripts\n'}
+[18.169286] (trolley_bringup) StdoutLine: {'line': b"removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[18.169745] (trolley_bringup) StdoutLine: {'line': b'Copying ../build/trolley_bringup/trolley_bringup.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages/trolley_bringup-0.0.0-py3.12.egg-info\n'}
+[18.171927] (trolley_bringup) StdoutLine: {'line': b'running install_scripts\n'}
+[18.188165] (trolley_drive) StdoutLine: {'line': b"removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages/trolley_drive-0.0.0-py3.12.egg-info' (and everything under it)\n"}
+[18.188662] (trolley_drive) StdoutLine: {'line': b'Copying ../build/trolley_drive/trolley_drive.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages/trolley_drive-0.0.0-py3.12.egg-info\n'}
+[18.191082] (trolley_drive) StdoutLine: {'line': b'running install_scripts\n'}
+[18.208353] (-) TimerEvent: {}
+[18.308728] (-) TimerEvent: {}
+[18.359203] (joy_teleop) StdoutLine: {'line': b'Installing joy_teleop script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/joy_teleop\n'}
+[18.362163] (joy_teleop) StdoutLine: {'line': b"writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/install.log'\n"}
+[18.368405] (trolley_bringup) StdoutLine: {'line': b"writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/install.log'\n"}
+[18.396879] (trolley_drive) StdoutLine: {'line': b'Installing drive_node script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/trolley_drive\n'}
+[18.408908] (-) TimerEvent: {}
+[18.509542] (-) TimerEvent: {}
+[18.521484] (joy_teleop) CommandEnded: {'returncode': 0}
+[18.585482] (trolley_drive) StdoutLine: {'line': b"writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/install.log'\n"}
+[18.610161] (-) TimerEvent: {}
+[18.622111] (joy_teleop) JobEnded: {'identifier': 'joy_teleop', 'rc': 0}
+[18.625822] (trolley_bringup) CommandEnded: {'returncode': 0}
+[18.659004] (trolley_bringup) JobEnded: {'identifier': 'trolley_bringup', 'rc': 0}
+[18.686466] (trolley_drive) CommandEnded: {'returncode': 0}
+[18.710238] (-) TimerEvent: {}
+[18.715671] (trolley_drive) JobEnded: {'identifier': 'trolley_drive', 'rc': 0}
+[18.717630] (-) EventReactorShutdown: {}
