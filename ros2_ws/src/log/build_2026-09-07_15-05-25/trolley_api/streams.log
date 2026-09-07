@@ -1,0 +1,21 @@
+[3.092s] Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_api': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_api build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/install.log --install-scripts $base/lib/trolley_api --single-version-externally-managed install_data
+[3.522s] running egg_info
+[3.547s] writing ../build/trolley_api/trolley_api.egg-info/PKG-INFO
+[3.838s] writing dependency_links to ../build/trolley_api/trolley_api.egg-info/dependency_links.txt
+[3.839s] writing entry points to ../build/trolley_api/trolley_api.egg-info/entry_points.txt
+[3.839s] writing requirements to ../build/trolley_api/trolley_api.egg-info/requires.txt
+[3.840s] writing top-level names to ../build/trolley_api/trolley_api.egg-info/top_level.txt
+[3.899s] reading manifest file '../build/trolley_api/trolley_api.egg-info/SOURCES.txt'
+[3.900s] writing manifest file '../build/trolley_api/trolley_api.egg-info/SOURCES.txt'
+[3.900s] running build
+[3.901s] running build_py
+[3.901s] running install
+[3.910s] running install_lib
+[3.942s] running install_data
+[3.942s] running install_egg_info
+[3.972s] removing '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/python3.12/site-packages/trolley_api-0.0.0-py3.12.egg-info' (and everything under it)
+[3.973s] Copying ../build/trolley_api/trolley_api.egg-info to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/python3.12/site-packages/trolley_api-0.0.0-py3.12.egg-info
+[3.976s] running install_scripts
+[4.177s] Installing api_server script to /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/trolley_api
+[4.407s] writing list of installed files to '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/install.log'
+[4.492s] Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_api' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_api build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/install.log --install-scripts $base/lib/trolley_api --single-version-externally-managed install_data

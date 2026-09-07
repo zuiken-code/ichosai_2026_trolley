@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'api_server = trolley_api.api_server:main',
         ],
     },
 )

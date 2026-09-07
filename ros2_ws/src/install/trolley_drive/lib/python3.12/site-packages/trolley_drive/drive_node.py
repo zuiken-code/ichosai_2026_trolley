@@ -142,14 +142,14 @@ class TrolleyDrive(Node):
             )
         )
         
-        # print(
-        #     f"[CMD_VEL] "
-        #     f"linear={linear_velocity:.3f}, "
-        #     f"angular={angular_velocity:.3f}, "
-        #     f"left_rpm={self.left_rpm:.2f}, "
-        #     f"right_rpm={self.right_rpm:.2f}",
-        #     flush=True,
-        #     )
+        print(
+            f"[CMD_VEL] "
+            f"linear={linear_velocity:.3f}, "
+            f"angular={angular_velocity:.3f}, "
+            f"left_rpm={self.left_rpm:.2f}, "
+            f"right_rpm={self.right_rpm:.2f}",
+            flush=True,
+            )
         
     # =========================
     # Enable / Disable

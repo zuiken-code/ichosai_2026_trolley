@@ -1,0 +1,344 @@
+[0.152s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.152s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffffa70116d0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffa71c1fd0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffa71c1fd0>>, mixin_verb=('build',))
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.209s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.209s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.247s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(joy_teleop) by extensions ['ignore', 'ignore_ament_install']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(joy_teleop) by extension 'ignore'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(joy_teleop) by extension 'ignore_ament_install'
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(joy_teleop) by extensions ['colcon_pkg']
+[0.248s] Level 1:colcon.colcon_core.package_identification:_identify(joy_teleop) by extension 'colcon_pkg'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(joy_teleop) by extensions ['colcon_meta']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(joy_teleop) by extension 'colcon_meta'
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(joy_teleop) by extensions ['ros']
+[0.249s] Level 1:colcon.colcon_core.package_identification:_identify(joy_teleop) by extension 'ros'
+[0.252s] DEBUG:colcon.colcon_core.package_identification:Package 'joy_teleop' with type 'ros.ament_python' and name 'joy_teleop'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_api) by extensions ['ignore', 'ignore_ament_install']
+[0.252s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_api) by extension 'ignore'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_api) by extension 'ignore_ament_install'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_api) by extensions ['colcon_pkg']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_api) by extension 'colcon_pkg'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_api) by extensions ['colcon_meta']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_api) by extension 'colcon_meta'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_api) by extensions ['ros']
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_api) by extension 'ros'
+[0.253s] DEBUG:colcon.colcon_core.package_identification:Package 'trolley_api' with type 'ros.ament_python' and name 'trolley_api'
+[0.253s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_bringup) by extension 'ignore'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_bringup) by extension 'ignore_ament_install'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_bringup) by extensions ['colcon_pkg']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_bringup) by extension 'colcon_pkg'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_bringup) by extensions ['colcon_meta']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_bringup) by extension 'colcon_meta'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_bringup) by extensions ['ros']
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_bringup) by extension 'ros'
+[0.254s] DEBUG:colcon.colcon_core.package_identification:Package 'trolley_bringup' with type 'ros.ament_python' and name 'trolley_bringup'
+[0.254s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_drive) by extensions ['ignore', 'ignore_ament_install']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_drive) by extension 'ignore'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_drive) by extension 'ignore_ament_install'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_drive) by extensions ['colcon_pkg']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_drive) by extension 'colcon_pkg'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_drive) by extensions ['colcon_meta']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_drive) by extension 'colcon_meta'
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_drive) by extensions ['ros']
+[0.255s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_drive) by extension 'ros'
+[0.255s] DEBUG:colcon.colcon_core.package_identification:Package 'trolley_drive' with type 'ros.ament_python' and name 'trolley_drive'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_interfaces) by extension 'ignore'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_interfaces) by extension 'ignore_ament_install'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_interfaces) by extensions ['colcon_pkg']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_interfaces) by extension 'colcon_pkg'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_interfaces) by extensions ['colcon_meta']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_interfaces) by extension 'colcon_meta'
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_interfaces) by extensions ['ros']
+[0.256s] Level 1:colcon.colcon_core.package_identification:_identify(trolley_interfaces) by extension 'ros'
+[0.257s] DEBUG:colcon.colcon_core.package_identification:Package 'trolley_interfaces' with type 'ros.ament_cmake' and name 'trolley_interfaces'
+[0.257s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.257s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.257s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.257s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.257s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.282s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.282s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.284s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install
+[0.286s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 287 installed packages in /opt/ros/jazzy
+[0.289s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'joy_teleop' build argument 'cmake_args' from command line to 'None'
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'joy_teleop' build argument 'cmake_target' from command line to 'None'
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'joy_teleop' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'joy_teleop' build argument 'cmake_clean_cache' from command line to 'False'
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'joy_teleop' build argument 'cmake_clean_first' from command line to 'False'
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'joy_teleop' build argument 'cmake_force_configure' from command line to 'False'
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'joy_teleop' build argument 'ament_cmake_args' from command line to 'None'
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'joy_teleop' build argument 'catkin_cmake_args' from command line to 'None'
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'joy_teleop' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.351s] DEBUG:colcon.colcon_core.verb:Building package 'joy_teleop' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop', 'merge_install': False, 'path': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop', 'symlink_install': False, 'test_result_base': None}
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'trolley_api' build argument 'cmake_args' from command line to 'None'
+[0.351s] Level 5:colcon.colcon_core.verb:set package 'trolley_api' build argument 'cmake_target' from command line to 'None'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_api' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_api' build argument 'cmake_clean_cache' from command line to 'False'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_api' build argument 'cmake_clean_first' from command line to 'False'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_api' build argument 'cmake_force_configure' from command line to 'False'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_api' build argument 'ament_cmake_args' from command line to 'None'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_api' build argument 'catkin_cmake_args' from command line to 'None'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_api' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.352s] DEBUG:colcon.colcon_core.verb:Building package 'trolley_api' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api', 'merge_install': False, 'path': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_api', 'symlink_install': False, 'test_result_base': None}
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_bringup' build argument 'cmake_args' from command line to 'None'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_bringup' build argument 'cmake_target' from command line to 'None'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.352s] Level 5:colcon.colcon_core.verb:set package 'trolley_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.352s] DEBUG:colcon.colcon_core.verb:Building package 'trolley_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup', 'merge_install': False, 'path': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup', 'symlink_install': False, 'test_result_base': None}
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.353s] DEBUG:colcon.colcon_core.verb:Building package 'trolley_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces', 'merge_install': False, 'path': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_drive' build argument 'cmake_args' from command line to 'None'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_drive' build argument 'cmake_target' from command line to 'None'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_drive' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_drive' build argument 'cmake_clean_cache' from command line to 'False'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_drive' build argument 'cmake_clean_first' from command line to 'False'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_drive' build argument 'cmake_force_configure' from command line to 'False'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_drive' build argument 'ament_cmake_args' from command line to 'None'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_drive' build argument 'catkin_cmake_args' from command line to 'None'
+[0.353s] Level 5:colcon.colcon_core.verb:set package 'trolley_drive' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.353s] DEBUG:colcon.colcon_core.verb:Building package 'trolley_drive' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive', 'merge_install': False, 'path': '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive', 'symlink_install': False, 'test_result_base': None}
+[0.354s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.355s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.355s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_interfaces' with build type 'ament_cmake'
+[0.355s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_interfaces'
+[0.358s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.358s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.358s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.363s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop' with build type 'ament_python'
+[0.363s] Level 1:colcon.colcon_core.shell:create_environment_hook('joy_teleop', 'ament_prefix_path')
+[0.364s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/hook/ament_prefix_path.ps1'
+[0.365s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/hook/ament_prefix_path.dsv'
+[0.365s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/hook/ament_prefix_path.sh'
+[0.366s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.366s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.371s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_api' with build type 'ament_python'
+[0.371s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_api', 'ament_prefix_path')
+[0.371s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/hook/ament_prefix_path.ps1'
+[0.372s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/hook/ament_prefix_path.dsv'
+[0.373s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/hook/ament_prefix_path.sh'
+[0.374s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.374s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.379s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup' with build type 'ament_python'
+[0.379s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_bringup', 'ament_prefix_path')
+[0.379s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/hook/ament_prefix_path.ps1'
+[0.380s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/hook/ament_prefix_path.dsv'
+[0.381s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/hook/ament_prefix_path.sh'
+[0.382s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.382s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.394s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces -- -j4 -l4
+[0.907s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop'
+[0.908s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.908s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.282s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_api'
+[1.283s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.283s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.526s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces -- -j4 -l4
+[1.542s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces
+[2.148s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup'
+[2.148s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.148s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.153s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(trolley_interfaces)
+[3.155s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_interfaces
+[3.159s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces' for CMake module files
+[3.161s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces' for CMake config files
+[3.161s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_interfaces', 'cmake_prefix_path')
+[3.162s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/cmake_prefix_path.ps1'
+[3.163s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/cmake_prefix_path.dsv'
+[3.164s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/cmake_prefix_path.sh'
+[3.166s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib'
+[3.166s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_interfaces', 'ld_library_path_lib')
+[3.167s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/ld_library_path_lib.ps1'
+[3.168s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/ld_library_path_lib.dsv'
+[3.169s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/ld_library_path_lib.sh'
+[3.170s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/bin'
+[3.170s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/pkgconfig/trolley_interfaces.pc'
+[3.171s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages'
+[3.171s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_interfaces', 'pythonpath')
+[3.172s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/pythonpath.ps1'
+[3.174s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/pythonpath.dsv'
+[3.175s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/pythonpath.sh'
+[3.177s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/bin'
+[3.178s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.ps1'
+[3.180s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.dsv'
+[3.181s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.sh'
+[3.183s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.bash'
+[3.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.zsh'
+[3.188s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/colcon-core/packages/trolley_interfaces)
+[3.191s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(trolley_interfaces)
+[3.191s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces' for CMake module files
+[3.193s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces' for CMake config files
+[3.194s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_interfaces', 'cmake_prefix_path')
+[3.195s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/cmake_prefix_path.ps1'
+[4.202s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/cmake_prefix_path.dsv'
+[4.204s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/cmake_prefix_path.sh'
+[4.205s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib'
+[4.205s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_interfaces', 'ld_library_path_lib')
+[4.206s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/ld_library_path_lib.ps1'
+[4.206s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/ld_library_path_lib.dsv'
+[4.208s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/ld_library_path_lib.sh'
+[4.209s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/bin'
+[4.209s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/pkgconfig/trolley_interfaces.pc'
+[4.209s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages'
+[4.209s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_interfaces', 'pythonpath')
+[4.210s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/pythonpath.ps1'
+[4.211s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/pythonpath.dsv'
+[4.211s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/hook/pythonpath.sh'
+[4.213s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/bin'
+[4.213s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.ps1'
+[4.214s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.dsv'
+[4.215s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.sh'
+[4.216s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.bash'
+[4.217s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/trolley_interfaces/package.zsh'
+[4.218s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/share/colcon-core/packages/trolley_interfaces)
+[4.219s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive' with build type 'ament_python'
+[4.219s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_drive', 'ament_prefix_path')
+[4.220s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/hook/ament_prefix_path.ps1'
+[4.221s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/hook/ament_prefix_path.dsv'
+[4.222s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/hook/ament_prefix_path.sh'
+[4.223s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.223s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.717s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive'
+[4.717s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.717s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.723s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: compile_catalog, bdist_wheel, saveopts, build_ext, build_scripts, upload, update_catalog, develop, install_data, dist_info, install_lib, sdist, editable_wheel, register, rotate, build_clib, test, bdist_rpm, extract_messages, setopt, bdist, install_scripts, init_catalog, alias, easy_install, install_headers, install, symlink_data, upload_docs, build_py, build, bdist_dumb, bdist_egg, egg_info, check, install_egg_info, clean
+[4.725s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: compile_catalog, bdist_wheel, saveopts, build_ext, build_scripts, upload, update_catalog, develop, install_data, dist_info, install_lib, sdist, editable_wheel, register, rotate, build_clib, test, bdist_rpm, extract_messages, setopt, bdist, install_scripts, init_catalog, alias, easy_install, install_headers, install, symlink_data, upload_docs, build_py, build, bdist_dumb, bdist_egg, egg_info, check, install_egg_info, clean
+[4.729s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: compile_catalog, bdist_wheel, saveopts, build_ext, build_scripts, upload, update_catalog, develop, install_data, dist_info, install_lib, sdist, editable_wheel, register, rotate, build_clib, test, bdist_rpm, extract_messages, setopt, bdist, install_scripts, init_catalog, alias, easy_install, install_headers, install, symlink_data, upload_docs, build_py, build, bdist_dumb, bdist_egg, egg_info, check, install_egg_info, clean
+[4.732s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/joy_teleop build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/install.log --install-scripts $base/lib/joy_teleop --single-version-externally-managed install_data
+[4.734s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_api': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_api build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/install.log --install-scripts $base/lib/trolley_api --single-version-externally-managed install_data
+[4.738s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_bringup build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/install.log --install-scripts $base/lib/trolley_bringup --single-version-externally-managed install_data
+[5.734s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: compile_catalog, bdist_wheel, saveopts, build_ext, build_scripts, upload, update_catalog, develop, install_data, dist_info, install_lib, sdist, editable_wheel, register, rotate, build_clib, test, bdist_rpm, extract_messages, setopt, bdist, install_scripts, init_catalog, alias, easy_install, install_headers, install, symlink_data, upload_docs, build_py, build, bdist_dumb, bdist_egg, egg_info, check, install_egg_info, clean
+[5.738s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_drive build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/install.log --install-scripts $base/lib/trolley_drive --single-version-externally-managed install_data
+[6.475s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop' for CMake module files
+[6.476s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/joy_teleop' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/joy_teleop build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/joy_teleop/install.log --install-scripts $base/lib/joy_teleop --single-version-externally-managed install_data
+[6.477s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop' for CMake config files
+[6.477s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib'
+[6.477s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/bin'
+[6.477s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/pkgconfig/joy_teleop.pc'
+[6.478s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages'
+[6.478s] Level 1:colcon.colcon_core.shell:create_environment_hook('joy_teleop', 'pythonpath')
+[6.478s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/hook/pythonpath.ps1'
+[6.985s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/hook/pythonpath.dsv'
+[7.518s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/hook/pythonpath.sh'
+[8.133s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/bin'
+[8.133s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(joy_teleop)
+[8.134s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/package.ps1'
+[8.135s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/package.dsv'
+[8.136s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/package.sh'
+[8.137s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/package.bash'
+[8.137s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/joy_teleop/package.zsh'
+[8.138s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/share/colcon-core/packages/joy_teleop)
+[9.200s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup' for CMake module files
+[9.201s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup' for CMake config files
+[9.200s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_bringup' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_bringup build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_bringup/install.log --install-scripts $base/lib/trolley_bringup --single-version-externally-managed install_data
+[9.202s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib'
+[9.202s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/bin'
+[9.202s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/pkgconfig/trolley_bringup.pc'
+[9.203s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages'
+[9.203s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_bringup', 'pythonpath')
+[9.203s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/hook/pythonpath.ps1'
+[9.758s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/hook/pythonpath.dsv'
+[9.908s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/hook/pythonpath.sh'
+[10.050s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/bin'
+[10.050s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(trolley_bringup)
+[10.051s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/package.ps1'
+[10.205s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/package.dsv'
+[10.206s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/package.sh'
+[10.206s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/package.bash'
+[10.207s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/trolley_bringup/package.zsh'
+[10.208s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/share/colcon-core/packages/trolley_bringup)
+[10.210s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api' for CMake module files
+[10.211s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api' for CMake config files
+[10.212s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib'
+[10.212s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/bin'
+[10.212s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/pkgconfig/trolley_api.pc'
+[10.212s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/python3.12/site-packages'
+[10.213s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_api', 'pythonpath')
+[10.213s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/hook/pythonpath.ps1'
+[10.214s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/hook/pythonpath.dsv'
+[10.214s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/hook/pythonpath.sh'
+[10.215s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/bin'
+[10.216s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(trolley_api)
+[10.216s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/package.ps1'
+[10.217s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/package.dsv'
+[10.218s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/package.sh'
+[10.218s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/package.bash'
+[10.219s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/trolley_api/package.zsh'
+[10.219s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/share/colcon-core/packages/trolley_api)
+[10.219s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive' for CMake module files
+[10.220s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive' for CMake config files
+[10.221s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib'
+[10.221s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/bin'
+[10.221s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/pkgconfig/trolley_drive.pc'
+[10.221s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages'
+[10.221s] Level 1:colcon.colcon_core.shell:create_environment_hook('trolley_drive', 'pythonpath')
+[10.222s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/hook/pythonpath.ps1'
+[10.222s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/hook/pythonpath.dsv'
+[10.223s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/hook/pythonpath.sh'
+[10.223s] Level 1:colcon.colcon_core.environment:checking '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/bin'
+[10.224s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(trolley_drive)
+[10.224s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/package.ps1'
+[10.225s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/package.dsv'
+[10.225s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/package.sh'
+[10.226s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/package.bash'
+[10.226s] INFO:colcon.colcon_core.shell:Creating package script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/trolley_drive/package.zsh'
+[10.226s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/share/colcon-core/packages/trolley_drive)
+[10.227s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[10.227s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[10.227s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[10.227s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[10.350s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_api' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_api build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_api/install.log --install-scripts $base/lib/trolley_api --single-version-externally-managed install_data
+[10.351s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/trolley_drive' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_interfaces/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_drive/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_bringup/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/trolley_api/lib/python3.12/site-packages:/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/joy_teleop/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/trolley_drive build --build-base /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/build install --record /home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/build/trolley_drive/install.log --install-scripts $base/lib/trolley_drive --single-version-externally-managed install_data
+[10.352s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[10.353s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/local_setup.ps1'
+[10.499s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/_local_setup_util_ps1.py'
+[10.502s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/setup.ps1'
+[10.504s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/local_setup.sh'
+[10.505s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/_local_setup_util_sh.py'
+[10.506s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/setup.sh'
+[10.508s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/local_setup.bash'
+[10.509s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/setup.bash'
+[10.510s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/local_setup.zsh'
+[10.511s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/zuiken/Documents/ichosai_2026_trolley/ros2_ws/src/install/setup.zsh'

@@ -1,5 +1,8 @@
-from fastapi import FastAPI
+from contextlib import asynccontextmanager
+
 import rclpy
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from rclpy.node import Node
 
 from trolley_interfaces.srv import (
@@ -8,8 +11,20 @@ from trolley_interfaces.srv import (
 )
 
 
-app = FastAPI()
+# ============================================================
+# Configuration
+# ============================================================
 
+ENABLE_SERVICE = '/drive/set_enabled'
+MODE_SERVICE = '/drive/set_mode'
+
+MODE_TELEOP = 1
+MODE_AUTO = 2
+
+
+# ============================================================
+# ROS Client
+# ============================================================
 
 class ROSClient(Node):
 
@@ -18,32 +33,102 @@ class ROSClient(Node):
 
         self.enable_client = self.create_client(
             SetDriveEnabled,
-            '/drive/set_enabled',
+            ENABLE_SERVICE,
         )
 
         self.mode_client = self.create_client(
             SetDriveMode,
-            '/drive/set_mode',
+            MODE_SERVICE,
         )
 
         self.get_logger().info(
             'Waiting for drive services...'
         )
 
-        self.enable_client.wait_for_service()
-        self.mode_client.wait_for_service()
+        if not self.enable_client.wait_for_service(
+            timeout_sec=5.0
+        ):
+            raise RuntimeError(
+                f'{ENABLE_SERVICE} is not available'
+            )
+
+        if not self.mode_client.wait_for_service(
+            timeout_sec=5.0
+        ):
+            raise RuntimeError(
+                f'{MODE_SERVICE} is not available'
+            )
 
         self.get_logger().info(
             'Drive services connected'
         )
 
 
+# ============================================================
+# ROS initialization
+# ============================================================
+
 rclpy.init()
 ros_node = ROSClient()
 
 
+# ============================================================
+# FastAPI lifecycle
+# ============================================================
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    yield
+
+    ros_node.destroy_node()
+    rclpy.shutdown()
+
+
+# ============================================================
+# FastAPI
+# ============================================================
+
+app = FastAPI(
+    title='Trolley API',
+    description='API for controlling the trolley',
+    version='1.0.0',
+    lifespan=lifespan,
+)
+
+
+# ============================================================
+# CORS
+# ============================================================
+
+app.add_middleware(
+    CORSMiddleware,
+
+    # 開発中は "*" でOK。
+    # 本番ではGitHub Pages / VercelのURLに限定する。
+    allow_origins=[
+        '*',
+    ],
+
+    allow_credentials=False,
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
+
+
+# ============================================================
+# API
+# ============================================================
+
 @app.get('/api/status')
-def status():
+def get_status():
+    """
+    現在の状態を取得する。
+
+    TODO:
+        ROS側に状態取得Serviceを追加したら、
+        enabled / mode を実際の値に変更する。
+    """
+
     return {
         'enabled': None,
         'mode': None,
@@ -52,18 +137,40 @@ def status():
 
 @app.post('/api/enable')
 def set_enable(enabled: bool):
+    """
+    Drive enable / disable
+    """
 
     request = SetDriveEnabled.Request()
     request.enabled = enabled
 
     future = ros_node.enable_client.call_async(request)
 
-    rclpy.spin_until_future_complete(
-        ros_node,
-        future,
-    )
+    try:
+        rclpy.spin_until_future_complete(
+            ros_node,
+            future,
+            timeout_sec=3.0,
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f'ROS error: {e}',
+        )
+
+    if not future.done():
+        raise HTTPException(
+            status_code=504,
+            detail='ROS service timeout',
+        )
 
     response = future.result()
+
+    if response is None:
+        raise HTTPException(
+            status_code=500,
+            detail='ROS service returned no response',
+        )
 
     return {
         'success': response.success,
@@ -73,32 +180,73 @@ def set_enable(enabled: bool):
 
 @app.post('/api/mode')
 def set_mode(mode: str):
+    """
+    Drive modeを変更する。
+
+    mode:
+        teleop
+        auto
+    """
+
+    mode = mode.lower()
 
     if mode == 'teleop':
-        mode_value = 1
+        mode_value = MODE_TELEOP
 
     elif mode == 'auto':
-        mode_value = 2
+        mode_value = MODE_AUTO
 
     else:
-        return {
-            'success': False,
-            'message': 'Invalid mode',
-        }
+        raise HTTPException(
+            status_code=400,
+            detail='Invalid mode. Use "teleop" or "auto".',
+        )
 
     request = SetDriveMode.Request()
     request.mode = mode_value
 
     future = ros_node.mode_client.call_async(request)
 
-    rclpy.spin_until_future_complete(
-        ros_node,
-        future,
-    )
+    try:
+        rclpy.spin_until_future_complete(
+            ros_node,
+            future,
+            timeout_sec=3.0,
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f'ROS error: {e}',
+        )
+
+    if not future.done():
+        raise HTTPException(
+            status_code=504,
+            detail='ROS service timeout',
+        )
 
     response = future.result()
+
+    if response is None:
+        raise HTTPException(
+            status_code=500,
+            detail='ROS service returned no response',
+        )
 
     return {
         'success': response.success,
         'message': response.message,
     }
+
+def main():
+    import uvicorn
+
+    uvicorn.run(
+        app,
+        host='0.0.0.0',
+        port=8000,
+    )
+
+
+if __name__ == '__main__':
+    main()
