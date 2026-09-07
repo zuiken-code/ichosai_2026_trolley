@@ -112,7 +112,7 @@ class TrolleyDrive(Node):
         transport = UDPTransport(
             host=ESP32_IP,
             port=ESP32_PORT,
-            debug=True,
+            debug=False,
         )
 
         self.bus = MotorBus(transport)
