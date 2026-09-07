@@ -1,8 +1,6 @@
-from glob import glob
-
 from setuptools import find_packages, setup
 
-package_name = 'trolley_api'
+package_name = 'trolley_cmd_mux'
 
 setup(
     name=package_name,
@@ -12,15 +10,12 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-
-        # スマートフォン向けの操作画面
-        ('share/' + package_name + '/web', glob('web/*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='zuiken',
     maintainer_email='zuiken2022robo@gmail.com',
-    description='TODO: Package description',
+    description='Joy(Switch) とスマートフォンの /cmd_vel を調停するノード',
     license='TODO: License declaration',
     extras_require={
         'test': [
@@ -29,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'api_server = trolley_api.api_server:main',
+            'cmd_vel_mux = trolley_cmd_mux.cmd_vel_mux_node:main',
         ],
     },
 )
