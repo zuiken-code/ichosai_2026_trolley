@@ -23,10 +23,10 @@ def generate_launch_description():
         name='trolley_drive',
         output='screen',
         ),
-        # Node(
-        #     package='trolley_api',
-        #     executable='api_server',
-        #     name='trolley_api',
-        #     output='screen',
-        # ), 
+        Node(
+             package='trolley_api',
+             executable='api_server',
+             name='trolley_api',
+             output='screen',
+         ), 
     ])

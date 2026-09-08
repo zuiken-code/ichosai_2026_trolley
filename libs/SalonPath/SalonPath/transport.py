@@ -41,7 +41,7 @@ class UDPTransport:
         motor_id: int,
         control_type: ControlType,
         reference: float,
-    ):
+    ) -> bool:
         sequence = self._next_sequence()
 
         packet = build_motor_packet(
@@ -61,18 +61,46 @@ class UDPTransport:
                 f"packet={packet.hex(' ')}",
                 flush=True,
             )
-            pass
-        else:
+            return True
+
+        try:
             self._socket.sendto(
                 packet,
                 (self.host, self.port),
             )
+
             print(
                 f"SEND motor={motor_id} "
                 f"seq={sequence} "
                 f"size={len(packet)}",
                 flush=True,
-                )
+            )
+
+            return True
+
+        except socket.timeout:
+            print(
+                f"[UDP TIMEOUT] "
+                f"motor={motor_id} "
+                f"seq={sequence} "
+                f"target={self.host}:{self.port}",
+                flush=True,
+            )
+            return False
+
+        except OSError as e:
+            print(
+                f"[UDP ERROR] "
+                f"motor={motor_id} "
+                f"seq={sequence} "
+                f"target={self.host}:{self.port} "
+                f"error={e}",
+                flush=True,
+            )
+            return False
 
     def close(self):
-        self._socket.close()
+        try:
+            self._socket.close()
+        except OSError:
+            pass

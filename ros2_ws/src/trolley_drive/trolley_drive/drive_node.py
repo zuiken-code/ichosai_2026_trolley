@@ -34,7 +34,7 @@ LEFT_MOTOR_ID = 1
 RIGHT_MOTOR_ID = 2
 
 # ESP32のIP / UDPポート
-ESP32_IP = "192.168.1.116"
+ESP32_IP = "192.168.0.116"
 ESP32_PORT = 5000
 
 # Motor command frequency
@@ -325,12 +325,12 @@ class TrolleyDrive(Node):
             # =========================
 
             self.left_motor.setReference(
-                self.left_duty,
+                    self.left_duty,
                 ControlType.DUTY_CYCLE,
             )
 
             self.right_motor.setReference(
-                self.right_duty,
+                -self.right_duty,
                 ControlType.DUTY_CYCLE,
             )
 
