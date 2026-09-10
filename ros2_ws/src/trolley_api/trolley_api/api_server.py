@@ -271,15 +271,19 @@ def set_mode(mode: str):
         'message': response.message,
     }
 
-def main():
-    import uvicorn
+# ============================================================
+# 起動
+# ============================================================
 
-    uvicorn.run(
-        app,
-        host='0.0.0.0',
-        port=8000,
-    )
-
-
-if __name__ == '__main__':
-    main()
+# ここには main() を置かない。
+#
+# 以前は待ち受け先を決め打ちした main() があり、console_scripts が
+# それを指していたため、launch の api_host / api_port が黙って
+# 無視されていた。起動時の引数を解釈するのは run_server.py の役目で、
+# HTTPS の検出ページもそちらが一緒に立てる。
+#
+#   ros2 run trolley_api api_server --host 0.0.0.0 --port 8000
+#
+# uvicorn のCLIから直接使うこともできる（この場合HTTPSは立たない）。
+#
+#   uvicorn trolley_api.api_server:app --host 0.0.0.0 --port 8000
