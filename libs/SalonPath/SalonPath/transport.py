@@ -14,6 +14,12 @@ from .enums import ControlType
 # 同じ状態が続く間は間引いて報告する。
 ERROR_REPORT_INTERVAL = 1.0
 
+# ロガーのメソッド名の候補。先に見つかったものを使う。
+_LEVEL_METHODS = {
+    'warning': ('warning', 'warn', 'error'),
+    'info': ('info',),
+}
+
 
 class UDPTransport:
     """
@@ -181,9 +187,19 @@ class UDPTransport:
 
     def _emit(self, message: str, level: str):
         """ロガーがあればそちらへ、無ければstderrへ出す。"""
-        if self._logger is not None:
-            getattr(self._logger, level)(message)
+        if self._logger is None:
+            print(message, file=sys.stderr, flush=True)
             return
+
+        # rclpyのロガーは warn() を持ち、warning() は新しめの
+        # バージョンでのみ用意されている。制御ループの中で
+        # AttributeError を出さないよう順に探す。
+        for name in _LEVEL_METHODS[level]:
+            method = getattr(self._logger, name, None)
+
+            if method is not None:
+                method(message)
+                return
 
         print(message, file=sys.stderr, flush=True)
 

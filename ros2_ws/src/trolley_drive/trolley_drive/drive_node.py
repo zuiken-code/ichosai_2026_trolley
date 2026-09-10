@@ -365,7 +365,7 @@ class TrolleyDrive(Node):
             # =========================
 
             self.left_motor.setReference(
-                    self.left_duty,
+                self.left_duty,
                 ControlType.DUTY_CYCLE,
             )
 
