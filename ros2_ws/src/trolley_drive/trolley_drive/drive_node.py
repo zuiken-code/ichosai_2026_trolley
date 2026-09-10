@@ -113,6 +113,11 @@ class TrolleyDrive(Node):
             host=ESP32_IP,
             port=ESP32_PORT,
             debug=False,
+
+            # 送信エラーはROSのログへ流す。
+            # UDPTransport側で同一エラーは間引かれるため、
+            # ESP32が落ちてもログが溢れない。
+            logger=self.get_logger(),
         )
 
         self.bus = MotorBus(transport)
@@ -210,16 +215,22 @@ class TrolleyDrive(Node):
         # =========================
         # Debug
         # =========================
+        #
+        # ここは /cmd_vel の受信ごとに呼ばれるホットパスなので、
+        # print(flush=True) は使わない。
+        # launch の output='screen' 経由だと1行ごとにパイプへの
+        # write() が走り、詰まると購読コールバックごと停止して
+        # 操作遅延の原因になる。
+        #
+        # 見たいときは以下で有効化する。
+        #   ros2 run trolley_drive drive_node --ros-args \
+        #       --log-level trolley_drive:=debug
 
-        print(
-            f"[CMD_VEL] "
-            f"linear={linear_velocity:.3f}, "
-            f"angular={angular_velocity:.3f}, "
-            f"left_rpm={self.left_rpm:.2f}, "
-            f"right_rpm={self.right_rpm:.2f}, "
-            f"left_duty={self.left_duty:.3f}, "
-            f"right_duty={self.right_duty:.3f}",
-            flush=True,
+        self.get_logger().debug(
+            f"cmd_vel linear={linear_velocity:.3f} "
+            f"angular={angular_velocity:.3f} "
+            f"rpm=({self.left_rpm:.2f}, {self.right_rpm:.2f}) "
+            f"duty=({self.left_duty:.3f}, {self.right_duty:.3f})"
         )
 
     # =========================
