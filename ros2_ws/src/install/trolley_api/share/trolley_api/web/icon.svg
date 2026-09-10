@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="Trolley コントローラ">
-  <rect width="192" height="192" rx="40" fill="#005ac1"/>
-  <circle cx="96" cy="96" r="58" fill="none" stroke="#d8e2ff" stroke-width="8"/>
-  <circle cx="96" cy="96" r="20" fill="#d8e2ff"/>
-  <path d="M96 22 l12 20 h-24 z" fill="#d8e2ff"/>
-  <path d="M96 170 l12 -20 h-24 z" fill="#d8e2ff"/>
-  <path d="M22 96 l20 -12 v24 z" fill="#d8e2ff"/>
-  <path d="M170 96 l-20 -12 v24 z" fill="#d8e2ff"/>
-</svg>

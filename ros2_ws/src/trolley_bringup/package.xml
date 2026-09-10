@@ -7,6 +7,20 @@
   <maintainer email="zuiken2022robo@gmail.com">zuiken</maintainer>
   <license>TODO: License declaration</license>
 
+  <!--
+    launchファイルが起動するノードの提供元。
+    宣言しておかないと colcon のビルド順が保証されず、
+    rosdep も joy を入れてくれない。
+  -->
+  <exec_depend>joy</exec_depend>
+  <exec_depend>joy_teleop</exec_depend>
+  <exec_depend>trolley_cmd_mux</exec_depend>
+  <exec_depend>trolley_drive</exec_depend>
+  <exec_depend>trolley_api</exec_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>

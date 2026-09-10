@@ -7,9 +7,10 @@ Switchコントローラの接続不良時に備えた、バックアップ用�
 
 ```
 [Switchコントローラ] joy_node --> /joy --> joy_teleop --> /cmd_vel/joy ---+
-                                          (コード無変更 / launchでremap)  |
-                                                                          +--> cmd_vel_mux --> /cmd_vel --> trolley_drive
-[スマートフォン] ブラウザ <--WebSocket--> trolley_api --> /cmd_vel/phone --+
+                                                     (50Hz)              |
+                                                                         +--> cmd_vel_mux --> /cmd_vel --> trolley_drive
+[スマートフォン] ブラウザ <--WebSocket--> trolley_api --> /cmd_vel/phone -+       (50Hz)            (50Hz)
+                              (20Hz)                     (20Hz)
 ```
 
 - `cmd_vel_mux` が操作権を調停し、`/cmd_vel` へ **50Hzで常時** 出力します。
@@ -18,6 +19,12 @@ Switchコントローラの接続不良時に備えた、バックアップ用�
 - スマートフォン用の画面は `trolley_api` が同一オリジンで配信します。
   GitHub Pages などの https から `ws://192.168.x.x` へは
   mixed content として接続できないためです。
+- **各段は必ずレートで制限してください。** `/joy` の受信ごとに
+  publish するような実装にすると、joyドライバが出すレート（Joy-Conでは
+  数百Hzになることがあります）がそのまま下流へ流れ、操作遅延の原因に
+  なります。速度指令のQoSも `depth=1` に揃えてあります。深さを増やすと
+  下流が一瞬詰まった際に古い指令がキューに溜まり、復帰後にそれを
+  順番に実行してしまいます。
 
 ## 必要なPythonパッケージ
 
@@ -32,10 +39,22 @@ pip install "fastapi" "uvicorn[standard]"
 
 ## ビルド
 
+必ず `ros2_ws/` で実行してください。`ros2_ws/src/` で `colcon build`
+すると `ros2_ws/src/{build,install,log}` という2つ目のワークスペースが
+でき、どちらを `source` したかで別のコードが動いてしまいます。
+
 ```bash
 cd ros2_ws
-colcon build --packages-select trolley_cmd_mux trolley_api trolley_bringup
+colcon build
 source install/setup.bash
+```
+
+`libs/SalonPath` はROSパッケージではなくpipパッケージなので、
+`colcon build` では更新されません。編集が反映されるよう
+editable install にしておいてください。
+
+```bash
+pip install -e libs/SalonPath
 ```
 
 ## 起動
@@ -44,8 +63,16 @@ source install/setup.bash
 ros2 launch trolley_bringup trolley_phone.launch.py
 ```
 
-既存の `trolley.launch.py` は変更していないので、
-従来のSwitchコントローラのみの構成もそのまま起動できます。
+`trolley.launch.py` はこのファイルへの薄いエイリアスなので、
+どちらで起動しても同じ構成になります。
+
+Switchコントローラのみの構成にしたい場合は `with_api:=false` を
+付けてください。`cmd_vel_mux` は残るため、Joy途絶時に
+ゼロ速度を送るウォッチドッグは有効なままです。
+
+```bash
+ros2 launch trolley_bringup trolley.launch.py with_api:=false
+```
 
 ### launch引数
 
@@ -56,7 +83,12 @@ ros2 launch trolley_bringup trolley_phone.launch.py
 | `api_port` | `8000` | APIサーバの待ち受けポート |
 | `phone_max_linear` | `1.0` | スマホ操作時の最大並進速度 [m/s] |
 | `phone_max_angular` | `1.0` | スマホ操作時の最大角速度 [rad/s] |
-| `joy_timeout` | `1.0` | Joyを途絶と見なすまでの時間 [s] |
+| `joy_timeout` | `0.5` | `cmd_vel_mux` がJoyを途絶と見なすまでの時間 [s] |
+| `joy_stale_timeout` | `0.5` | `joy_teleop` が `/joy` を途絶と見なすまでの時間 [s] |
+| `joy_publish_rate` | `50.0` | `joy_teleop` が `/cmd_vel/joy` を出力するレート [Hz] |
+
+Joy途絶からスマートフォンへ操作権が移るまでの時間は
+`joy_stale_timeout + joy_timeout` の合計になります（既定で1.0秒）。
 
 例:
 
@@ -147,7 +179,12 @@ curl http://localhost:8000/api/teleop/status
 
 | パラメータ | 既定値 | 説明 |
 | --- | --- | --- |
-| `joy_timeout` | `1.0` | Joyを途絶と見なすまでの時間 [s] |
+| `joy_timeout` | `0.5` | `cmd_vel_mux` がJoyを途絶と見なすまでの時間 [s] |
+| `joy_stale_timeout` | `0.5` | `joy_teleop` が `/joy` を途絶と見なすまでの時間 [s] |
+| `joy_publish_rate` | `50.0` | `joy_teleop` が `/cmd_vel/joy` を出力するレート [Hz] |
+
+Joy途絶からスマートフォンへ操作権が移るまでの時間は
+`joy_stale_timeout + joy_timeout` の合計になります（既定で1.0秒）。
 | `phone_timeout` | `0.5` | スマホを途絶と見なすまでの時間 [s] |
 | `phone_lost_timeout` | `2.0` | スマホを喪失と見なすまでの時間 [s] |
 | `auto_return_on_phone_loss` | `true` | スマホ喪失時に自動でJoyへ戻すか |
@@ -192,10 +229,58 @@ Web標準のみを使っているため、iOS Safari / Android Firefox / Chrome 
 | 旋回方向が逆 | `invert_angular` を `true` にする |
 | Switchを操作していないのにスマホへ移らない | `joy_node` の `autorepeat_rate` が0になっていないか |
 | スマホに操作権が渡ったまま戻せない | 状態チップ下の「Joyに戻す」を押す。または `/teleop/release_to_joy` を呼ぶ |
+| 操作が遅延する | 下の「操作遅延を切り分ける」を参照 |
+
+### 操作遅延を切り分ける
+
+過去に、モーター送信のたびに `print(..., flush=True)` していたことが
+原因で操作が大きく遅延した事例があります。
+
+`output='screen'` で起動していると各ノードのstdoutはlaunchへの
+パイプになります。読み手（launch、端末、SSH越しならその先）が
+追いつかないとパイプバッファが埋まって `write()` がブロックし、
+シングルスレッドExecutorのノードは購読コールバックごと停止します。
+復帰後に古い指令をまとめて処理するため、操作が遅れて見えます。
+
+**ホットパス（制御ループ・購読コールバック）に `print` を足さないこと。**
+デバッグ出力は `get_logger().debug()` を使い、必要なときだけ
+有効化してください。`ros2 launch` は `--ros-args` を受け取らないので、
+対象ノードだけを単体で起動するのが手軽です。
+
+```bash
+ros2 run trolley_drive drive_node --ros-args     --log-level trolley_drive:=debug
+```
+
+launchのまま有効化したい場合は、該当 `Node()` に
+`arguments=['--ros-args', '--log-level', 'trolley_drive:=debug']`
+を追加してください。
+
+遅延が出たときの確認手順:
+
+```bash
+# 1. 各段のレートが想定どおりか
+ros2 topic hz /joy            # joyドライバ依存。数百Hz出ていたら要注意
+ros2 topic hz /cmd_vel/joy    # joy_publish_rate (既定50Hz) で頭打ちになる
+ros2 topic hz /cmd_vel        # cmd_vel_mux の publish_rate (既定50Hz)
+
+# 2. end-to-endの遅延
+ros2 topic delay /cmd_vel
+
+# 3. ノードがCPUを食い潰していないか
+top -H -p $(pgrep -f drive_node)
+
+# 4. 端末出力が律速していないか（改善すればstdoutが原因）
+#    launchの output を 'log' にする、またはSSHではなく実機の
+#    ローカル端末で起動して比較する
+```
 
 ## 既存構成への影響
 
-- `joy_teleop` / `trolley_drive` / `trolley_interfaces` のコードは変更していません。
-- `trolley.launch.py` も変更していないため、従来の起動方法は影響を受けません。
-- `trolley_api` への変更は追加のみで、既存の `/api/status`・`/api/enable`・
-  `/api/mode` の挙動は変わりません。
+- `trolley_api` の `/api/status`・`/api/enable`・`/api/mode` の挙動は
+  変わっていません。
+- `trolley_interfaces` は変更していません。
+- `joy_teleop` は `/joy` 受信ごとのpublishからタイマー駆動に変わりました。
+  軸・ボタン・速度はパラメータ化されていますが、既定値は従来と同一です。
+- `trolley.launch.py` は `trolley_phone.launch.py` へのエイリアスに
+  なりました。従来のコマンドはそのまま使えますが、`cmd_vel_mux` が
+  必ず起動する構成になります。

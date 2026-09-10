@@ -2,16 +2,22 @@
 # ROS / ROS 2 Build & Workspace Directories
 # ==========================================
 # ROS 1 (catkin)
-/build/
-/devel/
-/logs/
-/install/
+devel/
+logs/
 
 # ROS 2 (colcon)
-/build_isolated/
-/devel_isolated/
-/install_isolated/
-/log/
+# NOTE:
+# 先頭に "/" を付けるとリポジトリ直下だけが対象になり、
+# ros2_ws/build や ros2_ws/src/install のような
+# 下位ディレクトリの生成物が追跡され続けてしまう。
+# colcon はどの階層で実行されてもこの3つを作るため、
+# 階層を問わないパターンで無視する。
+build/
+install/
+log/
+build_isolated/
+devel_isolated/
+install_isolated/
 
 # ==========================================
 # Python Specific

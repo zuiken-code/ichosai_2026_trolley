@@ -1,5 +1,3 @@
-from .enums import ControlType
-
 class MotorBus:
     def __init__(self, transport):
         self.transport = transport
@@ -22,10 +20,6 @@ class MotorBus:
             motor.getControlType(),
             motor.getReference()
         )
-        # print(
-        #     f"[MotorBus] sending motor_id={motor.motor_id}",
-        #     flush=True,
-        #     )
 
     def stop_all(self):
         for motor in self.motors.values():

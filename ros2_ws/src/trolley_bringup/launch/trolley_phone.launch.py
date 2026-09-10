@@ -33,6 +33,8 @@ def generate_launch_description():
     phone_max_angular = LaunchConfiguration('phone_max_angular')
 
     joy_timeout = LaunchConfiguration('joy_timeout')
+    joy_stale_timeout = LaunchConfiguration('joy_stale_timeout')
+    joy_publish_rate = LaunchConfiguration('joy_publish_rate')
 
     return LaunchDescription([
 
@@ -70,10 +72,35 @@ def generate_launch_description():
             description='スマートフォン操作時の最大角速度 [rad/s]',
         ),
 
+        # Joy途絶からスマートフォンへ操作権が移るまでの時間は
+        #
+        #     joy_stale_timeout  (joy_teleop が publish を止めるまで)
+        #   + joy_timeout        (cmd_vel_mux が途絶と判定するまで)
+        #
+        # の合計になる。従来は joy_teleop 側に途絶判定が無く
+        # cmd_vel_mux の 1.0s だけだったので、合計を揃えるために
+        # 0.5s + 0.5s にしている。
         DeclareLaunchArgument(
             'joy_timeout',
-            default_value='1.0',
-            description='Joyを途絶と見なすまでの時間 [s]',
+            default_value='0.5',
+            description=(
+                'cmd_vel_muxがJoyを途絶と見なすまでの時間 [s]'
+            ),
+        ),
+
+        DeclareLaunchArgument(
+            'joy_stale_timeout',
+            default_value='0.5',
+            description=(
+                'joy_teleopが/joyを途絶と見なして'
+                '/cmd_vel/joyの出力を止めるまでの時間 [s]'
+            ),
+        ),
+
+        DeclareLaunchArgument(
+            'joy_publish_rate',
+            default_value='50.0',
+            description='joy_teleopが/cmd_vel/joyを出力するレート [Hz]',
         ),
 
         # =========================
@@ -88,19 +115,44 @@ def generate_launch_description():
             parameters=[{
                 # 入力に変化が無くても publish させる。
                 # これが無いと、スティックを倒し続けている間に
-                # /joy が止まり、cmd_vel_mux が「Joy途絶」と
-                # 誤判定してしまう。
+                # /joy が止まり、joy_teleop と cmd_vel_mux が
+                # 「Joy途絶」と誤判定してしまう。
+                #
+                # joy_teleop 側の joy_stale_timeout (既定0.5s) より
+                # 十分速いレートにしておく必要がある。
                 'autorepeat_rate': 20.0,
                 'deadzone': 0.05,
             }],
         ),
 
-        # joy_teleop のコードは変更せず、出力先だけ差し替える
+        # joy_teleop の出力先を /cmd_vel/joy へ差し替える
         Node(
             package='joy_teleop',
             executable='joy_teleop',
             name='joy_teleop',
             output='screen',
+            parameters=[{
+                # /joy の受信レートではなく、このレートで
+                # /cmd_vel/joy を出力する。joyドライバが出す
+                # レートがそのまま下流へ流れるのを防ぐため。
+                'publish_rate': ParameterValue(
+                    joy_publish_rate,
+                    value_type=float,
+                ),
+                'joy_timeout': ParameterValue(
+                    joy_stale_timeout,
+                    value_type=float,
+                ),
+
+                # 軸・ボタンの割り当て。
+                # Joy-Conは持ち方でスティックの軸が90度回るため、
+                # 実機に合わせてここで調整する。
+                # `ros2 topic echo /joy` で確認できる。
+                'linear_axis': 0,
+                'angular_axis': 1,
+                'angular_scale': -1.0,
+                'deadman_button': 2,
+            }],
             remappings=[
                 ('/cmd_vel', '/cmd_vel/joy'),
             ],

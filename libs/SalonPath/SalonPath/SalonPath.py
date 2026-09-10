@@ -21,14 +21,6 @@ class SalonPath:
         self._reference = reference
         self._control_type = control_type
 
-        # print(
-        #     f"[SalonPath] "
-        #     f"motor_id={self.motor_id} "
-        #     f"reference={reference:.2f} "
-        #     f"control_type={control_type.name}",
-        #     flush=True,
-        # )
-
         # Busへ送信
         self.bus.send_motor_command(self)
 
