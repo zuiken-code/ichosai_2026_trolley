@@ -16,7 +16,12 @@ import time
 import rclpy
 from geometry_msgs.msg import Twist
 from rclpy.node import Node
-from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile
+from rclpy.qos import (
+    DurabilityPolicy,
+    HistoryPolicy,
+    QoSProfile,
+    ReliabilityPolicy,
+)
 from std_msgs.msg import String
 from std_srvs.srv import Trigger
 
@@ -34,6 +39,27 @@ STATUS_TOPIC = '/teleop/status'
 
 REQUEST_PHONE_SERVICE = '/teleop/request_phone'
 RELEASE_TO_JOY_SERVICE = '/teleop/release_to_joy'
+
+
+# ============================================================
+# QoS
+# ============================================================
+
+# 速度指令は「最新値だけが意味を持つ」データなので履歴は1件だけ持つ。
+#
+# 既定の depth=10 だと、下流のノードが一瞬止まった際に古い指令が
+# 10件キューに溜まり、復帰後にそれを順番に実行してしまう。
+# 50Hzなら最大200ms分の「過去の操作」が再生されることになり、
+# 一時的なもたつきが持続的な追従遅れに変わる。
+#
+# reliability は `ros2 topic echo` の既定と互換にするため
+# RELIABLE のまま残している（depth=1 だけで十分効く）。
+CMD_VEL_QOS = QoSProfile(
+    depth=1,
+    history=HistoryPolicy.KEEP_LAST,
+    reliability=ReliabilityPolicy.RELIABLE,
+    durability=DurabilityPolicy.VOLATILE,
+)
 
 
 # ============================================================
@@ -90,14 +116,14 @@ class CmdVelMux(Node):
             Twist,
             JOY_CMD_TOPIC,
             self.joy_cmd_callback,
-            10,
+            CMD_VEL_QOS,
         )
 
         self.phone_sub = self.create_subscription(
             Twist,
             PHONE_CMD_TOPIC,
             self.phone_cmd_callback,
-            10,
+            CMD_VEL_QOS,
         )
 
         # =========================
@@ -107,7 +133,7 @@ class CmdVelMux(Node):
         self.cmd_pub = self.create_publisher(
             Twist,
             OUTPUT_TOPIC,
-            10,
+            CMD_VEL_QOS,
         )
 
         # 後から購読したUIにも最新状態が届くようlatchする

@@ -2,6 +2,12 @@ from enum import Enum
 
 import rclpy
 from rclpy.node import Node
+from rclpy.qos import (
+    DurabilityPolicy,
+    HistoryPolicy,
+    QoSProfile,
+    ReliabilityPolicy,
+)
 from geometry_msgs.msg import Twist
 
 from trolley_interfaces.srv import SetDriveEnabled, SetDriveMode
@@ -39,6 +45,29 @@ ESP32_PORT = 5000
 
 # Motor command frequency
 CONTROL_FREQUENCY = 50.0   # Hz
+
+
+# =========================
+# QoS
+# =========================
+
+# 速度指令は「最新値だけが意味を持つ」データなので履歴は1件だけ持つ。
+#
+# 既定の depth=10 だと、ノードが一瞬止まった際に古い指令が10件
+# キューに溜まり、復帰後にそれを順番に実行してしまう。50Hzなら
+# 最大200ms分の「過去の操作」を再生することになり、一時的な
+# もたつきが持続的な追従遅れに変わる。
+#
+# reliability は RELIABLE のまま残している。BEST_EFFORT にすると
+# `ros2 topic echo` の既定（RELIABLE購読）と非互換になり現場で
+# デバッグしづらくなるため。全ノードが同一ホストにいる限り
+# depth=1 だけで十分効く。
+CMD_VEL_QOS = QoSProfile(
+    depth=1,
+    history=HistoryPolicy.KEEP_LAST,
+    reliability=ReliabilityPolicy.RELIABLE,
+    durability=DurabilityPolicy.VOLATILE,
+)
 
 
 # =========================
@@ -140,7 +169,7 @@ class TrolleyDrive(Node):
             Twist,
             '/cmd_vel',
             self.cmd_vel_callback,
-            10,
+            CMD_VEL_QOS,
         )
 
         # =========================

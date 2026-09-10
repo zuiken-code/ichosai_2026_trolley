@@ -32,7 +32,12 @@ from geometry_msgs.msg import Twist
 from rcl_interfaces.msg import SetParametersResult
 from rclpy.executors import SingleThreadedExecutor
 from rclpy.node import Node
-from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile
+from rclpy.qos import (
+    DurabilityPolicy,
+    HistoryPolicy,
+    QoSProfile,
+    ReliabilityPolicy,
+)
 from std_msgs.msg import String
 from std_srvs.srv import Trigger
 
@@ -57,6 +62,19 @@ DEFAULT_COMMAND_TIMEOUT = 0.3
 
 # ブラウザへ状態を送る間隔 [s]
 STATE_PUSH_PERIOD = 0.2
+
+# 速度指令用のQoS
+#
+# 速度指令は「最新値だけが意味を持つ」データなので履歴は1件だけ持つ。
+# 既定の depth=10 だと、下流のノードが一瞬止まった際に古い指令が
+# 溜まり、復帰後にそれを順番に実行してしまう。
+# cmd_vel_mux / trolley_drive 側と同じ設定にしておく必要がある。
+CMD_VEL_QOS = QoSProfile(
+    depth=1,
+    history=HistoryPolicy.KEEP_LAST,
+    reliability=ReliabilityPolicy.RELIABLE,
+    durability=DurabilityPolicy.VOLATILE,
+)
 
 # スティックの入力上限
 INPUT_LIMIT = 1.0
@@ -212,7 +230,7 @@ class PhoneTeleopNode(Node):
         self.cmd_pub = self.create_publisher(
             Twist,
             PHONE_CMD_TOPIC,
-            10,
+            CMD_VEL_QOS,
         )
 
         # =========================
