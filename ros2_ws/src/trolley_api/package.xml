@@ -13,6 +13,11 @@
   <exec_depend>std_srvs</exec_depend>
   <exec_depend>trolley_interfaces</exec_depend>
 
+  <!-- 床タグ検出ページを HTTPS で配るための自己署名証明書の発行に使う。
+       fastapi / uvicorn は rosdep のキーが無いので pip で入れる
+       (docs/floor_tag_audio.md 参照)。 -->
+  <exec_depend>python3-cryptography</exec_depend>
+
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>

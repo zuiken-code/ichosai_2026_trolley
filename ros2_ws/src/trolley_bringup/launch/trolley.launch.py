@@ -63,6 +63,16 @@ FORWARDED_ARGUMENTS = (
         'APIサーバの待ち受けポート',
     ),
     (
+        'with_detector',
+        'true',
+        '床タグ検出ページ（HTTPS）を配信するか',
+    ),
+    (
+        'detector_port',
+        '8443',
+        '床タグ検出ページの待ち受けポート',
+    ),
+    (
         'phone_max_linear',
         '1.0',
         'スマートフォン操作時の最大並進速度 [m/s]',

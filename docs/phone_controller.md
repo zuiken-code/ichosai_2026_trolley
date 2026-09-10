@@ -19,6 +19,10 @@ Switchコントローラの接続不良時に備えた、バックアップ用�
 - スマートフォン用の画面は `trolley_api` が同一オリジンで配信します。
   GitHub Pages などの https から `ws://192.168.x.x` へは
   mixed content として接続できないためです。
+  **この画面は http のまま置いてください。** https にすると
+  同じ理由で `ws://` が張れなくなります。カメラを使う
+  [床タグ検出ページ](floor_tag_audio.md) だけは secure context が
+  必須なので、別ポート (8443) の https で配っています。
 - **各段は必ずレートで制限してください。** `/joy` の受信ごとに
   publish するような実装にすると、joyドライバが出すレート（Joy-Conでは
   数百Hzになることがあります）がそのまま下流へ流れ、操作遅延の原因に
@@ -81,6 +85,8 @@ ros2 launch trolley_bringup trolley.launch.py with_api:=false
 | `with_api` | `true` | APIサーバ（スマホ画面）を起動するか |
 | `api_host` | `0.0.0.0` | APIサーバの待ち受けアドレス |
 | `api_port` | `8000` | APIサーバの待ち受けポート |
+| `with_detector` | `true` | 床タグ検出ページ（HTTPS）を配信するか |
+| `detector_port` | `8443` | 床タグ検出ページの待ち受けポート |
 | `phone_max_linear` | `1.0` | スマホ操作時の最大並進速度 [m/s] |
 | `phone_max_angular` | `1.0` | スマホ操作時の最大角速度 [rad/s] |
 | `joy_timeout` | `0.5` | `cmd_vel_mux` がJoyを途絶と見なすまでの時間 [s] |
@@ -284,3 +290,8 @@ top -H -p $(pgrep -f drive_node)
 - `trolley.launch.py` は `trolley_phone.launch.py` へのエイリアスに
   なりました。従来のコマンドはそのまま使えますが、`cmd_vel_mux` が
   必ず起動する構成になります。
+- `api_server` の実体が `api_server:main` から `run_server:main` へ
+  変わりました。以前のエントリポイントは待ち受け先が決め打ちで、
+  launchが渡していた `--host` / `--port` を読んでいなかったため、
+  `api_port:=8001` のように指定しても8000のままでした。
+  詳しくは [床タグ検出と効果音](floor_tag_audio.md) を参照してください。

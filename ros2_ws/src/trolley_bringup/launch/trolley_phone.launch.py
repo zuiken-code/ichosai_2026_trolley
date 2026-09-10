@@ -29,6 +29,9 @@ def generate_launch_description():
     api_host = LaunchConfiguration('api_host')
     api_port = LaunchConfiguration('api_port')
 
+    with_detector = LaunchConfiguration('with_detector')
+    detector_port = LaunchConfiguration('detector_port')
+
     phone_max_linear = LaunchConfiguration('phone_max_linear')
     phone_max_angular = LaunchConfiguration('phone_max_angular')
 
@@ -58,6 +61,22 @@ def generate_launch_description():
             'api_port',
             default_value='8000',
             description='APIサーバの待ち受けポート',
+        ),
+
+        # 床タグ検出ページは、操作画面とは別にHTTPSで配る。
+        # カメラを使うにはsecure contextが必要で、操作画面側は
+        # ws:// を張る都合でHTTPSにできないため、同じポートに
+        # 相乗りできない（detector_server.py の冒頭を参照）。
+        DeclareLaunchArgument(
+            'with_detector',
+            default_value='true',
+            description='床タグ検出ページ（HTTPS）を配信するか',
+        ),
+
+        DeclareLaunchArgument(
+            'detector_port',
+            default_value='8443',
+            description='床タグ検出ページの待ち受けポート',
         ),
 
         DeclareLaunchArgument(
@@ -208,6 +227,8 @@ def generate_launch_description():
                     arguments=[
                         '--host', api_host,
                         '--port', api_port,
+                        '--detector', with_detector,
+                        '--detector-port', detector_port,
                     ],
                     # このプロセスは trolley_api と
                     # trolley_phone_teleop の2ノードを持つ。

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111417">
+<title>床タグ検出 → 効果音</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 起動画面。
+     iOS はユーザー操作なしにカメラも AudioContext も開けないので、
+     カメラ許可と音の解錠をこのボタン 1 つでまとめて済ませる。 -->
+<section id="gate">
+  <h1>床タグ → 効果音</h1>
+  <p class="lead">
+    背面カメラで床の <b>tag16h5</b> (ID 0 / 1 / 2) を検出して、
+    この端末から対応する効果音を鳴らします。
+  </p>
+  <button id="start-btn" type="button">開始</button>
+  <p id="gate-error" class="error" hidden></p>
+  <ul class="hints">
+    <li>端末の<b>消音（マナー）スイッチを解除</b>し、音量を上げてください。消音中はブラウザの音も鳴りません。</li>
+    <li>「安全ではない」警告が出た場合は証明書が自己署名のためです（このページが開けているなら承認済み）。</li>
+    <li>カメラが拒否された場合は、設定 → Safari → カメラ を「確認」または「許可」にしてください。</li>
+  </ul>
+</section>
+
+<!-- 動作画面。
+     video を canvas の下に同じ寸法で敷いている。万一 canvas への
+     描画が失敗しても素の映像だけは見えるようにするため。 -->
+<main id="stage" hidden>
+  <video id="video" playsinline muted autoplay></video>
+  <canvas id="view"></canvas>
+
+  <div id="hud">
+    <div class="hud-row">
+      <span id="audio-badge" class="badge badge-off">音 --</span>
+      <span id="fps-badge" class="badge">-- fps</span>
+      <span id="scan-badge" class="badge">探索</span>
+    </div>
+    <div id="ids-box">
+      <span class="ids-label">検出中のID</span>
+      <span id="ids">なし</span>
+    </div>
+    <div id="se-box">
+      <span class="se-label">直前の効果音</span>
+      <span id="se-name">まだ鳴っていません</span>
+    </div>
+    <p id="audio-warn" hidden>
+      音を出せていません。消音スイッチを解除して、いちど「停止」→「開始」し直してください。
+    </p>
+  </div>
+
+  <div id="controls">
+    <button id="test-btn" type="button" title="効果音の確認">音テスト</button>
+    <button id="stop-btn" type="button">停止</button>
+  </div>
+</main>
+
+<script src="vendor/js-aruco2/cv.js"></script>
+<script src="vendor/js-aruco2/aruco.js"></script>
+<script src="vendor/js-aruco2/apriltag_16h5.js"></script>
+<script src="detector.js"></script>
+<script src="se.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
