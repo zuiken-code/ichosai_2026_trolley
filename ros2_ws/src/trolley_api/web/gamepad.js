@@ -171,7 +171,7 @@
    * 呼び出し側（app.js）が検出時の押下状態を blocked として渡し、
    * 一度離されたら外す。
    */
-  function isDeadmanHeld(pad, allowed, blocked, ignored) {
+  function isDeadmanHeld(pad, allowed, blocked) {
     var buttons = pad ? pad.buttons : null;
     var index;
     var number;
@@ -182,7 +182,7 @@
 
     if (!allowed) {
       for (index = 0; index < buttons.length; index += 1) {
-        if (isBlocked(blocked, index) || isBlocked(ignored, index)) {
+        if (isBlocked(blocked, index)) {
           continue;
         }
 
@@ -197,7 +197,7 @@
     for (index = 0; index < allowed.length; index += 1) {
       number = allowed[index];
 
-      if (isBlocked(blocked, number) || isBlocked(ignored, number)) {
+      if (isBlocked(blocked, number)) {
         continue;
       }
 
@@ -422,71 +422,6 @@
     };
   }
 
-  /**
-   * 軸ではなく4つのボタンとして届くスティックを読む。
-   *
-   * 一部のOS/ブラウザはJoy-Conのスティックを axes ではなく
-   * 方向ごとの GamepadButton として公開する。この場合、倒し量は
-   * 復元できないため、ここでは方向（-1 / 0 / +1）だけを返す。
-   * 実際の加速量は app.js 側で、同じ方向を押し続けた時間から作る。
-   *
-   * 方向ボタンはデッドマンに含めない。スティックを倒しただけで
-   * 走り出してはいけないためである。
-   */
-  function readButtonStick(pad, mapping, options) {
-    var settings = mapping || {};
-    var opts = options || {};
-    var directions = [
-      settings.forwardButton,
-      settings.reverseButton,
-      settings.rightButton,
-      settings.leftButton
-    ];
-    var forward;
-    var reverse;
-    var right;
-    var left;
-    var linear;
-    var angular;
-    var command;
-    var deadman;
-
-    if (!pad || !isValidButtonMapping(settings)) {
-      return {
-        lx: 0.0,
-        az: 0.0,
-        axis: null,
-        deadman: false,
-        tilted: false
-      };
-    }
-
-    forward = readButton(pad.buttons, settings.forwardButton) >= BUTTON_THRESHOLD;
-    reverse = readButton(pad.buttons, settings.reverseButton) >= BUTTON_THRESHOLD;
-    right = readButton(pad.buttons, settings.rightButton) >= BUTTON_THRESHOLD;
-    left = readButton(pad.buttons, settings.leftButton) >= BUTTON_THRESHOLD;
-
-    // 逆方向を同時に受けた場合は、意図が曖昧なので停止にする。
-    linear = (forward ? 1.0 : 0.0) - (reverse ? 1.0 : 0.0);
-    angular = (left ? 1.0 : 0.0) - (right ? 1.0 : 0.0);
-    command = toCommand(angular, linear);
-
-    deadman = isDeadmanHeld(
-      pad,
-      opts.deadmanButtons || null,
-      opts.blockedButtons || null,
-      directions
-    );
-
-    return {
-      lx: deadman ? command.lx : 0.0,
-      az: deadman ? command.az : 0.0,
-      axis: deadman ? command.axis : null,
-      deadman: deadman,
-      tilted: command.axis !== null
-    };
-  }
-
   // ============================================================
   // 軸の学習
   // ============================================================
@@ -647,38 +582,6 @@
     return mapping.linearAxis !== mapping.angularAxis;
   }
 
-  /** ボタンとして公開されるスティックの割り当てを検査する。 */
-  function isValidButtonMapping(mapping) {
-    var keys = [
-      'forwardButton', 'reverseButton', 'rightButton', 'leftButton'
-    ];
-    var seen = {};
-    var index;
-    var value;
-
-    if (!mapping || typeof mapping !== 'object') {
-      return false;
-    }
-
-    for (index = 0; index < keys.length; index += 1) {
-      value = mapping[keys[index]];
-
-      if (
-        typeof value !== 'number' ||
-        !isFinite(value) ||
-        value < 0 ||
-        value !== Math.floor(value) ||
-        seen[value]
-      ) {
-        return false;
-      }
-
-      seen[value] = true;
-    }
-
-    return true;
-  }
-
   // ============================================================
   // 公開
   // ============================================================
@@ -698,13 +601,11 @@
     applyDeadzone: applyDeadzone,
     toCommand: toCommand,
     readInput: readInput,
-    readButtonStick: readButtonStick,
 
     unusedActiveAxis: unusedActiveAxis,
 
     learnAxis: learnAxis,
-    isValidMapping: isValidMapping,
-    isValidButtonMapping: isValidButtonMapping
+    isValidMapping: isValidMapping
   };
 
   // ブラウザでは window に、Node.js（単体テスト）では
