@@ -33,6 +33,8 @@ const SEND_INTERVAL_MS = 50;
 const POLL_TIMEOUT_MS = 150;
 const CLAIM_HOLD_MS = 1000;
 const STALE_MS = 8000;
+const STALE_LIVE_MS = 2000;
+const LEARN_HOLD_MS = 400;
 const PING_INTERVAL_MS = 1000;
 const FALLBACK_HINT_MS = 15000;
 
@@ -925,6 +927,240 @@ test('反応が無くなったあとは、押し直すまで走らない', funct
   h.ofType('cmd').forEach(function (command) {
     assert.equal(command.lx, 0, '押し直さずに走り出した');
   });
+});
+
+// ============================================================
+// スティック設定（軸の学習）
+// ============================================================
+
+/**
+ * その姿勢を保ったまま時間を進める。
+ *
+ * 学習の各段は「同じ判定が LEARN_HOLD_MS 続いたら確定」なので、
+ * 1フレームでは進まない（時間を進めてからもう1フレーム必要）。
+ */
+function hold(h, axes, buttonValues, stamp) {
+  let step;
+
+  for (step = 0; step < 5; step += 1) {
+    h.setGamepads([
+      gamepadOf(axes, buttonValues, { timestamp: stamp * 10 + step })
+    ]);
+    h.frame();
+    h.advance(Math.ceil(LEARN_HOLD_MS / 2));
+  }
+}
+
+/** スティック設定を1周させる。倒す向きは呼び出し側が決める。 */
+function runLearn(h, forward, right, buttonValues) {
+  const buttons = buttonValues || [0];
+
+  h.element('padSetup').fire('click');
+
+  hold(h, [0.0, 0.0], buttons, 1);   // (1/3) 中立
+  hold(h, forward, buttons, 2);      // (2/3) 前に倒したまま
+  hold(h, right, buttons, 3);        // (3/3) 右に倒したまま
+}
+
+test('覚えた向きで前進・右旋回になる', function () {
+  const h = createHarness({ search: '?debug=1' });
+
+  h.attach();
+
+  // 横持ちの想定。前に倒すと axes[0] が +、右に倒すと axes[1] が +
+  runLearn(h, [0.9, 0.0], [0.0, 0.9]);
+
+  assert.ok(
+    h.element('padText').textContent.indexOf('map=学習') >= 0,
+    '学習されていない: ' + h.element('padText').textContent
+  );
+
+  // 覚えたとおりに倒す。押し直してから走らせる
+  h.setGamepads([gamepadOf([0.9, 0.0], [0], { timestamp: 4 })]);
+  h.frame();
+
+  h.clear();
+  h.setGamepads([gamepadOf([0.9, 0.0], [1], { timestamp: 5 })]);
+  h.frame();
+  h.tickSend();
+
+  const command = h.ofType('cmd')[0];
+
+  assert.ok(command.lx > 0.5, `前進しない lx=${command.lx}`);
+
+  h.clear();
+  h.setGamepads([gamepadOf([0.0, 0.9], [1], { timestamp: 6 })]);
+  h.frame();
+  h.tickSend();
+
+  assert.ok(
+    h.ofType('cmd')[0].az < -0.5,
+    '右旋回にならない az=' + h.ofType('cmd')[0].az
+  );
+});
+
+test('設定が終わった瞬間に走り出さない', function () {
+  // 最後の手順が「右に倒したまま」なので、終わった瞬間の
+  // スティックは必ず倒れている。ボタンに触れていても
+  // 押し直すまで走ってはいけない。
+  const h = createHarness();
+
+  h.attach();
+
+  runLearn(h, [0.0, -0.9], [0.9, 0.0], [1]);
+
+  h.clear();
+
+  // 倒したまま・押したままでフレームを進める
+  h.setGamepads([gamepadOf([0.9, 0.0], [1], { timestamp: 9 })]);
+  h.frame();
+  h.frame();
+  h.tickSend();
+
+  h.ofType('cmd').forEach(function (command) {
+    assert.equal(command.lx, 0, '設定直後に走り出した');
+    assert.equal(command.az, 0, '設定直後に走り出した');
+  });
+
+  // 離して押し直せば走れる
+  h.setGamepads([gamepadOf([0.9, 0.0], [0], { timestamp: 10 })]);
+  h.frame();
+
+  h.clear();
+  h.setGamepads([gamepadOf([0.9, 0.0], [1], { timestamp: 11 })]);
+  h.frame();
+  h.tickSend();
+
+  assert.ok(
+    Math.abs(h.ofType('cmd')[0].az) > 0.5 ||
+      Math.abs(h.ofType('cmd')[0].lx) > 0.5,
+    '押し直しても走れない'
+  );
+});
+
+test('倒したまま設定を始めても、中立を採らない', function () {
+  // ここを間違えると前後が反転した設定が保存され、
+  // 「前に倒したら後退する」ことになる。
+  const h = createHarness();
+
+  h.attach();
+
+  // 前に倒したままシートを開く
+  h.setGamepads([gamepadOf([0.0, -1.0], [0])]);
+  h.frame();
+
+  h.element('padSetup').fire('click');
+
+  hold(h, [0.0, -1.0], [0], 1);
+
+  // まだ (1/3) のまま。倒れていることを伝える
+  assert.ok(
+    h.element('sheetTitle').textContent.indexOf('1/3') >= 0,
+    '倒れたまま次へ進んだ: ' + h.element('sheetTitle').textContent
+  );
+
+  assert.ok(
+    h.element('sheetBody').textContent.indexOf('まだ倒れています') >= 0,
+    h.element('sheetBody').textContent
+  );
+
+  // 中立に戻せば進む
+  hold(h, [0.0, 0.0], [0], 2);
+
+  assert.ok(
+    h.element('sheetTitle').textContent.indexOf('2/3') >= 0,
+    '中立に戻しても進まない: ' + h.element('sheetTitle').textContent
+  );
+});
+
+test('倒したまま始めて最後まで進めても、向きは反転しない', function () {
+  const h = createHarness({ search: '?debug=1' });
+
+  h.attach();
+
+  // 前に倒したまま開始 → 中立へ戻す → 指示どおり進める
+  h.setGamepads([gamepadOf([0.0, -1.0], [0])]);
+  h.frame();
+
+  h.element('padSetup').fire('click');
+
+  hold(h, [0.0, -1.0], [0], 1);   // 倒れたまま（進まない）
+  hold(h, [0.0, 0.0], [0], 2);    // (1/3) 中立に戻す
+  hold(h, [0.0, -0.9], [0], 3);   // (2/3) 前 = axes[1] が負
+  hold(h, [0.9, 0.0], [0], 4);    // (3/3) 右 = axes[0] が正
+
+  // 覚えた結果は標準マッピングと同じになるはず
+  assert.ok(
+    h.element('padText').textContent.indexOf('lin:1-') >= 0,
+    '前後の向きが反転している: ' + h.element('padText').textContent
+  );
+
+  // 実際に前へ倒して前進すること
+  h.setGamepads([gamepadOf([0.0, -1.0], [1], { timestamp: 5 })]);
+  h.frame();
+
+  h.clear();
+  h.tickSend();
+
+  assert.ok(
+    h.ofType('cmd')[0].lx > 0.99,
+    '前に倒して前進しない lx=' + h.ofType('cmd')[0].lx
+  );
+});
+
+// ============================================================
+// 生存の合図（timestamp）
+// ============================================================
+
+test('timestampが進む端末では早く切れる', function () {
+  const h = createHarness();
+
+  h.attach();
+
+  // 値は同じまま timestamp だけ進む（受信が続いている合図）
+  for (let step = 0; step < 5; step += 1) {
+    h.advance(100);
+    h.setGamepads([forwardHeld(10 + step)]);
+    h.frame();
+  }
+
+  h.tickSend();
+  assert.ok(h.ofType('cmd')[0].lx > 0.99, 'まず走っていること');
+
+  // timestamp も止まった = 受信が途切れた
+  h.clear();
+  h.advance(STALE_LIVE_MS + 200);
+  h.frame();
+
+  assert.equal(h.ofType('stop').length, 1, '早く切れていない');
+});
+
+test('timestampが進まない端末では値の変化で待つ', function () {
+  const h = createHarness();
+
+  h.attach();
+
+  // 値が変わるときだけ timestamp も動く端末（iOS Safari）
+  h.setGamepads([gamepadOf([0.0, -1.0], [1], { timestamp: 1 })]);
+  h.frame();
+  h.setGamepads([gamepadOf([0.0, -0.99], [1], { timestamp: 2 })]);
+  h.frame();
+
+  h.tickSend();
+  assert.ok(h.ofType('cmd')[0].lx > 0.9, 'まず走っていること');
+
+  // 短い方の時間では切らない（誤停止させない）
+  h.clear();
+  h.advance(STALE_LIVE_MS + 200);
+  h.frame();
+
+  assert.equal(h.ofType('stop').length, 0, '早すぎる停止');
+
+  // 長い方で切る
+  h.advance(STALE_MS);
+  h.frame();
+
+  assert.equal(h.ofType('stop').length, 1);
 });
 
 // ============================================================

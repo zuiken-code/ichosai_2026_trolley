@@ -255,18 +255,17 @@
   }
 
   /**
-   * 入力の「指紋」を作る。前回と同じなら何も変化していない。
+   * 軸とボタンの「指紋」を作る。前回と同じなら何も動いていない。
    *
    * Bluetoothが黙って切れた場合、ブラウザは最後の状態を
    * 返し続ける（切断イベントも来ないことがある）。
    * 値がまったく変化しない状態が続いたら、生きていないと見なす。
    *
-   * timestamp も混ぜているのは、値が同じでも受信が続いていれば
-   * timestamp だけは進む実装があるため。
-   * （timestamp の絶対値は端末で単位が違うので比較には使えない。
-   *   ここでは「変化したか」しか見ていない）
+   * timestamp は **混ぜない**。端末によって単位も更新条件も違い、
+   * 「受信が続いている間だけ進む」端末ではそれ自体が生存の合図に
+   * なるので、値の変化とは分けて扱いたいため（app.js 側で見ている）。
    */
-  function inputSignature(pad) {
+  function valueSignature(pad) {
     var parts;
     var index;
 
@@ -274,7 +273,7 @@
       return '';
     }
 
-    parts = [String(pad.timestamp)];
+    parts = [];
 
     if (pad.axes) {
       for (index = 0; index < pad.axes.length; index += 1) {
@@ -597,7 +596,7 @@
     pressedButtons: pressedButtons,
     isDeadmanHeld: isDeadmanHeld,
     updateBlocked: updateBlocked,
-    inputSignature: inputSignature,
+    valueSignature: valueSignature,
 
     applyDeadzone: applyDeadzone,
     toCommand: toCommand,

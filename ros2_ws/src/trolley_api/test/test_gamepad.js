@@ -177,38 +177,47 @@ test('押されたままのボタンは外さない', function () {
 });
 
 // ============================================================
-// 入力の指紋（無反応の検出）
+// 軸とボタンの指紋（無反応の検出）
 // ============================================================
 
 test('同じ状態なら指紋も同じ', function () {
-  const a = gamepad.inputSignature(makePad([0.1, 0.2], [0, 1]));
-  const b = gamepad.inputSignature(makePad([0.1, 0.2], [0, 1]));
+  const a = gamepad.valueSignature(makePad([0.1, 0.2], [0, 1]));
+  const b = gamepad.valueSignature(makePad([0.1, 0.2], [0, 1]));
 
   assert.equal(a, b);
 });
 
-test('軸・ボタン・timestampのどれかが変われば指紋も変わる', function () {
+test('軸かボタンが変われば指紋も変わる', function () {
+  const signature = gamepad.valueSignature(makePad([0.1, 0.2], [0, 1]));
+
+  assert.notEqual(
+    signature,
+    gamepad.valueSignature(makePad([0.1, 0.3], [0, 1]))
+  );
+
+  assert.notEqual(
+    signature,
+    gamepad.valueSignature(makePad([0.1, 0.2], [1, 1]))
+  );
+});
+
+test('timestampは指紋に混ぜない', function () {
+  // 端末によって単位も更新条件も違い、「受信が続いている間だけ
+  // 進む」端末ではそれ自体が生存の合図になるので、
+  // 値の変化とは分けて扱う（app.js 側で見る）。
   const base = makePad([0.1, 0.2], [0, 1]);
-  const signature = gamepad.inputSignature(base);
-
-  assert.notEqual(
-    signature,
-    gamepad.inputSignature(makePad([0.1, 0.3], [0, 1]))
-  );
-
-  assert.notEqual(
-    signature,
-    gamepad.inputSignature(makePad([0.1, 0.2], [1, 1]))
-  );
-
   const moved = makePad([0.1, 0.2], [0, 1]);
-  moved.timestamp = 123;
 
-  assert.notEqual(signature, gamepad.inputSignature(moved));
+  moved.timestamp = 999;
+
+  assert.equal(
+    gamepad.valueSignature(base),
+    gamepad.valueSignature(moved)
+  );
 });
 
 test('コントローラが無ければ指紋は空', function () {
-  assert.equal(gamepad.inputSignature(null), '');
+  assert.equal(gamepad.valueSignature(null), '');
 });
 
 // ============================================================

@@ -84,6 +84,18 @@
   // 誤停止が邪魔なら、ここだけを大きくする。
   var GAMEPAD_STALE_MS = 8000;
 
+  // timestamp が生存の合図として使える端末での、短い判定 [ms]
+  //
+  // 「値は同じまま timestamp だけ進む」のを一度でも見たら、
+  // その端末は受信が続いている間 timestamp を進めてくれると分かる。
+  // 受信が止まれば timestamp も止まるので、値の変化を待たずに
+  // 「切れた」と判断できる。上の8秒を待つ必要がない。
+  //
+  // Chrome for Android の Joy-Con はこちらに該当する。
+  // iOS Safari の timestamp は値が変わったときだけ進むので該当しない
+  // （その端末では上の GAMEPAD_STALE_MS を使う）。
+  var GAMEPAD_STALE_LIVE_MS = 2000;
+
   // ボタンを押し続けて操作権を要求するまでの時間 [ms]
   var GAMEPAD_CLAIM_HOLD_MS = 1000;
 
@@ -95,6 +107,20 @@
 
   // 学習で同じ判定が続いたら確定するまでの時間 [ms]
   var GAMEPAD_LEARN_HOLD_MS = 400;
+
+  // 学習の1歩目で「中立に戻っている」と見なす値の上限
+  //
+  // ここを 0.4 にしておくと、学習のしきい値 0.5 との差が
+  // 0.1 以上残るので、指示どおり倒せば必ずその軸が選ばれる。
+  // （中立が大きくずれたまま採ると、指示と逆の向きが
+  //   保存されることがある）
+  var GAMEPAD_LEARN_CENTER_MAX = 0.4;
+
+  // 学習の1歩目で「値が落ち着いている」と見なす1フレームの変化量
+  var GAMEPAD_LEARN_SETTLE = 0.05;
+
+  // 学習で候補が見つからないまま案内を出すまでの時間 [ms]
+  var GAMEPAD_LEARN_NUDGE_MS = 1200;
 
   // これだけ探しても見つからなければ、予備のURLも案内する [ms]
   var GAMEPAD_FALLBACK_HINT_MS = 15000;
@@ -187,9 +213,13 @@
     // 最後にポーリングできた時刻
     pollStamp: 0,
 
-    // 入力の指紋と、最後に変化した時刻
+    // 軸・ボタンの指紋と、最後に動きがあった時刻
     signature: '',
     changeStamp: 0,
+
+    // 直前の timestamp と、それが生存の合図として使えるか
+    stamp: null,
+    stampIsLive: false,
 
     // 反応が無くなったと判断したか
     stale: false,
@@ -243,6 +273,8 @@
     angular: null,
     candidate: null,
     holdStamp: 0,
+    prev: null,
+    stamp: 0,
     hint: ''
   };
 
@@ -834,7 +866,16 @@
 
   /** いま使っている軸の割り当てを短く表す（?debug表示用）。 */
   function mappingLabel() {
-    var settings = mapping || window.TrolleyGamepad.DEFAULT_MAPPING;
+    var settings = mapping;
+
+    if (!settings) {
+      if (!window.TrolleyGamepad) {
+        // gamepad.js を読めていない（配信し忘れ・キャッシュ）
+        return 'gamepad.js無し';
+      }
+
+      settings = window.TrolleyGamepad.DEFAULT_MAPPING;
+    }
 
     return (mapping ? '学習' : '既定') +
       '(lin:' + settings.linearAxis +
@@ -1044,6 +1085,8 @@
     gamepad.id = '';
     gamepad.present = false;
     gamepad.signature = '';
+    gamepad.stamp = null;
+    gamepad.stampIsLive = false;
     gamepad.stale = false;
     gamepad.axisMismatch = false;
     gamepad.blocked = [];
@@ -1147,7 +1190,9 @@
     }
     gamepad.present = true;
     gamepad.stale = false;
-    gamepad.signature = window.TrolleyGamepad.inputSignature(device);
+    gamepad.signature = window.TrolleyGamepad.valueSignature(device);
+    gamepad.stamp = device.timestamp;
+    gamepad.stampIsLive = false;
     gamepad.changeStamp = now();
 
     // 最初から押されているボタンはデッドマンに使わない。
@@ -1222,8 +1267,10 @@
     }
 
     if (learn.active) {
-      // 設定中は走らせない
-      releaseGamepad();
+      // 設定中は走らせない。
+      // 押しているボタンは無視するボタンへ入れておく
+      // （設定が終わった瞬間に走り出さないようにするため）。
+      disarmGamepad();
       handleLearn(device);
       return;
     }
@@ -1238,11 +1285,23 @@
    * まったく変化しないまま時間が経ったら、生きていないと見なす。
    */
   function updateFreshness(device) {
-    var signature = window.TrolleyGamepad.inputSignature(device);
+    var signature = window.TrolleyGamepad.valueSignature(device);
+    var stamp = device.timestamp;
     var moment = now();
 
-    if (signature !== gamepad.signature) {
+    var valuesMoved = signature !== gamepad.signature;
+    var stampMoved = stamp !== gamepad.stamp;
+    var limit;
+
+    // 値が同じまま timestamp だけ進んだ。
+    // この端末は「受信が続いている」ことを timestamp で教えてくれる。
+    if (stampMoved && !valuesMoved) {
+      gamepad.stampIsLive = true;
+    }
+
+    if (valuesMoved || stampMoved) {
       gamepad.signature = signature;
+      gamepad.stamp = stamp;
       gamepad.changeStamp = moment;
 
       if (gamepad.stale) {
@@ -1257,11 +1316,17 @@
       return;
     }
 
-    if ((moment - gamepad.changeStamp) > GAMEPAD_STALE_MS) {
+    // 生存の合図が使える端末なら、値の変化を待たずに短く切れる
+    limit = gamepad.stampIsLive
+      ? GAMEPAD_STALE_LIVE_MS
+      : GAMEPAD_STALE_MS;
+
+    if ((moment - gamepad.changeStamp) > limit) {
       gamepad.stale = true;
 
       // 凍結した押下のまま再武装させない
       disarmGamepad();
+
       showNotice('Joy-Conの入力が変わりません。接続を確認してください');
       renderPadBar();
     }
@@ -1499,12 +1564,22 @@
     learn.angular = null;
     learn.candidate = null;
     learn.holdStamp = 0;
+    learn.prev = null;
+    learn.stamp = now();
     learn.hint = '';
 
     renderSheet();
   }
 
   function closeLearn() {
+    // 出口で必ず武装解除する。
+    //
+    // 最後の手順が「右に倒したままにしてください」なので、
+    // 設定が終わった瞬間のスティックは必ず倒れている。
+    // ボタンに触れていれば、シートが閉じた次のフレームで
+    // 全速で旋回を始めてしまう（操作者は画面の文字を読んでいる）。
+    disarmGamepad();
+
     learn.active = false;
     learn.hint = '';
 
@@ -1517,6 +1592,8 @@
     learn.step += 1;
     learn.candidate = null;
     learn.holdStamp = 0;
+    learn.prev = null;
+    learn.stamp = now();
     learn.hint = '';
 
     vibrate(20);
@@ -1551,8 +1628,41 @@
     }
 
     if (learn.step === 0) {
+      // 中立の値を採る。ここを間違えると、あとの全部が狂う。
+      //
+      // 倒したまま採ってしまうと、そこからの差分で向きを決めるため
+      // 「指示どおり倒しても差が出ず、逆に倒したときだけ差が出る」
+      // 状態になり、前後が反転した設定が保存される。
+      // 「前に倒したら後退する」は現場でいちばん危ない挙動なので、
+      // 中立に戻っていることと、値が落ち着いていることの
+      // 両方を確かめてから採る。
+      if (!isAxesCentered(axes)) {
+        learn.holdStamp = 0;
+        learn.prev = copyAxes(axes);
+
+        setLearnHint('まだ倒れています。中立に戻してください');
+
+        return;
+      }
+
+      if (!isAxesSettled(axes, learn.prev)) {
+        learn.holdStamp = 0;
+        learn.prev = copyAxes(axes);
+
+        // 揺れ続けて進まないときも、黙って止まらない
+        if ((moment - learn.stamp) > GAMEPAD_LEARN_NUDGE_MS) {
+          setLearnHint('スティックが揺れています。手を離してください');
+        }
+
+        return;
+      }
+
+      learn.prev = copyAxes(axes);
+
       if (learn.holdStamp === 0) {
         learn.holdStamp = moment;
+        setLearnHint('');
+
         return;
       }
 
@@ -1576,6 +1686,12 @@
     if (candidate === null) {
       learn.candidate = null;
       learn.holdStamp = 0;
+
+      // 黙って止まると「壊れた」と思われる。
+      // 倒し足りない場合がほとんどなので、そう言う。
+      if ((moment - learn.stamp) > GAMEPAD_LEARN_NUDGE_MS) {
+        setLearnHint('もっと大きく、いっぱいまで倒してください');
+      }
 
       return;
     }
@@ -1643,6 +1759,45 @@
     closeLearn();
     showNotice('スティックの向きを覚えました');
     vibrate(30);
+  }
+
+  /** すべての軸が中立付近にあるか。 */
+  function isAxesCentered(axes) {
+    var index;
+    var value;
+
+    for (index = 0; index < axes.length; index += 1) {
+      value = axes[index];
+
+      if (typeof value !== 'number' || !isFinite(value)) {
+        continue;
+      }
+
+      if (Math.abs(value) > GAMEPAD_LEARN_CENTER_MAX) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  /** 前のフレームから値が動いていないか。 */
+  function isAxesSettled(axes, previous) {
+    var index;
+
+    if (!previous || previous.length !== axes.length) {
+      return false;
+    }
+
+    for (index = 0; index < axes.length; index += 1) {
+      if (
+        Math.abs(axes[index] - previous[index]) > GAMEPAD_LEARN_SETTLE
+      ) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   function copyAxes(axes) {
