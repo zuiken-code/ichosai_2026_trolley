@@ -96,6 +96,25 @@
   // （その端末では上の GAMEPAD_STALE_MS を使う）。
   var GAMEPAD_STALE_LIVE_MS = 2000;
 
+  // スティックがボタンとして見える端末での、出だしの速さ（0.0〜1.0）
+  //
+  // ボタンには倒し量が無いので、押した瞬間から全速で走ってしまう。
+  // 出だしをここまで抑えて、下の時間をかけて全速まで伸ばす。
+  // 「出だしが遅すぎる」なら上げる。「いきなり飛び出す」なら下げる。
+  var GAMEPAD_BUTTON_FLOOR = 0.35;
+
+  // 出だしから全速までにかける時間 [ms]
+  var GAMEPAD_BUTTON_RAMP_MS = 800;
+
+  // 「スティックがボタンとして見えている」と案内するまでの、
+  // ボタンの押し引きの回数と時間 [ms]
+  //
+  // 軸が一度も動かないまま、これだけボタンが動いていたら、
+  // スティックがハットスイッチとして報告されている疑いが強い。
+  // 早すぎると、単にスティックを触っていないだけの人に出てしまう。
+  var GAMEPAD_DIGITAL_CHANGES = 4;
+  var GAMEPAD_DIGITAL_MS = 3000;
+
   // ボタンを押し続けて操作権を要求するまでの時間 [ms]
   var GAMEPAD_CLAIM_HOLD_MS = 1000;
 
@@ -231,6 +250,24 @@
     held: [],
     axes: null,
 
+    // 走行中の向き（'linear+' など）と、その向きになった時刻。
+    // ボタンで走るときの加速をここから測る。
+    direction: null,
+    directionStamp: 0,
+
+    // 直前に採用した軸。斜めに倒したときのちらつき止め。
+    driveAxis: null,
+
+    // スティックがボタンとして見えていないかの見張り。
+    //   axisSeen       … 軸が一度でも動いたか
+    //   heldSignature  … 前回の押下状態（変化を数えるため）
+    //   buttonChanges  … 押下状態が変わった回数
+    //   trackStamp     … このコントローラを掴んだ時刻
+    axisSeen: false,
+    heldSignature: '',
+    buttonChanges: 0,
+    trackStamp: 0,
+
     // ブラウザから見えているコントローラの台数（?debug用）
     count: 0,
 
@@ -265,12 +302,19 @@
   var mapping = null;
 
   // 軸の学習（スティック設定）
+  //
+  // mode は1回目の傾けで決まる。
+  //   'axis'   … 軸で読む（3歩）
+  //   'button' … 前後左右のボタン番号で読む（5歩）
   var learn = {
     active: false,
+    mode: null,
     step: 0,
     rest: null,
+    restButtons: [],
     linear: null,
     angular: null,
+    buttons: {},
     candidate: null,
     holdStamp: 0,
     prev: null,
@@ -554,6 +598,10 @@
   function releaseGamepad() {
     gamepad.deadman = false;
 
+    // 次に押したときは、また出だしの速さから始める
+    gamepad.driveAxis = null;
+    noteDirection(null);
+
     if (inputSource === 'gamepad') {
       stopDriving();
     }
@@ -766,6 +814,16 @@
       modifier = 'is-warn';
       padSetup.hidden = false;
 
+    } else if (stickLooksDigital()) {
+      // 簡易HIDモードのJoy-Con。スティックがハットスイッチとして
+      // 報告され、ブラウザからはボタンにしか見えない。
+      // 軸をいくら割り当て直しても直らないので、
+      // ボタンで読む設定へ誘導する。
+      text = 'Joy-Con: スティックがボタンとして見えています。'
+        + 'スティック設定をしてください';
+      modifier = 'is-warn';
+      padSetup.hidden = false;
+
     } else if (inputSource === 'gamepad') {
       text = 'Joy-Conで走行中';
       modifier = 'is-active';
@@ -850,6 +908,20 @@
       ' pads=' + gamepad.count +
       ' map=' + mappingLabel();
 
+    if (gamepad.present) {
+      // 「入力が固まった」の判定がどちらで効くかを見えるようにする。
+      //
+      //   live=1 … timestamp が生存の合図に使える端末。2秒で切る。
+      //            倒し続けても timestamp が進むので誤って止まらない。
+      //   live=0 … 値の変化でしか判定できない端末（iOS Safari）。
+      //            同じ向きに倒し続けると quiet が伸び、8秒で一度止まる。
+      //            ボタンで読むときは値が揺れないので、ここに掛かりやすい。
+      //
+      // quiet は最後に入力が変わってからの秒数。
+      head += ' live=' + (gamepad.stampIsLive ? 1 : 0) +
+        ' quiet=' + ((now() - gamepad.changeStamp) / 1000).toFixed(1) + 's';
+    }
+
     if (!gamepad.axes) {
       return head;
     }
@@ -875,6 +947,13 @@
       }
 
       settings = window.TrolleyGamepad.DEFAULT_MAPPING;
+    }
+
+    if (settings.kind === 'button') {
+      return '学習(btn 前:' + settings.forwardButton +
+        ' 後:' + settings.backButton +
+        ' 右:' + settings.rightButton +
+        ' 左:' + settings.leftButton + ')';
     }
 
     return (mapping ? '学習' : '既定') +
@@ -912,7 +991,8 @@
 
   /** スティック設定の表示。 */
   function renderSheet() {
-    var step;
+    var steps;
+    var body;
 
     if (!sheet) {
       return;
@@ -923,12 +1003,17 @@
       return;
     }
 
-    step = LEARN_STEPS[learn.step] || LEARN_STEPS[0];
+    steps = learnSteps();
+    body = steps[learn.step] || steps[0];
 
-    sheetTitle.textContent = step.title;
+    // 手順の数はボタン割り当てだと3歩から5歩に増える。
+    // 数え方を固定にすると「3/3で終わらない」と見えてしまう。
+    sheetTitle.textContent = 'スティック設定 (' +
+      (learn.step + 1) + '/' + steps.length + ')';
+
     sheetBody.textContent = learn.hint
-      ? step.body + ' — ' + learn.hint
-      : step.body;
+      ? body + ' — ' + learn.hint
+      : body;
 
     sheet.hidden = false;
   }
@@ -1092,6 +1177,12 @@
     gamepad.blocked = [];
     gamepad.held = [];
     gamepad.axes = null;
+    gamepad.driveAxis = null;
+    gamepad.direction = null;
+    gamepad.axisSeen = false;
+    gamepad.heldSignature = '';
+    gamepad.buttonChanges = 0;
+    gamepad.trackStamp = 0;
     gamepad.searchStamp = now();
   }
 
@@ -1190,6 +1281,10 @@
     }
     gamepad.present = true;
     gamepad.stale = false;
+    gamepad.trackStamp = now();
+    gamepad.axisSeen = false;
+    gamepad.heldSignature = '';
+    gamepad.buttonChanges = 0;
     gamepad.signature = window.TrolleyGamepad.valueSignature(device);
     gamepad.stamp = device.timestamp;
     gamepad.stampIsLive = false;
@@ -1260,6 +1355,8 @@
     gamepad.blocked = api.updateBlocked(device, gamepad.blocked);
     gamepad.held = api.pressedButtons(device);
     gamepad.axes = device.axes;
+
+    updateStickKind(device);
 
     if (debugEnabled) {
       // 生の値を見るために毎フレーム描き替える
@@ -1332,18 +1429,112 @@
     }
   }
 
+  /**
+   * スティックがボタンとして見えていないかを見張る。
+   *
+   * Joy-Con を Switch 以外につなぐと簡易HIDモードで動き、
+   * スティックは8方向のハットスイッチとして報告される。
+   * ブラウザからはボタンにしか見えず、axes は 0 のまま動かない。
+   *
+   * この状態は「ボタンには反応するのに、倒しても何も起きない」
+   * という形で出る。原因が分からないと現場で詰むので、
+   * 軸が一度も動かないままボタンだけが動いていたら、
+   * スティック設定へ誘導する（renderPadBar）。
+   */
+  function updateStickKind(device) {
+    var axes = device.axes;
+    var signature = gamepad.held.join(',');
+    var index;
+    var value;
+
+    if (!gamepad.axisSeen && axes) {
+      for (index = 0; index < axes.length; index += 1) {
+        value = axes[index];
+
+        if (
+          typeof value === 'number' &&
+          isFinite(value) &&
+          Math.abs(value) > GAMEPAD_DEADZONE
+        ) {
+          gamepad.axisSeen = true;
+          break;
+        }
+      }
+    }
+
+    if (signature !== gamepad.heldSignature) {
+      gamepad.heldSignature = signature;
+      gamepad.buttonChanges += 1;
+    }
+  }
+
+  /** スティックがボタンとして見えている疑いが強いか。 */
+  function stickLooksDigital() {
+    if (window.TrolleyGamepad.isButtonMapping(mapping)) {
+      // すでにボタンで読む設定になっている
+      return false;
+    }
+
+    if (gamepad.axisSeen || gamepad.trackStamp === 0) {
+      return false;
+    }
+
+    if (gamepad.buttonChanges < GAMEPAD_DIGITAL_CHANGES) {
+      return false;
+    }
+
+    return (now() - gamepad.trackStamp) > GAMEPAD_DIGITAL_MS;
+  }
+
+  /**
+   * ボタンで走るときの速さ（0.0〜1.0）。
+   *
+   * 倒し量が無いぶんを、押している時間で埋める。
+   * 向きが変わったら測り直す（前進から旋回に移った瞬間に
+   * 全速で首を振らないように）。
+   */
+  function buttonSpeed(direction) {
+    noteDirection(direction);
+
+    if (!direction) {
+      return 0.0;
+    }
+
+    return window.TrolleyGamepad.rampScale(
+      now() - gamepad.directionStamp,
+      GAMEPAD_BUTTON_FLOOR,
+      GAMEPAD_BUTTON_RAMP_MS
+    );
+  }
+
+  /** 向きが変わったら、加速の起点を打ち直す。 */
+  function noteDirection(direction) {
+    var key = direction || null;
+
+    if (key === gamepad.direction) {
+      return;
+    }
+
+    gamepad.direction = key;
+    gamepad.directionStamp = now();
+  }
+
   function applyGamepadInput(device) {
-    var result = window.TrolleyGamepad.readInput(device, mapping, {
+    var api = window.TrolleyGamepad;
+
+    var result = api.readInput(device, mapping, {
       deadzone: GAMEPAD_DEADZONE,
-      blockedButtons: gamepad.blocked
+      blockedButtons: gamepad.blocked,
+      previousAxis: gamepad.driveAxis
     });
 
     var held = result.deadman && !gamepad.stale;
+    var scale;
 
     // 倒しているのに動かない = 割り当てが違う可能性。
     // 右のJoy-Conはスティックが axes[2]/[3] に出るなど、
     // 端末と持ち方で軸が変わるため。
-    var mismatch = !result.tilted && window.TrolleyGamepad.unusedActiveAxis(
+    var mismatch = !result.tilted && api.unusedActiveAxis(
       device,
       mapping,
       GAMEPAD_DEADZONE
@@ -1389,6 +1580,17 @@
 
       requestWakeLock();
       renderPadBar();
+    }
+
+    gamepad.driveAxis = result.axis;
+
+    if (api.isButtonMapping(mapping)) {
+      // ボタンには倒し量が無いので、押している時間で伸ばす
+      scale = buttonSpeed(result.direction);
+
+      setCommand(result.lx * scale, result.az * scale, result.axis);
+
+      return;
     }
 
     setCommand(result.lx, result.az, result.axis);
@@ -1538,37 +1740,59 @@
   // スティック設定（軸の学習）
   // ============================================================
 
-  var LEARN_STEPS = [
-    {
-      title: 'スティック設定 (1/3)',
-      body: 'スティックから手を離してください。'
-    },
-    {
-      title: 'スティック設定 (2/3)',
-      body: '前に進みたい向きへ、スティックを倒したままにしてください。'
-    },
-    {
-      title: 'スティック設定 (3/3)',
-      body: '右に曲がりたい向きへ、スティックを倒したままにしてください。'
-    }
+  // 軸で読める端末の手順。前と右を覚えれば、後ろと左は符号の反転。
+  var LEARN_STEPS_AXIS = [
+    'スティックから手を離してください。',
+    '前に進みたい向きへ、スティックを倒したままにしてください。',
+    '右に曲がりたい向きへ、スティックを倒したままにしてください。'
   ];
+
+  // スティックがボタンとして見える端末の手順。
+  //
+  // ボタンには符号が無いので、4方向ぶん番号を覚える必要がある。
+  // どちらの手順になるかは、1回目の傾けで決まる。
+  var LEARN_STEPS_BUTTON = [
+    'スティックから手を離してください。',
+    '前に進みたい向きへ、スティックを倒したままにしてください。',
+    '後ろに下がりたい向きへ、スティックを倒したままにしてください。',
+    '右に曲がりたい向きへ、スティックを倒したままにしてください。',
+    '左に曲がりたい向きへ、スティックを倒したままにしてください。'
+  ];
+
+  // ボタンで覚えるときの、手順の並び（1歩目は中立なので空き）
+  var LEARN_BUTTON_KEYS = [null, 'forward', 'back', 'right', 'left'];
+
+  /** いま使っている手順。ボタンで読むと分かった時点で5歩に増える。 */
+  function learnSteps() {
+    return (learn.mode === 'button')
+      ? LEARN_STEPS_BUTTON
+      : LEARN_STEPS_AXIS;
+  }
 
   function startLearn() {
     // 設定中に走り出さないよう、必ず先に止める
     stopAll();
 
     learn.active = true;
+
+    resetLearn();
+    renderSheet();
+  }
+
+  /** 途中経過を捨てて1歩目に戻す。 */
+  function resetLearn() {
+    learn.mode = null;
     learn.step = 0;
     learn.rest = null;
+    learn.restButtons = [];
     learn.linear = null;
     learn.angular = null;
+    learn.buttons = {};
     learn.candidate = null;
     learn.holdStamp = 0;
     learn.prev = null;
     learn.stamp = now();
     learn.hint = '';
-
-    renderSheet();
   }
 
   function closeLearn() {
@@ -1612,96 +1836,133 @@
   /**
    * 学習の1フレーム分。
    *
-   * 同じ軸を同じ向きに倒し続けている間だけ数え、
+   * 同じものを同じ向きに倒し続けている間だけ数え、
    * 一定時間そろったら確定する。画面を触らずに進められるよう、
    * ボタンではなく「倒し続けたか」で判断している。
    */
   function handleLearn(device) {
-    var api = window.TrolleyGamepad;
     var moment = now();
-    var axes = device.axes;
-    var candidate;
+    var axes = device.axes || [];
+    var hasButtons = !!(device.buttons && device.buttons.length);
 
-    if (!axes || !axes.length) {
-      setLearnHint('このコントローラからはスティックが読めません。');
+    // 軸が1本も無くても、ボタンで読めるなら設定できる。
+    // 簡易HIDモードのJoy-Conがこれに当たる。
+    if (!axes.length && !hasButtons) {
+      setLearnHint('このコントローラからは何も読めません。');
       return;
     }
 
     if (learn.step === 0) {
-      // 中立の値を採る。ここを間違えると、あとの全部が狂う。
-      //
-      // 倒したまま採ってしまうと、そこからの差分で向きを決めるため
-      // 「指示どおり倒しても差が出ず、逆に倒したときだけ差が出る」
-      // 状態になり、前後が反転した設定が保存される。
-      // 「前に倒したら後退する」は現場でいちばん危ない挙動なので、
-      // 中立に戻っていることと、値が落ち着いていることの
-      // 両方を確かめてから採る。
-      if (!isAxesCentered(axes)) {
-        learn.holdStamp = 0;
-        learn.prev = copyAxes(axes);
+      handleLearnRest(device, axes, moment);
+      return;
+    }
 
-        setLearnHint('まだ倒れています。中立に戻してください');
+    handleLearnTilt(device, axes, moment);
+  }
 
-        return;
-      }
-
-      if (!isAxesSettled(axes, learn.prev)) {
-        learn.holdStamp = 0;
-        learn.prev = copyAxes(axes);
-
-        // 揺れ続けて進まないときも、黙って止まらない
-        if ((moment - learn.stamp) > GAMEPAD_LEARN_NUDGE_MS) {
-          setLearnHint('スティックが揺れています。手を離してください');
-        }
-
-        return;
-      }
-
+  /**
+   * 1歩目。中立の値を採る。ここを間違えると、あとの全部が狂う。
+   *
+   * 倒したまま採ってしまうと、そこからの差分で向きを決めるため
+   * 「指示どおり倒しても差が出ず、逆に倒したときだけ差が出る」
+   * 状態になり、前後が反転した設定が保存される。
+   * 「前に倒したら後退する」は現場でいちばん危ない挙動なので、
+   * 中立に戻っていることと、値が落ち着いていることの
+   * 両方を確かめてから採る。
+   */
+  function handleLearnRest(device, axes, moment) {
+    if (!isAxesCentered(axes)) {
+      learn.holdStamp = 0;
       learn.prev = copyAxes(axes);
 
-      if (learn.holdStamp === 0) {
-        learn.holdStamp = moment;
-        setLearnHint('');
-
-        return;
-      }
-
-      if ((moment - learn.holdStamp) < GAMEPAD_LEARN_HOLD_MS) {
-        return;
-      }
-
-      learn.rest = copyAxes(axes);
-      advanceLearn();
+      setLearnHint('まだ倒れています。中立に戻してください');
 
       return;
     }
 
-    candidate = api.learnAxis(
-      learn.rest,
-      axes,
-      GAMEPAD_LEARN_THRESHOLD,
-      learn.step === 1 ? 1 : -1
-    );
+    if (!isAxesSettled(axes, learn.prev)) {
+      learn.holdStamp = 0;
+      learn.prev = copyAxes(axes);
 
-    if (candidate === null) {
+      // 揺れ続けて進まないときも、黙って止まらない
+      if ((moment - learn.stamp) > GAMEPAD_LEARN_NUDGE_MS) {
+        setLearnHint('スティックが揺れています。手を離してください');
+      }
+
+      return;
+    }
+
+    learn.prev = copyAxes(axes);
+
+    if (learn.holdStamp === 0) {
+      learn.holdStamp = moment;
+      setLearnHint('');
+
+      return;
+    }
+
+    if ((moment - learn.holdStamp) < GAMEPAD_LEARN_HOLD_MS) {
+      return;
+    }
+
+    learn.rest = copyAxes(axes);
+
+    // 中立で押しているボタンを控えておく。
+    // デッドマンを握ったままでも設定できるよう、
+    // 「倒したときに増えたボタン」だけを方向として見るため。
+    learn.restButtons = window.TrolleyGamepad.pressedButtons(device);
+
+    advanceLearn();
+  }
+
+  /**
+   * 2歩目以降。指示した向きへ倒したままか、を確かめる。
+   *
+   * 軸で読める端末なら軸を、スティックがボタンとして見える端末なら
+   * ボタン番号を覚える。どちらの手順になるかは1回目の傾けで決まり、
+   * 決まったあとは混ざらない。
+   */
+  function handleLearnTilt(device, axes, moment) {
+    var api = window.TrolleyGamepad;
+    var candidate = null;
+    var button = null;
+    var key;
+
+    if (learn.mode !== 'button') {
+      candidate = api.learnAxis(
+        learn.rest,
+        axes,
+        GAMEPAD_LEARN_THRESHOLD,
+        (learn.step === 1) ? 1 : -1
+      );
+    }
+
+    // 軸が動かないときだけボタンを見る。
+    // 軸で読める端末で、設定中にデッドマンを押し直しただけで
+    // ボタン割り当てになってしまわないようにするため。
+    if (candidate === null && learn.mode !== 'axis') {
+      button = api.learnButton(learn.restButtons, device);
+    }
+
+    key = candidateKey(candidate, button);
+
+    if (key === null) {
       learn.candidate = null;
       learn.holdStamp = 0;
 
       // 黙って止まると「壊れた」と思われる。
       // 倒し足りない場合がほとんどなので、そう言う。
       if ((moment - learn.stamp) > GAMEPAD_LEARN_NUDGE_MS) {
-        setLearnHint('もっと大きく、いっぱいまで倒してください');
+        setLearnHint((learn.mode === 'button')
+          ? 'その向きへ倒したままにしてください'
+          : 'もっと大きく、いっぱいまで倒してください');
       }
 
       return;
     }
 
-    if (
-      learn.candidate === null ||
-      learn.candidate.index !== candidate.index ||
-      learn.candidate.sign !== candidate.sign
-    ) {
-      learn.candidate = candidate;
+    if (learn.candidate !== key) {
+      learn.candidate = key;
       learn.holdStamp = moment;
 
       return;
@@ -1710,6 +1971,31 @@
     if ((moment - learn.holdStamp) < GAMEPAD_LEARN_HOLD_MS) {
       return;
     }
+
+    if (candidate !== null) {
+      commitLearnAxis(candidate);
+      return;
+    }
+
+    commitLearnButton(button);
+  }
+
+  /** 同じものを倒し続けているかを見るための文字列。 */
+  function candidateKey(candidate, button) {
+    if (candidate !== null) {
+      return 'a' + candidate.index + (candidate.sign > 0 ? '+' : '-');
+    }
+
+    if (button !== null) {
+      return 'b' + button;
+    }
+
+    return null;
+  }
+
+  /** 軸として覚える（3歩の手順）。 */
+  function commitLearnAxis(candidate) {
+    learn.mode = 'axis';
 
     if (learn.step === 1) {
       learn.linear = candidate;
@@ -1729,21 +2015,68 @@
     finishLearn();
   }
 
+  /**
+   * ボタンとして覚える（前後左右の4方向）。
+   *
+   * 軸のように符号を反転できないので、4方向ぶん番号が要る。
+   * 同じ番号を2回覚えると、倒しても動かない向きができるので弾く。
+   */
+  function commitLearnButton(button) {
+    var key = LEARN_BUTTON_KEYS[learn.step];
+    var name;
+
+    if (!key) {
+      return;
+    }
+
+    for (name in learn.buttons) {
+      if (
+        Object.prototype.hasOwnProperty.call(learn.buttons, name) &&
+        learn.buttons[name] === button
+      ) {
+        setLearnHint('さっきと同じ向きです。別の向きに倒してください。');
+
+        return;
+      }
+    }
+
+    if (learn.mode !== 'button') {
+      learn.mode = 'button';
+
+      // 手順が3歩から5歩に増えるので、黙って変えない
+      showNotice(
+        'スティックがボタンとして見えています。前後左右を覚えます'
+      );
+    }
+
+    learn.buttons[key] = button;
+
+    if (learn.step >= (learnSteps().length - 1)) {
+      finishLearn();
+      return;
+    }
+
+    advanceLearn();
+  }
+
   function finishLearn() {
-    var value = {
-      linearAxis: learn.linear.index,
-      linearSign: learn.linear.sign,
-      angularAxis: learn.angular.index,
-      angularSign: learn.angular.sign
-    };
+    var value = (learn.mode === 'button')
+      ? {
+        kind: 'button',
+        forwardButton: learn.buttons.forward,
+        backButton: learn.buttons.back,
+        rightButton: learn.buttons.right,
+        leftButton: learn.buttons.left
+      }
+      : {
+        linearAxis: learn.linear.index,
+        linearSign: learn.linear.sign,
+        angularAxis: learn.angular.index,
+        angularSign: learn.angular.sign
+      };
 
     if (!window.TrolleyGamepad.isValidMapping(value)) {
-      learn.step = 0;
-      learn.rest = null;
-      learn.linear = null;
-      learn.angular = null;
-      learn.candidate = null;
-      learn.holdStamp = 0;
+      resetLearn();
 
       setLearnHint('うまく読めませんでした。もう一度お願いします。');
 

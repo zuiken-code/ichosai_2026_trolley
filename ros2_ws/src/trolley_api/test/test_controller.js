@@ -1330,3 +1330,376 @@ test('使っていない軸が動いていたら、設定をやり直すよう�
     assert.equal(command.az, 0);
   });
 });
+
+// ============================================================
+// スティックがボタンとして見える端末
+// ------------------------------------------------------------
+// Joy-Con を Switch 以外につなぐと簡易HIDモードで動き、
+// スティックは8方向のハットスイッチとして報告される。
+// ブラウザからはボタンにしか見えず、axes は 0 のまま動かない。
+// ============================================================
+
+// app.js の定数と合わせる
+const BUTTON_FLOOR = 0.35;
+const BUTTON_RAMP_MS = 800;
+const DIGITAL_MS = 3000;
+
+// 軸が死んでいる端末。値は動かない。
+const DEAD_AXES = [0.0, 0.0, 0.0, 0.0];
+
+// ハットスイッチが割り当てられたボタン番号（Chrome for Android の例）
+const UP = 12;
+const DOWN = 13;
+const LEFT = 14;
+const RIGHT = 15;
+
+// デッドマンに使うボタン（SR など）
+const DEADMAN = 5;
+
+/** 番号の配列から、16個ぶんのボタン配列を作る。 */
+function pressed(numbers) {
+  const values = new Array(16).fill(0);
+
+  numbers.forEach(function (number) { values[number] = 1; });
+
+  return values;
+}
+
+/** 軸が死んでいるコントローラを1台見せる。 */
+function showDigital(h, numbers, stamp) {
+  h.setGamepads([
+    gamepadOf(DEAD_AXES, pressed(numbers), { timestamp: stamp })
+  ]);
+}
+
+/**
+ * ボタンとして見えるスティックの設定を1周させる。
+ *
+ * 軸で読めないと分かった時点で手順が5歩に増える
+ * （符号を反転できないので、4方向ぶん番号が要る）。
+ */
+function runButtonLearn(h) {
+  h.element('padSetup').fire('click');
+
+  hold(h, DEAD_AXES, pressed([]), 1);       // (1/3) 中立
+  hold(h, DEAD_AXES, pressed([UP]), 2);     // (2/5) 前
+  hold(h, DEAD_AXES, pressed([DOWN]), 3);   // (3/5) 後
+  hold(h, DEAD_AXES, pressed([RIGHT]), 4);  // (4/5) 右
+  hold(h, DEAD_AXES, pressed([LEFT]), 5);   // (5/5) 左
+
+  // 設定を抜けた時点で押していたボタンは無視されるので、離す
+  showDigital(h, [], 90);
+  h.frame();
+  h.clear();
+}
+
+test('ボタンとして見えるスティックを覚えて走れる', function () {
+  const h = createHarness({ search: '?debug=1' });
+
+  h.attach();
+  runButtonLearn(h);
+
+  assert.ok(
+    h.element('padText').textContent.indexOf('map=学習(btn') >= 0,
+    'ボタン割り当てになっていない: ' + h.element('padText').textContent
+  );
+
+  // デッドマンを握って前へ倒す
+  showDigital(h, [DEADMAN, UP], 91);
+  h.frame();
+  h.tickSend();
+
+  const forward = h.ofType('cmd')[0];
+
+  assert.ok(forward.lx > 0, `前進しない lx=${forward.lx}`);
+  assert.equal(forward.az, 0);
+
+  // 右へ倒すと右旋回（angular.z が負）
+  h.clear();
+  showDigital(h, [DEADMAN, RIGHT], 92);
+  h.frame();
+  h.tickSend();
+
+  const turn = h.ofType('cmd')[0];
+
+  assert.ok(turn.az < 0, `右旋回にならない az=${turn.az}`);
+  assert.equal(turn.lx, 0);
+});
+
+test('方向のボタンだけでは走らない', function () {
+  // ここが崩れると、スティックを倒しただけで走り出す。
+  // 「押している間だけ走る」がいちばん大事な性質なので、
+  // 方向のボタンはデッドマンから外してある。
+  const h = createHarness();
+
+  h.attach();
+  runButtonLearn(h);
+
+  showDigital(h, [UP], 91);
+  h.frame();
+  h.tickSend();
+
+  h.ofType('cmd').forEach(function (command) {
+    assert.equal(command.lx, 0, '倒しただけで走った');
+    assert.equal(command.az, 0, '倒しただけで走った');
+  });
+});
+
+test('ボタンを離せば止まる', function () {
+  const h = createHarness();
+
+  h.attach();
+  runButtonLearn(h);
+
+  showDigital(h, [DEADMAN, UP], 91);
+  h.frame();
+  h.tickSend();
+  h.clear();
+
+  // 倒したままデッドマンだけ離す
+  showDigital(h, [UP], 92);
+  h.frame();
+
+  assert.equal(h.ofType('stop').length, 1, '停止が送られること');
+
+  h.tickSend();
+  assert.equal(h.ofType('cmd')[0].lx, 0);
+});
+
+test('押し始めは遅く、押し続けると全速になる', function () {
+  // ボタンには倒し量が無いので、押した瞬間に全速で走ってしまう。
+  // 荷物を載せた台車が飛び出さないよう、出だしを抑える。
+  const h = createHarness();
+
+  h.attach();
+  runButtonLearn(h);
+
+  showDigital(h, [DEADMAN, UP], 91);
+  h.frame();
+  h.tickSend();
+
+  const first = h.ofType('cmd')[0];
+
+  assert.ok(
+    Math.abs(first.lx - BUTTON_FLOOR) < 1e-6,
+    `出だしが速すぎる lx=${first.lx}`
+  );
+
+  // 押し続ける
+  h.advance(BUTTON_RAMP_MS);
+  h.clear();
+  showDigital(h, [DEADMAN, UP], 92);
+  h.frame();
+  h.tickSend();
+
+  assert.equal(h.ofType('cmd')[0].lx, 1.0, '全速まで伸びない');
+});
+
+test('向きを変えたら出だしの速さからやり直す', function () {
+  // 前進で全速まで伸びたあと、そのまま全速で首を振らせない
+  const h = createHarness();
+
+  h.attach();
+  runButtonLearn(h);
+
+  showDigital(h, [DEADMAN, UP], 91);
+  h.frame();
+  h.advance(BUTTON_RAMP_MS);
+  showDigital(h, [DEADMAN, UP], 92);
+  h.frame();
+  h.tickSend();
+
+  assert.equal(h.ofType('cmd')[0].lx, 1.0);
+
+  h.clear();
+  showDigital(h, [DEADMAN, RIGHT], 93);
+  h.frame();
+  h.tickSend();
+
+  assert.ok(
+    Math.abs(h.ofType('cmd')[0].az + BUTTON_FLOOR) < 1e-6,
+    '旋回が出だしから始まらない az=' + h.ofType('cmd')[0].az
+  );
+});
+
+test('離して押し直せば、また出だしの速さに戻る', function () {
+  const h = createHarness();
+
+  h.attach();
+  runButtonLearn(h);
+
+  showDigital(h, [DEADMAN, UP], 91);
+  h.frame();
+  h.advance(BUTTON_RAMP_MS);
+  showDigital(h, [DEADMAN, UP], 92);
+  h.frame();
+  h.tickSend();
+
+  assert.equal(h.ofType('cmd')[0].lx, 1.0);
+
+  // 離す
+  showDigital(h, [], 93);
+  h.frame();
+
+  h.clear();
+  showDigital(h, [DEADMAN, UP], 94);
+  h.frame();
+  h.tickSend();
+
+  assert.ok(
+    Math.abs(h.ofType('cmd')[0].lx - BUTTON_FLOOR) < 1e-6,
+    '押し直しても全速のまま lx=' + h.ofType('cmd')[0].lx
+  );
+});
+
+test('スティックがボタンとして見えていたら、設定するよう促す', function () {
+  // 「ボタンには反応するのに、倒しても何も起きない」を
+  // そのまま出す。原因が分からないと現場で詰む。
+  const h = createHarness();
+
+  h.attach();
+
+  let stamp = 20;
+  let round;
+
+  for (round = 0; round < 3; round += 1) {
+    showDigital(h, [DEADMAN], stamp);
+    h.frame();
+    h.advance(Math.ceil(DIGITAL_MS / 4));
+
+    showDigital(h, [], stamp + 1);
+    h.frame();
+    h.advance(Math.ceil(DIGITAL_MS / 4));
+
+    stamp += 2;
+  }
+
+  h.tickSlow();
+
+  assert.ok(
+    h.element('padText').textContent.indexOf('ボタンとして見えています') >= 0,
+    '案内が出ない: ' + h.element('padText').textContent
+  );
+});
+
+test('軸が動く端末では、その案内を出さない', function () {
+  const h = createHarness();
+
+  h.attach();
+
+  let stamp = 20;
+  let round;
+
+  for (round = 0; round < 3; round += 1) {
+    // 軸がちゃんと動いている
+    h.setGamepads([
+      gamepadOf([0.0, -0.9], pressed([DEADMAN]), { timestamp: stamp })
+    ]);
+    h.frame();
+    h.advance(Math.ceil(DIGITAL_MS / 4));
+
+    h.setGamepads([
+      gamepadOf([0.0, 0.0], pressed([]), { timestamp: stamp + 1 })
+    ]);
+    h.frame();
+    h.advance(Math.ceil(DIGITAL_MS / 4));
+
+    stamp += 2;
+  }
+
+  h.tickSlow();
+
+  assert.equal(
+    h.element('padText').textContent.indexOf('ボタンとして見えています'),
+    -1,
+    '軸が動いているのに案内が出た: ' + h.element('padText').textContent
+  );
+});
+
+test('ボタン割り当ての設定が終わった瞬間に走り出さない', function () {
+  // 最後の手順が「左に倒したまま」なので、終わった瞬間は倒れている
+  const h = createHarness();
+
+  h.attach();
+
+  h.element('padSetup').fire('click');
+
+  hold(h, DEAD_AXES, pressed([DEADMAN]), 1);
+  hold(h, DEAD_AXES, pressed([DEADMAN, UP]), 2);
+  hold(h, DEAD_AXES, pressed([DEADMAN, DOWN]), 3);
+  hold(h, DEAD_AXES, pressed([DEADMAN, RIGHT]), 4);
+  hold(h, DEAD_AXES, pressed([DEADMAN, LEFT]), 5);
+
+  h.clear();
+
+  // 倒したまま・握ったままフレームを進める
+  showDigital(h, [DEADMAN, LEFT], 91);
+  h.frame();
+  h.frame();
+  h.tickSend();
+
+  h.ofType('cmd').forEach(function (command) {
+    assert.equal(command.lx, 0, '設定直後に走り出した');
+    assert.equal(command.az, 0, '設定直後に走り出した');
+  });
+
+  // 離して握り直せば走れる
+  showDigital(h, [], 92);
+  h.frame();
+
+  h.clear();
+  showDigital(h, [DEADMAN, LEFT], 93);
+  h.frame();
+  h.tickSend();
+
+  assert.ok(
+    h.ofType('cmd')[0].az > 0,
+    '押し直しても左旋回にならない az=' + h.ofType('cmd')[0].az
+  );
+});
+
+test('?debug に、固まり判定がどちらで効くかを出す', function () {
+  // live=0 の端末では、倒し続けると8秒で一度止まる。
+  // 現場でそれが起きるかを、走らせる前に見分けられるようにする。
+  const h = createHarness({ search: '?debug=1' });
+
+  h.attach();
+
+  showDigital(h, [DEADMAN], 30);
+  h.frame();
+
+  assert.ok(
+    /live=[01] quiet=[0-9.]+s/.test(h.element('padText').textContent),
+    '固まり判定の表示が無い: ' + h.element('padText').textContent
+  );
+
+  // 値は同じまま timestamp だけ進む端末なら live=1 になる
+  h.advance(100);
+  showDigital(h, [DEADMAN], 31);
+  h.frame();
+
+  assert.ok(
+    h.element('padText').textContent.indexOf('live=1') >= 0,
+    'timestamp が進んでも live=1 にならない: ' +
+      h.element('padText').textContent
+  );
+});
+
+test('軸で読める端末では、これまでどおり3歩で終わる', function () {
+  // ボタンの手順を足したことで、軸の手順が壊れていないこと。
+  // 設定中にデッドマンを押し直しても、ボタン割り当てにしない。
+  const h = createHarness({ search: '?debug=1' });
+
+  h.attach();
+
+  h.element('padSetup').fire('click');
+
+  hold(h, [0.0, 0.0], [0], 1);
+  hold(h, [0.9, 0.0], [1], 2);
+  hold(h, [0.0, 0.9], [0], 3);
+
+  const label = h.element('padText').textContent;
+
+  assert.ok(label.indexOf('map=学習(lin:0+') >= 0, '軸で覚えていない: ' + label);
+  assert.equal(label.indexOf('btn'), -1, 'ボタン割り当てになった: ' + label);
+});

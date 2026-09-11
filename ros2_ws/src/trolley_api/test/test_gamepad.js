@@ -530,3 +530,212 @@ test('正しい割り当ては受け入れる', function () {
     true
   );
 });
+
+// ============================================================
+// ボタンとして見えるスティック
+// ============================================================
+
+// 簡易HIDモードのJoy-Con を想定した割り当て。
+// スティックはハットスイッチとして報告され、ブラウザからは
+// ボタンにしか見えない（axes は 0 のまま動かない）。
+const BUTTON_MAPPING = {
+  kind: 'button',
+  forwardButton: 12,
+  backButton: 13,
+  rightButton: 15,
+  leftButton: 14
+};
+
+/** 番号の配列から、16個ぶんのボタン配列を作る。 */
+function held(numbers) {
+  const values = new Array(16).fill(0);
+
+  numbers.forEach(function (number) { values[number] = 1; });
+
+  return values;
+}
+
+/** 軸が死んでいる（すべて0の）コントローラ。 */
+function digitalPad(numbers) {
+  return makePad([0.0, 0.0, 0.0, 0.0], held(numbers));
+}
+
+test('ボタン割り当てを見分ける', function () {
+  assert.equal(gamepad.isButtonMapping(BUTTON_MAPPING), true);
+  assert.equal(gamepad.isButtonMapping(gamepad.DEFAULT_MAPPING), false);
+  assert.equal(gamepad.isButtonMapping(null), false);
+});
+
+test('前後左右のボタンで走る', function () {
+  // デッドマン（5）を押しながら、方向のボタンを押す
+  const forward = gamepad.readInput(digitalPad([5, 12]), BUTTON_MAPPING, null);
+
+  assert.equal(forward.axis, 'linear');
+  assert.equal(forward.lx, 1.0);
+  assert.equal(forward.az, 0.0);
+
+  const back = gamepad.readInput(digitalPad([5, 13]), BUTTON_MAPPING, null);
+
+  assert.equal(back.lx, -1.0);
+
+  // 右旋回は angular.z が負
+  const right = gamepad.readInput(digitalPad([5, 15]), BUTTON_MAPPING, null);
+
+  assert.equal(right.axis, 'angular');
+  assert.equal(right.az, -1.0);
+
+  const left = gamepad.readInput(digitalPad([5, 14]), BUTTON_MAPPING, null);
+
+  assert.equal(left.az, 1.0);
+});
+
+test('方向のボタンはデッドマンにならない', function () {
+  // ここが崩れると、スティックを倒しただけで走り出す。
+  // ボタン割り当てでいちばん危ないところ。
+  const result = gamepad.readInput(digitalPad([12]), BUTTON_MAPPING, null);
+
+  assert.equal(result.deadman, false);
+  assert.equal(result.lx, 0.0);
+  assert.equal(result.az, 0.0);
+});
+
+test('デッドマンを押していても、倒していなければ走らない', function () {
+  const result = gamepad.readInput(digitalPad([5]), BUTTON_MAPPING, null);
+
+  assert.equal(result.deadman, true);
+  assert.equal(result.lx, 0.0);
+  assert.equal(result.axis, null);
+});
+
+test('前と後ろを同時に押したら打ち消す', function () {
+  const result = gamepad.readInput(digitalPad([5, 12, 13]), BUTTON_MAPPING, null);
+
+  assert.equal(result.lx, 0.0);
+  assert.equal(result.az, 0.0);
+});
+
+test('斜めに倒したら前後を優先し、そのまま続ける', function () {
+  const pad = digitalPad([5, 12, 15]);
+
+  // 倒し量が無いので「大きいほう」で決められない。
+  // 何も使っていなければ前後（タッチ・軸と同じ）
+  assert.equal(gamepad.readInput(pad, BUTTON_MAPPING, null).axis, 'linear');
+
+  // すでに旋回で走っているなら、斜めになっても旋回のまま。
+  // ここが入れ替わると、斜めのあいだ台車が首を振る。
+  const keep = gamepad.readInput(pad, BUTTON_MAPPING, {
+    previousAxis: 'angular'
+  });
+
+  assert.equal(keep.axis, 'angular');
+  assert.equal(keep.az, -1.0);
+});
+
+test('向きの文字列は向きが変われば変わる', function () {
+  const forward = gamepad.readInput(digitalPad([5, 12]), BUTTON_MAPPING, null);
+  const back = gamepad.readInput(digitalPad([5, 13]), BUTTON_MAPPING, null);
+
+  assert.equal(forward.direction, 'linear+');
+  assert.equal(back.direction, 'linear-');
+  assert.notEqual(forward.direction, back.direction);
+
+  // 軸で読んだときは使わない
+  assert.equal(gamepad.readInput(tilted(0.0, -1.0), null, null).direction, null);
+});
+
+test('検出時に押されていた方向のボタンは効かない', function () {
+  // 押しっぱなしで見つかったボタンは、一度離すまで無視する。
+  // 方向のボタンでも同じ（倒したまま繋いだ場合）。
+  const result = gamepad.readInput(digitalPad([5, 12]), BUTTON_MAPPING, {
+    blockedButtons: [12]
+  });
+
+  assert.equal(result.lx, 0.0);
+  assert.equal(result.axis, null);
+});
+
+// ============================================================
+// 押している時間から速さを決める
+// ============================================================
+
+test('押した瞬間は出だしの速さ', function () {
+  assert.equal(gamepad.rampScale(0, 0.35, 800), 0.35);
+});
+
+test('押している時間で全速まで伸びる', function () {
+  assert.ok(Math.abs(gamepad.rampScale(400, 0.35, 800) - 0.675) < 1e-9);
+  assert.equal(gamepad.rampScale(800, 0.35, 800), 1.0);
+  assert.equal(gamepad.rampScale(5000, 0.35, 800), 1.0);
+});
+
+test('壊れた時間でも出だしの速さに収まる', function () {
+  assert.equal(gamepad.rampScale(NaN, 0.35, 800), 0.35);
+  assert.equal(gamepad.rampScale(-100, 0.35, 800), 0.35);
+  assert.equal(gamepad.rampScale(100, 0.35, 0), gamepad.rampScale(100, 0.35, undefined));
+});
+
+// ============================================================
+// ボタンの学習
+// ============================================================
+
+test('倒したときに増えたボタンを覚える', function () {
+  // 中立でデッドマン（5）を握ったまま、前へ倒した
+  assert.equal(gamepad.learnButton([5], digitalPad([5, 12])), 12);
+});
+
+test('2つ以上増えたら決めない（斜め）', function () {
+  assert.equal(gamepad.learnButton([5], digitalPad([5, 12, 15])), null);
+});
+
+test('何も増えなければ決めない', function () {
+  assert.equal(gamepad.learnButton([5], digitalPad([5])), null);
+});
+
+// ============================================================
+// ボタン割り当ての検査
+// ============================================================
+
+test('4方向そろったボタン割り当てを受け入れる', function () {
+  assert.equal(gamepad.isValidMapping(BUTTON_MAPPING), true);
+});
+
+test('方向が欠けた・重なったボタン割り当ては使わない', function () {
+  assert.equal(
+    gamepad.isValidMapping({
+      kind: 'button',
+      forwardButton: 12,
+      backButton: 13,
+      rightButton: 15
+    }),
+    false,
+    '左が無い'
+  );
+
+  assert.equal(
+    gamepad.isValidMapping({
+      kind: 'button',
+      forwardButton: 12,
+      backButton: 12,
+      rightButton: 15,
+      leftButton: 14
+    }),
+    false,
+    '前と後ろが同じ番号'
+  );
+});
+
+test('ボタン割り当てでは軸のずれを報告しない', function () {
+  // 軸は最初から使っていないので、動いていても関係ない
+  const pad = makePad([0.0, 0.0, 0.0, -0.9], held([5]));
+
+  assert.equal(gamepad.unusedActiveAxis(pad, BUTTON_MAPPING, 0.18), null);
+});
+
+test('方向に使っているボタン番号を並べる', function () {
+  assert.deepEqual(
+    gamepad.directionButtons(BUTTON_MAPPING),
+    [12, 13, 15, 14]
+  );
+
+  assert.deepEqual(gamepad.directionButtons(gamepad.DEFAULT_MAPPING), []);
+});
