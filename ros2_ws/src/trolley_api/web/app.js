@@ -908,6 +908,20 @@
       ' pads=' + gamepad.count +
       ' map=' + mappingLabel();
 
+    if (gamepad.present) {
+      // 「入力が固まった」の判定がどちらで効くかを見えるようにする。
+      //
+      //   live=1 … timestamp が生存の合図に使える端末。2秒で切る。
+      //            倒し続けても timestamp が進むので誤って止まらない。
+      //   live=0 … 値の変化でしか判定できない端末（iOS Safari）。
+      //            同じ向きに倒し続けると quiet が伸び、8秒で一度止まる。
+      //            ボタンで読むときは値が揺れないので、ここに掛かりやすい。
+      //
+      // quiet は最後に入力が変わってからの秒数。
+      head += ' live=' + (gamepad.stampIsLive ? 1 : 0) +
+        ' quiet=' + ((now() - gamepad.changeStamp) / 1000).toFixed(1) + 's';
+    }
+
     if (!gamepad.axes) {
       return head;
     }

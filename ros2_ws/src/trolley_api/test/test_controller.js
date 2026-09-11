@@ -1658,6 +1658,33 @@ test('ボタン割り当ての設定が終わった瞬間に走り出さない',
   );
 });
 
+test('?debug に、固まり判定がどちらで効くかを出す', function () {
+  // live=0 の端末では、倒し続けると8秒で一度止まる。
+  // 現場でそれが起きるかを、走らせる前に見分けられるようにする。
+  const h = createHarness({ search: '?debug=1' });
+
+  h.attach();
+
+  showDigital(h, [DEADMAN], 30);
+  h.frame();
+
+  assert.ok(
+    /live=[01] quiet=[0-9.]+s/.test(h.element('padText').textContent),
+    '固まり判定の表示が無い: ' + h.element('padText').textContent
+  );
+
+  // 値は同じまま timestamp だけ進む端末なら live=1 になる
+  h.advance(100);
+  showDigital(h, [DEADMAN], 31);
+  h.frame();
+
+  assert.ok(
+    h.element('padText').textContent.indexOf('live=1') >= 0,
+    'timestamp が進んでも live=1 にならない: ' +
+      h.element('padText').textContent
+  );
+});
+
 test('軸で読める端末では、これまでどおり3歩で終わる', function () {
   // ボタンの手順を足したことで、軸の手順が壊れていないこと。
   // 設定中にデッドマンを押し直しても、ボタン割り当てにしない。
