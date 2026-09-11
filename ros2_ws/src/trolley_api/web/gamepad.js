@@ -28,6 +28,21 @@
      左右どちらのJoy-Conかでも符号が反転する。端末・OSによっても
      割り当てが変わるため、向きは mapping で差し替えられるように
      してある（画面から学習させられる。app.js の「スティック設定」）。
+
+   スティックがボタンとして見える端末について:
+     Joy-Con を Switch 以外につなぐと「簡易HIDモード」で動く。
+     このモードのスティックは 8方向のハットスイッチとして報告され、
+     ブラウザからはボタンにしか見えない。axes は 0 のまま動かない。
+
+     アナログの値がそもそも送られてこないので、軸の割り当てを
+     いくら変えても直らない。そこで mapping には2種類ある。
+
+         kind 省略 / 'axis'  … 軸で読む（既定）
+         kind: 'button'      … 前後左右のボタン番号で読む
+
+     ボタンで読むときは倒し量が無いので、押している時間で
+     速さを伸ばす（rampScale）。倒し量の代わりになるものが
+     他に無いため。
    ============================================================ */
 
 (function (root) {
@@ -57,6 +72,16 @@
   // ボタンを「押している」と見なすしきい値。
   // アナログトリガー（ZL / ZR）は 0.0〜1.0 の連続値で返ってくる。
   var BUTTON_THRESHOLD = 0.5;
+
+  // スティックがボタンとして見える端末での、出だしの速さ。
+  //
+  // ボタンには倒し量が無いので、押した瞬間から全速で走ってしまう。
+  // 荷物を載せた台車がいきなり最高速で動き出すのは危ないので、
+  // 出だしをここまで抑えて、DEFAULT_RAMP_MS かけて全速まで伸ばす。
+  var DEFAULT_BUTTON_FLOOR = 0.35;
+
+  // 出だしから全速までにかける時間 [ms]
+  var DEFAULT_RAMP_MS = 800;
 
   // ============================================================
   // 小物
@@ -226,6 +251,22 @@
     return false;
   }
 
+  /** 二つの「無視するボタン」の配列をつなぐ。 */
+  function mergeIgnored(first, second) {
+    var result = [];
+    var index;
+
+    for (index = 0; first && index < first.length; index += 1) {
+      result.push(first[index]);
+    }
+
+    for (index = 0; second && index < second.length; index += 1) {
+      result.push(second[index]);
+    }
+
+    return result;
+  }
+
   /**
    * 押しっぱなしで始まったボタンのうち、まだ離されていないものを返す。
    *
@@ -288,6 +329,172 @@
     }
 
     return parts.join(',');
+  }
+
+  // ============================================================
+  // ボタンとして見えるスティック
+  // ============================================================
+
+  /**
+   * 方向をボタン番号で読む割り当てか。
+   *
+   * 簡易HIDモードのJoy-Conは、スティックをハットスイッチとして
+   * 報告する。ブラウザからはボタンにしか見えないので、
+   * 前後左右それぞれのボタン番号を覚えて使う。
+   */
+  function isButtonMapping(mapping) {
+    return !!mapping && mapping.kind === 'button';
+  }
+
+  /**
+   * 方向に使っているボタン番号を並べる。
+   *
+   * この番号はデッドマンに使ってはいけない。
+   * 「どのボタンでもデッドマン」のままだと、スティックを倒しただけで
+   * デッドマンが成立し、握っていないのに走ってしまう。
+   */
+  function directionButtons(mapping) {
+    if (!isButtonMapping(mapping)) {
+      return [];
+    }
+
+    return [
+      mapping.forwardButton,
+      mapping.backButton,
+      mapping.rightButton,
+      mapping.leftButton
+    ];
+  }
+
+  /** そのボタンを押しているか（無視するボタンなら押していない扱い）。 */
+  function pressedFor(buttons, index, blocked) {
+    if (isBlocked(blocked, index)) {
+      return 0;
+    }
+
+    return readButton(buttons, index) >= BUTTON_THRESHOLD ? 1 : 0;
+  }
+
+  /**
+   * いまどちらへ倒しているかを、ボタンから読む。
+   *
+   * 返り値は指令の向き（前進が正・左旋回が正）で -1 / 0 / +1。
+   * 前と後ろを同時に押していたら 0 にする（打ち消し）。
+   * ハットスイッチでは起こらないが、起きたときに走るよりは止める。
+   */
+  function readDirection(pad, mapping, blocked) {
+    var buttons = pad ? pad.buttons : null;
+
+    return {
+      x: pressedFor(buttons, mapping.leftButton, blocked) -
+        pressedFor(buttons, mapping.rightButton, blocked),
+      y: pressedFor(buttons, mapping.forwardButton, blocked) -
+        pressedFor(buttons, mapping.backButton, blocked)
+    };
+  }
+
+  /**
+   * 前後と旋回の排他。斜めに倒したときにどちらを採るか。
+   *
+   * 軸のときは「大きく倒したほう」で決まるが、ボタンには
+   * 大きさが無い。斜めのあいだ前後と旋回がちらちら入れ替わると
+   * 台車が首を振るので、いま使っている軸をそのまま続ける。
+   */
+  function pickAxis(x, y, previous) {
+    if (x === 0 && y === 0) {
+      return null;
+    }
+
+    if (x === 0) {
+      return 'linear';
+    }
+
+    if (y === 0) {
+      return 'angular';
+    }
+
+    if (previous === 'angular') {
+      return 'angular';
+    }
+
+    // 同時に倒し始めたときは前後を優先する（軸・タッチと同じ）
+    return 'linear';
+  }
+
+  /**
+   * 押している時間から速さを決める（0.0〜1.0）。
+   *
+   * 押した瞬間は floor、duration かけて 1.0 まで伸ばす。
+   * 向きを変えたら、呼び出し側が時間を測り直すこと。
+   */
+  function rampScale(elapsed, floor, duration) {
+    var start = (typeof floor === 'number' && isFinite(floor))
+      ? Math.max(0.0, Math.min(1.0, floor))
+      : DEFAULT_BUTTON_FLOOR;
+
+    var span = (typeof duration === 'number' && duration > 0)
+      ? duration
+      : DEFAULT_RAMP_MS;
+
+    var ratio;
+
+    if (typeof elapsed !== 'number' || !isFinite(elapsed) || elapsed <= 0) {
+      return start;
+    }
+
+    ratio = elapsed / span;
+
+    if (ratio >= 1.0) {
+      return 1.0;
+    }
+
+    return start + ((1.0 - start) * ratio);
+  }
+
+  /**
+   * ボタンで読む割り当てのときの readInput。
+   *
+   * 速さは伸ばさずに ±1 で返す。押している時間を測っているのは
+   * 呼び出し側（app.js）なので、rampScale を掛けるのもそちら。
+   */
+  function readButtonInput(pad, settings, opts) {
+    var blocked = opts.blockedButtons || null;
+    var direction = readDirection(pad, settings, blocked);
+    var axis = pickAxis(direction.x, direction.y, opts.previousAxis || null);
+    var deadman;
+    var value;
+
+    // 方向のボタンはデッドマンに使わない。
+    // 使ってしまうと、倒しただけで走り出す。
+    deadman = isDeadmanHeld(
+      pad,
+      opts.deadmanButtons || null,
+      mergeIgnored(blocked, directionButtons(settings))
+    );
+
+    if (!deadman || axis === null) {
+      return {
+        lx: 0.0,
+        az: 0.0,
+        axis: null,
+        deadman: deadman,
+        tilted: axis !== null,
+        direction: null
+      };
+    }
+
+    value = (axis === 'linear') ? direction.y : direction.x;
+
+    return {
+      lx: (axis === 'linear') ? value : 0.0,
+      az: (axis === 'angular') ? value : 0.0,
+      axis: axis,
+      deadman: true,
+      tilted: true,
+
+      // 加速をやり直す判断に使う。向きが変われば文字列も変わる。
+      direction: axis + (value > 0 ? '+' : '-')
+    };
   }
 
   // ============================================================
@@ -356,15 +563,21 @@
    *
    * Args:
    *   pad: Gamepad オブジェクト（null 可）
-   *   mapping: 軸の割り当て。省略時は DEFAULT_MAPPING
-   *   options: { deadzone, deadmanButtons, blockedButtons }
+   *   mapping: 軸の割り当て。省略時は DEFAULT_MAPPING。
+   *     kind:'button' ならボタンで方向を読む。
+   *   options: {
+   *     deadzone, deadmanButtons, blockedButtons,
+   *     previousAxis  ボタンで読むときの、いま使っている軸
+   *   }
    *
    * Returns:
    *   {
    *     lx, az,          送信する速度指令（-1.0〜1.0）
    *     axis,            採用した軸（画面表示用）
    *     deadman,         デッドマンを押しているか
-   *     tilted           スティックが不感帯の外にあるか
+   *     tilted,          スティックが不感帯の外にあるか
+   *     direction        ボタンで読んだ向き（'linear+' など）。
+   *                      軸で読んだときは null
    *   }
    */
   function readInput(pad, mapping, options) {
@@ -380,7 +593,8 @@
       az: 0.0,
       axis: null,
       deadman: false,
-      tilted: false
+      tilted: false,
+      direction: null
     };
 
     var axes;
@@ -391,6 +605,10 @@
 
     if (!pad) {
       return idle;
+    }
+
+    if (isButtonMapping(settings)) {
+      return readButtonInput(pad, settings, opts);
     }
 
     axes = pad.axes;
@@ -418,7 +636,8 @@
       az: deadman ? command.az : 0.0,
       axis: deadman ? command.axis : null,
       deadman: deadman,
-      tilted: command.axis !== null
+      tilted: command.axis !== null,
+      direction: null
     };
   }
 
@@ -491,6 +710,34 @@
   }
 
   /**
+   * 「この向きへ倒してください」に対して、新しく押されたボタンを探す。
+   *
+   * Args:
+   *   rest: 中立のときに押されていたボタン番号の配列。
+   *     デッドマンを握ったままでも設定できるよう、そのぶんは差し引く。
+   *   pad: Gamepad
+   *
+   * Returns:
+   *   ボタン番号。決められなければ null
+   *
+   * ちょうど1つだけ増えたときにしか返さない。
+   * 斜めに倒すと2つ増えるが、それを覚えると前後と旋回が混ざる。
+   */
+  function learnButton(rest, pad) {
+    var pressed = pressedButtons(pad);
+    var added = [];
+    var index;
+
+    for (index = 0; index < pressed.length; index += 1) {
+      if (!isBlocked(rest, pressed[index])) {
+        added.push(pressed[index]);
+      }
+    }
+
+    return (added.length === 1) ? added[0] : null;
+  }
+
+  /**
    * 割り当てに使っていない軸が動いていないかを見る。
    *
    * これは現場でいちばん起きやすい「スティックを倒しても
@@ -514,6 +761,11 @@
     var axes = pad ? pad.axes : null;
     var index;
     var value;
+
+    if (isButtonMapping(settings)) {
+      // ボタンで方向を読む割り当てでは、軸は最初から使っていない
+      return null;
+    }
 
     if (!axes) {
       return null;
@@ -557,6 +809,10 @@
       return false;
     }
 
+    if (mapping.kind === 'button') {
+      return isValidButtonMapping(mapping);
+    }
+
     for (index = 0; index < keys.length; index += 1) {
       value = mapping[keys[index]];
 
@@ -582,6 +838,44 @@
     return mapping.linearAxis !== mapping.angularAxis;
   }
 
+  /**
+   * ボタンで方向を読む割り当てが使えるかを見る。
+   *
+   * 4方向すべてが、別々の番号で揃っていること。
+   * 1つでも欠けたり重なったりしていると、倒しても動かない向きや、
+   * 前進と旋回が同時に出る向きができてしまう。
+   */
+  function isValidButtonMapping(mapping) {
+    var keys = [
+      'forwardButton', 'backButton', 'rightButton', 'leftButton'
+    ];
+
+    var seen = [];
+    var index;
+    var value;
+
+    for (index = 0; index < keys.length; index += 1) {
+      value = mapping[keys[index]];
+
+      if (
+        typeof value !== 'number' ||
+        !isFinite(value) ||
+        value < 0 ||
+        value !== Math.floor(value)
+      ) {
+        return false;
+      }
+
+      if (isBlocked(seen, value)) {
+        return false;
+      }
+
+      seen.push(value);
+    }
+
+    return true;
+  }
+
   // ============================================================
   // 公開
   // ============================================================
@@ -590,6 +884,8 @@
     DEFAULT_MAPPING: DEFAULT_MAPPING,
     DEFAULT_DEADZONE: DEFAULT_DEADZONE,
     BUTTON_THRESHOLD: BUTTON_THRESHOLD,
+    DEFAULT_BUTTON_FLOOR: DEFAULT_BUTTON_FLOOR,
+    DEFAULT_RAMP_MS: DEFAULT_RAMP_MS,
 
     readAxis: readAxis,
     readButton: readButton,
@@ -602,9 +898,16 @@
     toCommand: toCommand,
     readInput: readInput,
 
+    isButtonMapping: isButtonMapping,
+    directionButtons: directionButtons,
+    readDirection: readDirection,
+    pickAxis: pickAxis,
+    rampScale: rampScale,
+
     unusedActiveAxis: unusedActiveAxis,
 
     learnAxis: learnAxis,
+    learnButton: learnButton,
     isValidMapping: isValidMapping
   };
 
