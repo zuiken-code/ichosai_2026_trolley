@@ -57,8 +57,44 @@
       </div>
 
       <p class="hint" id="hint">指を離すと停止します</p>
+
+      <!-- Joy-Con（スマートフォンに直接つないだコントローラ）の状態。
+           繋がっていないときも、何をすればいいかを出しておく。 -->
+      <div class="padbar" id="padBar" hidden>
+        <span class="padbar__text" id="padText"></span>
+        <button
+          id="padSetup"
+          class="padbar__action"
+          type="button"
+          hidden>スティック設定</button>
+      </div>
     </div>
   </main>
+
+  <!-- ============================================================
+       スティック設定（軸の向きの学習）
+       ============================================================ -->
+  <div
+    id="sheet"
+    class="sheet"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="sheetTitle"
+    hidden>
+    <p class="sheet__title" id="sheetTitle"></p>
+    <p class="sheet__body" id="sheetBody"></p>
+    <div class="sheet__actions">
+      <button id="sheetReset" class="sheet__action" type="button">
+        既定に戻す
+      </button>
+      <button id="sheetRetry" class="sheet__action" type="button">
+        やり直す
+      </button>
+      <button id="sheetClose" class="sheet__action" type="button">
+        閉じる
+      </button>
+    </div>
+  </div>
 
   <!-- ============================================================
        下部: 通知 / Joyへの返却
@@ -74,6 +110,12 @@
 
 </div>
 
-<script src="app.js"></script>
+<!-- 軸・ボタンの変換だけを持つ。app.js より先に読む。
+
+     ?v= はキャッシュ避け。ホーム画面に追加したPWAは app.js を
+     強く持ち続けるので、中身を直したらこの数字も上げること。
+     （上げ忘れると「直したのに変わらない」で時間を溶かす） -->
+<script src="gamepad.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

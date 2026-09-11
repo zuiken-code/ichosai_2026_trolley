@@ -92,6 +92,14 @@
   box-sizing: border-box;
 }
 
+/* hidden 属性を必ず効かせる。
+   ブラウザ既定の `[hidden] { display: none }` は作者スタイルに負けるので、
+   .snackbar や .padbar のように display を指定した要素では
+   `element.hidden = true` が効かなくなる。 */
+[hidden] {
+  display: none !important;
+}
+
 html,
 body {
   margin: 0;
@@ -357,6 +365,121 @@ body {
 }
 
 /* ------------------------------------------------------------
+   Joy-Con の状態（スティックの下の1行）
+   ------------------------------------------------------------ */
+
+.padbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: min(92vw, 420px);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.25px;
+  text-align: center;
+}
+
+/* 走行中・ボタン押下中 */
+.padbar.is-active {
+  color: var(--md-sys-color-primary);
+}
+
+/* 反応が無い */
+.padbar.is-warn {
+  color: var(--md-sys-color-error);
+}
+
+.padbar__text {
+  /* URLなど長い文字列でも画面からはみ出させない */
+  overflow-wrap: anywhere;
+}
+
+.padbar__action {
+  position: relative;
+  flex: 0 0 auto;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 16px;
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.padbar__action:active {
+  background: var(--md-sys-color-surface-container);
+}
+
+/* ------------------------------------------------------------
+   スティック設定（軸の向きの学習）
+   ------------------------------------------------------------ */
+
+.sheet {
+  position: fixed;
+  left: 50%;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  width: min(92vw, 420px);
+  padding: 20px;
+  border-radius: 28px;
+  background: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  box-shadow: var(--md-sys-elevation-3);
+  z-index: 2;
+}
+
+.sheet__title {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.sheet__body {
+  margin: 0 0 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+.sheet__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.sheet__action {
+  position: relative;
+  min-height: 40px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sheet__action:active {
+  background: var(--md-sys-color-primary-container);
+}
+
+/* ------------------------------------------------------------
    Snackbar（通知 / Joyへの返却）
    ------------------------------------------------------------ */
 
@@ -425,5 +548,23 @@ body {
   .pad__knob,
   .snackbar__action::after {
     transition: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   画面が低いとき（横持ちなど）は余白を詰める
+   ------------------------------------------------------------ */
+
+@media (max-height: 480px) {
+  :root {
+    --pad-size: min(52vmin, 260px);
+  }
+
+  .pad-wrap {
+    gap: 6px;
+  }
+
+  .sheet {
+    padding: 12px 16px;
   }
 }

@@ -11,6 +11,8 @@ Switchコントローラの接続不良時に備えた、バックアップ用�
                                                                          +--> cmd_vel_mux --> /cmd_vel --> trolley_drive
 [スマートフォン] ブラウザ <--WebSocket--> trolley_api --> /cmd_vel/phone -+       (50Hz)            (50Hz)
                               (20Hz)                     (20Hz)
+   ↑
+   └── Joy-Con を直接つないでもよい（docs/joycon_controller.md）
 ```
 
 - `cmd_vel_mux` が操作権を調停し、`/cmd_vel` へ **50Hzで常時** 出力します。
@@ -127,6 +129,11 @@ http://<ロボットPCのIP>:8000/controller/
 
 画面には状態チップとスティックだけがあります。
 
+Joy-Con をこのスマートフォンに直接つないで操作することもできます。
+手順と注意点は [Joy-Conをスマートフォンにつないで操作する](joycon_controller.md)
+を参照してください。ロボットPC側のBluetoothが長時間で不安定になる問題を
+避けるための経路です。
+
 - **スティック**: 触れている間だけ走行します（Switchの Aボタン相当）。
   指を離す・画面を切り替える・通信が切れる、のいずれでも即停止します。
 - **前後と旋回は排他**です。倒した量が大きい方の軸だけが採用されます
@@ -230,6 +237,7 @@ Web標準のみを使っているため、iOS Safari / Android Firefox / Chrome 
 | Switchを操作していないのにスマホへ移らない | `joy_node` の `autorepeat_rate` が0になっていないか |
 | スマホに操作権が渡ったまま戻せない | 状態チップ下の「Joyに戻す」を押す。または `/teleop/release_to_joy` を呼ぶ |
 | 操作が遅延する | 下の「操作遅延を切り分ける」を参照 |
+| Joy-Con（スマホ直結）が反応しない | [Joy-Conの手順](joycon_controller.md#トラブルシューティング) を参照 |
 
 ### 操作遅延を切り分ける
 
@@ -278,6 +286,9 @@ top -H -p $(pgrep -f drive_node)
 
 - `trolley_api` の `/api/status`・`/api/enable`・`/api/mode` の挙動は
   変わっていません。
+- 操作画面に Joy-Con（Gamepad API）対応を足しました。タッチ操作の挙動と
+  サーバ側のプロトコルは変えていません。詳細は
+  [Joy-Conをスマートフォンにつないで操作する](joycon_controller.md)。
 - `trolley_interfaces` は変更していません。
 - `joy_teleop` は `/joy` 受信ごとのpublishからタイマー駆動に変わりました。
   軸・ボタン・速度はパラメータ化されていますが、既定値は従来と同一です。
