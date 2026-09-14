@@ -24,6 +24,9 @@ ROS 2 を中核として、Switchコントローラ・スマートフォンか�
 トロッコは差動二輪駆動で、左右各1基の RS-775 モーターで走行します。  
 操作者は **Switchコントローラ（Joy-Con）** または **スマートフォンのブラウザ** からトロッコを操縦でき、`cmd_vel_mux` による操作権の自動調停が入ります。
 
+> **文化祭での実際の運用について**:  
+> ROS 2 側（Raspberry Pi）に直接 Joy-Con を Bluetooth 接続するノードや launch も用意していますが、トロッコから距離が離れると Bluetooth 通信が不安定になる問題がありました。そのため実際の文化祭では、**Webコントローラーを開いているスマートフォンに Joy-Con を直接 Bluetooth 接続し、ブラウザ（Gamepad API）を経由して操縦する** という方法を採用しました。
+
 走行許可（enable / disable）やモード切替（teleop / auto）は、**DriverStation**（React + Vite 製の Web アプリ）から行います。
 
 ### 前作からの主な変更点
